@@ -38,7 +38,7 @@ except ImportError:
         )
     )
 
-sys.path.insert(0, os.path.abspath(os.path.dirname(sys.argv[0])) + '/bin/scripts/name_parser/')
+sys.path.insert(0, os.path.join(os.path.abspath(os.path.dirname(sys.argv[0])), 'bin', 'scripts', 'name_parser'))
 try:
     from FontnameParser import FontnameParser
     from FontnameTools import FontnameTools
@@ -321,7 +321,7 @@ def create_filename(fonts):
 def fetch_glyphnames():
     """ Read the glyphname database and put it into a dictionary """
     try:
-        glyphnamefile = os.path.abspath(os.path.dirname(sys.argv[0])) + '/glyphnames.json'
+        glyphnamefile = os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]), 'glyphnames.json'))
         with open(glyphnamefile, 'r') as f:
             namelist = json.load(f)
             return { int(v['code'], 16): k for k, v in namelist.items() if 'code' in v }
