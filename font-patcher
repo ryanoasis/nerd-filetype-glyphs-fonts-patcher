@@ -322,7 +322,7 @@ def fetch_glyphnames():
     """ Read the glyphname database and put it into a dictionary """
     try:
         glyphnamefile = os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]), 'glyphnames.json'))
-        with open(glyphnamefile, 'r') as f:
+        with open(glyphnamefile, 'rb') as f:
             namelist = json.load(f)
             return { int(v['code'], 16): k for k, v in namelist.items() if 'code' in v }
     except Exception as error:
