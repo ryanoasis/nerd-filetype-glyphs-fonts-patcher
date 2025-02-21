@@ -1869,6 +1869,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "joshestein",
+      "name": "Josh Stein",
+      "avatar_url": "https://avatars.githubusercontent.com/u/27491286?v=4",
+      "profile": "http://joshstein.io",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "repoType": "github",
