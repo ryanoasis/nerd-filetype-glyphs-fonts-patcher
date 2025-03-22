@@ -1887,6 +1887,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "badlydrawnface",
+      "name": "David Marrero",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53501005?v=4",
+      "profile": "https://github.com/badlydrawnface",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "repoType": "github",
