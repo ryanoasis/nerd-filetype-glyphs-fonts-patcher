@@ -1878,6 +1878,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "me",
+      "name": "Ivan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9734?v=4",
+      "profile": "https://github.com/me",
+      "contributions": [
+        "code",
+        "design"
+      ]
     }
   ],
   "repoType": "github",
