@@ -6,7 +6,7 @@
 # is 'include-old-material' the old material design icons will be
 # included. This is needed for the cheat sheet.
 
-sets=('cod' 'dev' 'fae' 'fa' 'iec' 'logos' 'oct' 'ple' 'pom' 'seti' 'weather' 'md')
+sets=('cod' 'dev' 'extra' 'fae' 'fa' 'iec' 'logos' 'oct' 'ple' 'pom' 'seti' 'weather' 'md')
 base=$(dirname "${BASH_SOURCE[0]:-$0}")
 
 if [ "$1" = "include-old-material" ]; then

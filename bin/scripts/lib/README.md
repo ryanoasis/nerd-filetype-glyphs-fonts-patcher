@@ -45,5 +45,6 @@ Only glyphs listed here could be found with the cheat sheet.
 * `PowerlineExtraSymbols.otf`: `i_ple.sh`
 * `powerline-symbols/PowerlineSymbols.otf`: _is a subset of PowerlineExtraSymbols_
 * `Pomicons.otf`: `i_pom.sh`
+* `extraglyphs.sfd`: `i_extra.sh` _(only a subset)_
 * `original-source.otf`: `i_seti.sh`
 * `weather-icons/weathericons-regular-webfont.ttf`: `i_weather.sh`
