@@ -587,6 +587,21 @@
       "description": "Nice as Iosevka but with slab serifs"
     },
     {
+      "unpatchedName": "JetBrains Maple Mono",
+      "licenseId": "OFL-1.1-no-RFN",
+      "RFN": false,
+      "version": "1.2304.70-beta36",
+      "patchedName": "JetBrainsMapleMono",
+      "folderName": "JetBrainsMapleMono",
+      "imagePreviewFont": "JetBrainsMapleMono NF",
+      "imagePreviewFontSource": "JetBrainsMapleMono/JetBrainsMapleMono-Regular.ttf",
+      "linkPreviewFont": "jetbrains-maple-mono",
+      "caskName": "jetbrains-maple-mono",
+      "repoRelease": false,
+      "isMonospaced": true,
+      "description": "The free and open-source font fused with JetBrains Mono & Maple Mono"
+    },
+    {
       "unpatchedName": "JetBrains Mono",
       "licenseId": "OFL-1.1-no-RFN",
       "RFN": false,
