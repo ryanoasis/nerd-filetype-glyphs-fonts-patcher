@@ -1905,6 +1905,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Pairadux",
+      "name": "Austin Gause",
+      "avatar_url": "https://avatars.githubusercontent.com/u/43703308?v=4",
+      "profile": "http://www.austingause.com",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "repoType": "github",
