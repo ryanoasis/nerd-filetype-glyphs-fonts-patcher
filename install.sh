@@ -132,44 +132,29 @@ if [ -n "$*" ]; then
   done
 fi
 
-#
-# Start constructing `find` expression
-#
-implode() {
-    # $1 is return variable name
-    # $2 is sep
-    # $3... are the elements to join
-    local retname=$1 sep=$2 ret=$3
-    shift 3 || shift $(($#))
-    while [ $# -gt 0 ]; do
-        ret=$ret$sep$1
-        shift
-    done
-    printf -v "$retname" "%s" "$ret"
-}
 
-# Which Nerd Font variant
-if [ "$variant" = "M" ]; then
-  find_filter="-name '*NerdFontMono*'"
-elif [ "$variant" = "P" ]; then
-  find_filter="-name '*NerdFontPropo*'"
+# Build an array of find filter predicates based on $variant
+filter=()
+if [[ $variant == M ]]; then
+  filter=( -iname "*NerdFontMono*" )
+elif [[ $variant == P ]]; then
+  filter=( -iname "*NerdFontPropo*" )
 else
-  find_filter="-not -name '*NerdFontMono*' -and -not -name '*NerdFontPropo*' -and -name '*NerdFont*'"
+  filter=(
+    -not -iname "*NerdFontMono*" -a \
+    -not -iname "*NerdFontPropo*" -a \
+    -iname "*NerdFont*"
+  )
 fi
 
-# Construct directories to be searched
-implode find_dirs "\" \"" "${nerdfonts_dirs[@]}"
-find_dirs="\"$find_dirs\""
-
-# Put it all together into the find command we want
-find_command="find $find_dirs -iname '*.[ot]tf' $find_filter -type f -print0"
-
 # Find all the font files and store in array
-files=()
-while IFS=  read -r -d $'\0'; do
-  files+=("$REPLY")
-done < <(eval "$find_command")
-
+mapfile -d '' files < <(
+  find "${nerdfonts_dirs[@]}" \
+    -iname '*.[ot]tf' \
+    "${filter[@]}" \
+    -type f -print0
+)
+ 
 #
 # Remove duplicates (i.e. when both otf and ttf version present)
 #
