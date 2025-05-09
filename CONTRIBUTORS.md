@@ -278,6 +278,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/badlydrawnface"><img src="https://avatars.githubusercontent.com/u/53501005?v=4?s=100" width="100px;" alt="David Marrero"/><br /><sub><b>David Marrero</b></sub></a><br /><a href="https://github.com/ryanoasis/nerd-fonts/commits?author=badlydrawnface" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://sliva0.mk"><img src="https://avatars.githubusercontent.com/u/48382801?v=4?s=100" width="100px;" alt="sliva0"/><br /><sub><b>sliva0</b></sub></a><br /><a href="https://github.com/ryanoasis/nerd-fonts/commits?author=sliva0" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://www.austingause.com"><img src="https://avatars.githubusercontent.com/u/43703308?v=4?s=100" width="100px;" alt="Austin Gause"/><br /><sub><b>Austin Gause</b></sub></a><br /><a href="https://github.com/ryanoasis/nerd-fonts/issues?q=author%3APairadux" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://nickbrady.dev"><img src="https://avatars.githubusercontent.com/u/55930078?v=4?s=100" width="100px;" alt="Nick"/><br /><sub><b>Nick</b></sub></a><br /><a href="https://github.com/ryanoasis/nerd-fonts/issues?q=author%3Apeppapig450" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
