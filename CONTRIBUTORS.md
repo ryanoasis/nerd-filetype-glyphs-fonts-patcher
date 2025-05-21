@@ -280,6 +280,9 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
       <td align="center" valign="top" width="14.28%"><a href="http://www.austingause.com"><img src="https://avatars.githubusercontent.com/u/43703308?v=4?s=100" width="100px;" alt="Austin Gause"/><br /><sub><b>Austin Gause</b></sub></a><br /><a href="https://github.com/ryanoasis/nerd-fonts/issues?q=author%3APairadux" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://nickbrady.dev"><img src="https://avatars.githubusercontent.com/u/55930078?v=4?s=100" width="100px;" alt="Nick"/><br /><sub><b>Nick</b></sub></a><br /><a href="https://github.com/ryanoasis/nerd-fonts/issues?q=author%3Apeppapig450" title="Bug reports">🐛</a></td>
     </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/subframe7536"><img src="https://avatars.githubusercontent.com/u/78338239?v=4?s=100" width="100px;" alt="Song"/><br /><sub><b>Song</b></sub></a><br /><a href="https://github.com/ryanoasis/nerd-fonts/issues?q=author%3Asubframe7536" title="Bug reports">🐛</a></td>
+    </tr>
   </tbody>
 </table>
 
