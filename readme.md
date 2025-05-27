@@ -135,7 +135,7 @@ A preview of all fonts can be found [here](https://www.nerdfonts.com/font-downlo
 | [Cousine Nerd Font][p-cousine]                    | [Cousine][f-cousine]                   | 1.211      | NO   |
 | [D2Coding Nerd Font][p-d2coding]                  | [D2Coding][f-d2coding]                 | 1.3.2      | NO   |
 | [DaddyTimeMono Nerd Font][p-daddytimemono]        | [DaddyTimeMono][f-daddytimemono]       | 1.2.3      | NO   |
-| [DepartureMono Nerd Font][p-departuremono]        | [Departure Mono][f-departuremono]      | 1.422      | NO   |
+| [DepartureMono Nerd Font][p-departuremono]        | [Departure Mono][f-departuremono]      | 1.500      | NO   |
 | [DejaVuSansMono Nerd Font][p-dejavu]              | [DejaVu][f-dejavu]                     | 2.37       | NO   |
 | [DroidSansMono Nerd Font][p-droid]                | Droid Sans Mono (Ascender Corp)        | 1.00-113   | NO   |
 | [EnvyCodeR Nerd Font][p-envy]                     | [Envy Code R][f-envy]                  | 0.79       | YES  |

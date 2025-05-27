@@ -125,7 +125,7 @@ See [Wiki: Icon names in shell][wiki-icon-names-in-shell]
 | [Comic Shanns Mono Nerd Font][p-comic]            | [Comic Shanns Mono][f-comic]      | 1.3   | НЕТ   | ![w] ![m2] ![l]   |
 | [Cousine Nerd Font][p-cousine]                    | [Cousine][f-cousine]              | 1.211 | НЕТ   | ![w] ![m2] ![l]   |
 | [DaddyTimeMono][p-daddytimemono]                  | [DaddyTimeMono][f-daddytimemono]  | 1.2.3 | НЕТ   | ![w] ![m2] ![l]   |
-| [DepartureMono Nerd Font][p-departuremono]        | [Departure Mono][f-departuremono] | 1.422 | НЕТ   | ![w] ![m2] ![l]   |
+| [DepartureMono Nerd Font][p-departuremono]        | [Departure Mono][f-departuremono] | 1.500 | НЕТ   | ![w] ![m2] ![l]   |
 | [DejaVu Sans Mono Nerd Font][p-dejavu]            | [DejaVu][f-dejavu]                | 2.37  | НЕТ   | ![w] ![m2] ![l]   |
 | [Droid Sans Mono Nerd Font][p-droid]              | Ascender Corp                     |1.00-113| НЕТ   | ![w] ![m2] ![l]   |
 | [Fantasque Sans Nerd Font][p-fantasque]           | [Fantasque Sans][f-fant]          | 1.8.0 | НЕТ   | ![w] ![m2] ![l]   |
