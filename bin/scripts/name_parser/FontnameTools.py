@@ -135,11 +135,12 @@ class FontnameTools:
     @staticmethod
     def get_name_token(name, tokens):
         """Try to find any case insensitive token from tokens in the name, return tuple with found token-list and rest"""
-        # The default mode (allow_regex_token = False) will try to find any verbatim string in the
+        # First will try to find any verbatim string in the
         # tokens list (case insensitive matching) and give that tokens list item back with
         # unchanged case (i.e. [ 'Bold' ] will match "bold" and return it as [ 'Bold', ]
-        # In the regex mode (allow_regex_token = True) it will use the tokens elements as
+        # Otherwise it will use the tokens elements as
         # regexes and return the original (i.e. from name) case.
+        # (This is both done on parallel.)
         #
         # Token are always used in a regex and may not capture, use non capturing
         # grouping if needed (?: ... )
