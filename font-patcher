@@ -6,7 +6,7 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 # Change the script version when you edit this script:
-script_version = "4.20.3"
+script_version = "4.20.5"
 
 version = "3.4.0"
 projectName = "Nerd Fonts"
@@ -2273,7 +2273,7 @@ def main():
           print("\n")
           logger.info("Processing %s (%d/%d)", subfont, i + 1, len(all_fonts))
         try:
-            sourceFonts.append(fontforge.open("{}({})".format(args.font, subfont), 1)) # 1 = ("fstypepermitted",))
+            sourceFonts.append(fontforge.open("{}({})".format(args.font, i), 1)) # 1 = ("fstypepermitted",))
         except Exception:
             logger.critical("Can not open font '%s', try to open with fontforge interactively to get more information",
                 subfont)
