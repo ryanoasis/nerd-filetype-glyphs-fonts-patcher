@@ -896,11 +896,11 @@
       "folderName": "ServerMono",
       "imagePreviewFont": "ServerMono Nerd Font",
       "imagePreviewFontSource": "ServerMono/ServerMono-Regular.otf",
-      "linkPreviewFont": "server-mono",
+      "linkPreviewFont": "None",
       "caskName": "server-mono",
       "repoRelease": false,
       "isMonospaced": true,
-      "description": "Monospaced font inspired by typewriters, Apple's San Francisco Mono, ASCII art, command-line interfaces, and programming tools."
+      "description": "Monospaced font inspired by typewriters, Apple's San Francisco Mono, ASCII art, command-line interfaces, and programming tools"
     },
     {
       "unpatchedName": "Share Tech Mono",
