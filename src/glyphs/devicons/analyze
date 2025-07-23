@@ -6,8 +6,8 @@
 # or get a different svg file.
 
 # PREREQUISITES:
-# $ curl -OL https://github.com/devicons/devicon/archive/refs/tags/v2.16.0.tar.gz
-# $ tar zxf v2.16.0.tar.gz
+# $ curl -OL https://github.com/devicons/devicon/archive/refs/tags/v2.17.0.tar.gz
+# $ tar zxf v2.17.0.tar.gz
 # $ mv devicon-*/icons .
 # $ cp -r vorillaz icons
 

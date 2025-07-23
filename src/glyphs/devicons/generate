@@ -14,7 +14,7 @@ import fontforge, psMat
 # version-bump.sh is not working here, need to adjust manually!
 version = "3.4.0"
 
-dev_version = 'v2.16.0'
+dev_version = 'v2.17.0'
 archive = '{}.tar.gz'.format(dev_version)
 
 vectorsdir = 'icons'
