@@ -1051,6 +1051,21 @@
       "repoRelease": false,
       "isMonospaced": true,
       "description": "Zed Mono is a more rounded version of Iosevka"
+    },
+    {
+      "unpatchedName": "Zed Plex Mono",
+      "licenseId": "OFL-1.1-no-RFN",
+      "RFN": false,
+      "version": "1.2.0",
+      "patchedName": "ZedPlexMono",
+      "folderName": "ZedPlexMono",
+      "imagePreviewFont": "ZedPlexMono NF",
+      "imagePreviewFontSource": "ZedPlexMono/ZedPlexMono-Regular.ttf",
+      "linkPreviewFont": false,
+      "caskName": "zed-plex-mono",
+      "repoRelease": false,
+      "isMonospaced": true,
+      "description": "Zed Plex Mono is a fork of IBM Plex with ligatures manually added"
     }
   ]
 }
