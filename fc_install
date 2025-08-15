@@ -1,0 +1,370 @@
+#!/usr/bin/env bash
+# -*- mode: sh; sh-shell: bash -*-
+
+# SPDX-License-Identifier: MIT
+# Author: Markus Heiser <markus.heiser@darmarit.de>
+# Keywords: NerdFonts
+
+### Commentary:
+#
+# Fontconfig [1] installer to install or update the NerdFonts [1] from the
+# GitHub releases [2].
+#
+# Usage:
+#
+#   $ curl -s https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/fc_install -o fc_install
+#   $ chmod ugo+x fc_install
+#   $ ./fc_install --help
+#
+# Developer notes:
+#
+#   $ shfmt -i 4 -w fc_install
+#   $ shellcheck fc_install
+#
+# [1] https://www.freedesktop.org/wiki/Software/fontconfig/
+# [2] https://www.nerdfonts.com/
+# [3] https://github.com/$GH_OWNER/$GH_REPO/releases
+
+### Code:
+
+set -euo pipefail
+shopt -s inherit_errexit
+
+# environment
+# -----------
+
+VERBOSE="${VERBOSE:-1}"
+# https://docs.github.com/de/rest/releases/releases?#get-a-release-by-tag-name
+GH_API_VERSION="${GH_API_VERSION:-2022-11-28}"
+GH_RELEASE_TAG="${GH_RELEASE_TAG:-latest}"
+GH_OWNER="${GH_OWNER:-ryanoasis}"
+GH_REPO="${GH_REPO:-nerd-fonts}"
+FONT_FORMATS=(ttf otf)
+if [ ${EUID:-0} -ne 0 ] || [ "$(id -u)" -ne 0 ]; then
+    FONT_DIR="${FONT_DIR:-${HOME}/.local/share/fonts/NerdFonts}"
+else
+    FONT_DIR="${FONT_DIR:-/usr/local/share/fonts/NerdFonts}"
+fi
+
+_REQUIREMENTS=("curl" "fc-cache")
+_GH_RELEASE_DATA=""
+
+# command line interface
+# ----------------------
+
+cmd.help() {
+    cat <<EOF
+Usage: $0 <cmd>
+
+Install and update Nerd Fonts [1] from the GitHub releases [2].
+
+[1] https://www.nerdfonts.com/
+[2] https://github.com/$GH_OWNER/$GH_REPO/releases
+
+cmd:
+  help      : show this help message
+  env       : show environment
+  list      : list released fonts
+  install   : selectively install (or update) a font or *all* fonts
+  remove    : uninstall all Nerd Fonts
+
+required tools:
+  ${_REQUIREMENTS[*]}
+EOF
+}
+
+cmd.install.help() {
+    cat <<EOF
+Selectively install one font or *all* fonts to FONT_DIR.
+
+Usage: $0 install [<fontname>|all]
+
+fontname:
+  The name of the font to be installed can be specified, or 'all' can be
+  specified to install all fonts.  If no specification is made, a list of
+  available fonts will be displayed, and a font must be selected from the list.
+EOF
+}
+cmd.install() {
+    local font_name="${1-}"
+    local font_list=()
+    local tmp_folder
+
+    gh.release_data >/dev/null
+    IFS=$'\n' read -r -d '' -a font_list < <(nerd.font_list && printf '\0')
+
+    if [ "$font_name" == "all" ]; then
+        msg.info "install all ${#font_list[@]} fonts"
+    elif [ "$font_name" == "" ]; then
+        PS3="Enter a number: "
+        select font_name in "${font_list[@]}" "all"; do
+            if [ "$font_name" = "all" ]; then
+                msg.warn "installing all fonts will take its time / time for a coffee break"
+                break
+            elif sh.in_array "$font_name" "${font_list[@]}"; then
+                font_list=("$font_name")
+                break
+            else
+                msg.err "invalid choice."
+            fi
+        done
+        msg.debug "user selected font $font_name"
+    else
+        sh.in_array "$font_name" "${font_list[@]}" ||
+            sh.die.err 42 "font $font_name does not exists in release $GH_RELEASE_TAG"
+    fi
+
+    msg.info "install fonts into folder: $FONT_DIR"
+    tmp_folder="$(mktemp -d)"
+    msg.debug "cd $tmp_folder"
+    pushd "$tmp_folder" &>/dev/null || sh.die.err 42 "can't cd $tmp_folder"
+    for font in "${font_list[@]}"; do
+        nerd.install_font "$font"
+    done
+    popd &>/dev/null
+    rm -rf "$tmp_folder"
+    msg.info "fontconfig: build font information cache files"
+    fc-cache
+}
+
+cmd.remove.help() {
+    cat <<EOF
+Usage: $0 remove
+
+Uninstall all previous installed Nerd Fonts.
+EOF
+}
+
+cmd.remove() {
+    [ "$#" -ne 0 ] && sh.die.err 42 "${FUNCNAME#"cmd."}: unknown arguments $*"
+    if [ -d "$FONT_DIR" ]; then
+        msg.info "remove font folder $FONT_DIR"
+        rm -rf "$FONT_DIR"
+    else
+        msg.err "Nerd Fonts not installed at $FONT_DIR"
+    fi
+}
+
+cmd.list() {
+    [ "$#" -ne 0 ] && sh.die.err 42 "${FUNCNAME#"cmd."}: unknown arguments $*"
+    if [ "$GH_RELEASE_TAG" = "latest" ]; then
+        GH_RELEASE_TAG="$(gh.latest_release)"
+        msg.info "$GH_OWNER/$GH_REPO: latest ($GH_RELEASE_TAG)"
+    else
+        msg.info "$GH_OWNER/$GH_REPO: $GH_RELEASE_TAG"
+    fi
+    nerd.font_list
+}
+
+cmd.env() {
+    [ "$#" -ne 0 ] && sh.die.err 42 "${FUNCNAME#"cmd."}: unknown arguments $*"
+    cat <<EOF
+GH_API_VERSION="${GH_API_VERSION}"
+GH_RELEASE_TAG="${GH_RELEASE_TAG}"
+GH_OWNER="${GH_OWNER}"
+GH_REPO="${GH_REPO}"
+FONT_DIR="${FONT_DIR}"
+FONT_FORMATS=(${FONT_FORMATS[@]})
+VERBOSE="${VERBOSE}"
+EOF
+}
+
+# Nerd Fonts
+# ----------
+
+nerd.released_zip() {
+    gh.release_data |
+        grep "browser_download_url.*zip" |
+        cut -d : -f 2,3 |
+        tr -d \"
+}
+
+nerd.font_list() {
+    while IFS= read -r line; do
+        echo "$line" | sed 's/^.*\/\(.*\).zip$/\1/'
+    done < <(nerd.released_zip)
+}
+
+nerd.install_font() {
+    # usage:  nerd.install_font <font name>
+
+    msg.info "download & install font: ${1}"
+    (
+        set -e
+        local dst
+        gh.download_asset "${1}.zip"
+        mkdir -p "${1}"
+        unzip -q -o -d "${1}" "${1}.zip"
+        mkdir -p "$FONT_DIR"
+        for filename in "${1}"/*; do
+            if sh.in_array "${filename##*.}" "${FONT_FORMATS[@]}"; then
+                dst="$FONT_DIR/$(basename "$filename")"
+                msg.debug "install font: $dst"
+                mv "$filename" "$dst"
+            fi
+        done
+    )
+    sh.prompt-err $?
+}
+
+# github tools
+# ------------
+
+gh.latest_release() {
+    msg.debug "gh.latest_release() - URL https://github.com/$GH_OWNER/$GH_REPO/releases/latest"
+    basename "$(curl -fs -o/dev/null -w "%{redirect_url}" "https://github.com/$GH_OWNER/$GH_REPO/releases/latest")"
+
+}
+
+gh.release_data() {
+    gh.release_tag
+    if [ "$_GH_RELEASE_DATA" = "" ]; then
+        _GH_RELEASE_DATA="$(gh.get_release_data)"
+    fi
+    if echo "$_GH_RELEASE_DATA" | grep '"message": "Not Found"' &>/dev/null; then
+        msg.debug "release data: $_GH_RELEASE_DATA"
+        sh.die.err 42 "release tag $GH_RELEASE_TAG does not exists"
+    fi
+    echo "$_GH_RELEASE_DATA"
+}
+
+gh.release_tag() {
+    if [ "$GH_RELEASE_TAG" = "latest" ]; then
+        GH_RELEASE_TAG="$(gh.latest_release)"
+    fi
+    echo "$GH_RELEASE_TAG"
+}
+
+gh.get_release_data() {
+    local url
+    url="https://api.github.com/repos/$GH_OWNER/$GH_REPO/releases/tags/$(gh.release_tag)"
+    msg.debug "gh.get_release_data() URL $url"
+    curl --silent -L \
+        -H "Accept: application/vnd.github+json" \
+        -H "X-GitHub-Api-Version: $GH_API_VERSION" \
+        "$url"
+}
+
+gh.download_asset() {
+    # usage: gh.download_asset <asset filename>
+
+    local fname="${1}"
+    local url
+    local filesize
+
+    url="https://github.com/$GH_OWNER/$GH_REPO/releases/download/$(gh.release_tag)/${fname}"
+    msg.debug "gh.download_asset URL $url"
+    curl -L -# "${url}" -o "${fname}" || sh.die.err $? "can't download $url"
+
+    # check if the response from GH is just a "Not Found"
+    filesize=$(stat -c%s "${fname}")
+    if [ 15 -ge "$filesize" ]; then
+        if [ "$(head -c 10 "${fname}")" = "Not Found" ]; then
+            msg.err "Asset Not Found: $url"
+            return 42
+        fi
+    fi
+}
+
+# script helpers
+# --------------
+
+if [ ! -p /dev/stdout ] && [ ! "${TERM:-unknown}" = "unknown" ]; then
+    _BYellow='\e[1;33m'
+    _BBlue='\e[1;94m'
+    _BRed='\e[1;31m'
+    # SGR (Select Graphic Rendition) parameters
+    _creset='\e[0m' # reset all attributes
+else
+    _BYellow=''
+    _BBlue=''
+    _BRed=''
+    # SGR (Select Graphic Rendition) parameters
+    _creset='' # reset all attributes
+fi
+
+msg.err() {
+    echo -e "${_BRed}ERROR:${_creset} $*" >&2
+    return 0
+}
+msg.warn() {
+    echo -e "${_BBlue}WARN:${_creset}  $*" >&2
+    return 0
+}
+msg.info() {
+    if [ "${VERBOSE}" -ge 1 ]; then
+        echo -e "${_BYellow}INFO:${_creset}  $*" >&2
+    fi
+    return 0
+}
+msg.debug() {
+    if [ "${VERBOSE}" -ge 2 ]; then
+        echo -e "${_BYellow}DEBUG:${_creset} $*" >&2
+    fi
+    return 0
+}
+
+sh.die.err() {
+    msg.err "(${1-1}) ${2-died} "
+    exit "${1-1}"
+}
+
+sh.prompt-err() {
+
+    ## Use this as last command in your function to prompt an ERROR message if
+    ## the exit code is not zero.
+
+    local err=${1}
+    [ "$err" -ne "0" ] && msg.err "${FUNCNAME[1]} exit with error ($err)"
+    return "$err"
+}
+
+sh.in_array() {
+    local word="${1}"
+    shift
+    for e in "$@"; do [[ "$e" == "$word" ]] && return 0; done
+    return 1
+}
+
+scripts.requires() {
+    local exit_val=0
+    while [ -n "${1-}" ]; do
+        if ! command -v "${1}" &>/dev/null; then
+            msg.err "missing command ${1}"
+            exit_val=42
+        fi
+        shift
+    done
+    return $exit_val
+}
+
+main() {
+    local cmd="${1:-install}"
+    shift || true
+    scripts.requires "${_REQUIREMENTS[@]}" || sh.die.err $? "first install missing requirements"
+
+    case "$cmd" in
+    help | --help) cmd.help ;;
+    *)
+        _type="$(type -t "cmd.$cmd")" || true
+        if [ "$_type" != "function" ]; then
+            sh.die.err 42 "unknown command: $cmd / use --help"
+        fi
+
+        if [ "${1-}" == '--help' ]; then
+            _type="$(type -t "cmd.$cmd.help")" || true
+            if [ "$_type" = 'function' ]; then
+                "cmd.${cmd}.help"
+            else
+                "cmd.help"
+            fi
+        else
+            [ "${VERBOSE}" -ge 3 ] && set -x
+            "cmd.$cmd" "$@"
+        fi
+        ;;
+    esac
+}
+
+### fc_install ends here ..
+main "$@"

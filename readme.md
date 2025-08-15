@@ -75,6 +75,14 @@ The following flow diagram shows the current glyph sets included:
 
 ### Various Download Options for Fonts
 
+On Linux, to install fonts from [(latest) release](https://github.com/ryanoasis/nerd-fonts/releases/latest) use the [font config](https://www.freedesktop.org/wiki/Software/fontconfig/) installer:
+
+```bash
+curl -s https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/fc_install -o fc_install
+chmod ugo+x fc_install
+./fc_install --help
+```
+
 _If you..._
 
   * `Option 1.` want to download a **font family** package of variations (bold, italic, etc.) see [download an archive](#option-1-release-archive-download)
