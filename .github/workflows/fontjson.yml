@@ -1,0 +1,58 @@
+name: Update gitignore and gh-pages
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - bin/scripts/lib/fonts.json
+  workflow_dispatch:
+
+jobs:
+  sync_pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Fetch files
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: bin/scripts/lib
+          path: master
+
+      - name: Prepare file
+        run: |
+          mkdir temp_data
+          cp master/bin/scripts/lib/fonts.json temp_data
+          ls -l temp_data
+
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: temp_data
+          target-folder: _data
+          commit-message: "[ci] Sync fonts.json"
+          git-config-name: GitHub Actions
+          git-config-email: 41898282+github-actions[bot]@users.noreply.github.com
+          clean: false
+
+  update_gitignore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Regenerate gitignore
+        run: |
+          cd bin/scripts
+          ./update-gitignore.sh
+
+      - name: Commit gitignore back to repo
+        uses: EndBug/add-and-commit@v9
+        with:
+          fetch: false
+          add: ".gitignore"
+          message: "[ci] Update .gitignore file"
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com

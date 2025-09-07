@@ -1,0 +1,88 @@
+name: Create Casks PR
+
+env:
+  HOMEBREW_REPO: Homebrew/homebrew-cask
+  HOMEBREW_FORK: Finii/homebrew-cask
+  FORK_USER: Finii
+  FORK_TOKEN: tvguho_cng_11NQ2SVID0pd62O9lE906m_CTZiXy2yizkHmD4LquIjYT6MiBpDGNXp2YwFLEZqKvXXRGTMUIZj1nZtgWg
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-casks:
+    name: Create casks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch stuff
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: bin/scripts
+      - name: Fetch release artifacts
+        run: |
+          cd bin/scripts
+          chmod u+x *
+          ./fetch-archives.sh latest '.*zip'
+      - name: Determine release tag
+        id: releasetag
+        run: |
+          TAG=$(ls archives/_Release* | head -n 1 | sed 's/.*_Release_//')
+          echo "Release has tag ${TAG}"
+          echo "tag=${TAG}" >> $GITHUB_OUTPUT
+      - name: Create all casks
+        run: |
+          cd bin/scripts
+          ./generate-casks.sh --setversion ${{ steps.releasetag.outputs.tag }}
+      - name: Upload casks as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: casks
+          path: casks
+    outputs:
+      tag: ${{ steps.releasetag.outputs.tag }}
+
+  commit-casks:
+    name: Create commits
+    runs-on: ubuntu-latest
+    needs: create-casks
+    steps:
+      - name: Do some preparation
+        id: notsecret
+        run: |
+          PAK=$(echo "${FORK_TOKEN}" | tr 'A-Za-z' 'N-ZA-Mn-za-m')
+          echo "pak=${PAK}" >> $GITHUB_OUTPUT
+      - name: Checkout Homebrew
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.HOMEBREW_FORK }}
+          path: homebrew
+          ref: nerdfonts
+          token: ${{ steps.notsecret.outputs.pak }}
+      - name: Update Homebrew fork
+        run: |
+          cd homebrew
+          git remote add upstream https://github.com/${{ env.HOMEBREW_REPO }}.git
+          git fetch upstream master
+          git reset --hard upstream/master
+          git push --force origin HEAD:nerdfonts
+      - name: Retrieve new casks
+        uses: actions/download-artifact@v4
+        with:
+          name: casks
+          path: casks
+      - name: Prepare changes
+        run: |
+          cp -r casks/* homebrew/Casks/font
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          cwd: homebrew
+          fetch: false
+          add: Casks/font
+          message: "font: Update Nerd Font casks to ${{ needs.create-casks.outputs.tag }} [CI]"
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Create PR
+        run: |
+          echo "Well, this would automatically create a PR, but this is disabled for now:"
+          echo gh pr create -p ${{ env.HOMEBREW_REPO }} -B master -H nerdfonts -R ${{ env.HOMEBREW_FORK }} -d -f

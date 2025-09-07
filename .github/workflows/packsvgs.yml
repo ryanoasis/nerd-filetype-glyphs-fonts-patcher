@@ -1,0 +1,83 @@
+name: PackSVGs
+
+on:
+  push:
+    paths:
+      - 'src/svgs/*'
+      - 'bin/scripts/generate-original-source.py'
+      - 'bin/scripts/optimize-original-source.sh'
+  workflow_dispatch:
+
+jobs:
+  create-symbols-font:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch dependencies
+        run: |
+          sudo apt update -y -q
+          # ttfdump comes with texlive-binaries
+          # We use ttfdump instead of showttf, because the later core dumps at the moment
+          sudo apt install python3-fontforge inkscape texlive-binaries dc -y -q
+
+      - name: Simplify the SVGs
+        id: optimize
+        run: |
+          cd bin/scripts
+          ./optimize-original-source.sh doit | tee optlog.txt
+          changenum=$(tail -n 1 optlog.txt | sed -E 's/[^0-9]*([0-9]+).*/\1/')
+          echo "Script claims number of changed files: ${changenum}"
+          echo "num_of_files=${changenum}" >> $GITHUB_OUTPUT
+
+      - name: Commit simplified SVGs back to repo
+        if: steps.optimize.outputs.num_of_files > 0
+        uses: EndBug/add-and-commit@v9
+        with:
+          fetch: false
+          add: 'src/svgs'
+          message: "[ci] Simplify original-source source glyphs"
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Dummy create Seti-and-original-symbols font and CHECK FOR CHANGES
+        id: compare_font
+        run: |
+          cd bin/scripts
+          echo "OLD_FONT_LS=$(ls -l ../../src/glyphs/original-source.otf)" >> $GITHUB_ENV
+          # First we create a 'test' font with the same timestamp as the old to see if
+          # there are any differences (apart from the timestamp)
+          export CURRENT_FONT_DATE=$(ttfdump -t head ../../src/glyphs/original-source.otf | \
+            grep -E '[^a-z]created:.*0x' | sed 's/.*x//' | tr 'a-f' 'A-F')
+          echo "Font creation date (1904): 0x${CURRENT_FONT_DATE}"
+          # The timestamp in the HEAD table is given in 1904 seconds, we convert that
+          # to 1970 (unix) seconds.
+          export SOURCE_DATE_EPOCH=$(dc -e "16i ${CURRENT_FONT_DATE} Ai 86400 24107 * - p")
+          echo "Font creation date (1970): ${SOURCE_DATE_EPOCH}"
+          echo "Create font with previous timestamp"
+          ./generate-original-source.py
+          # Check if the new font file has changed
+          CHANGE=$(git diff --quiet ../../src/glyphs/original-source.otf && echo false || echo true)
+          echo "Change detected: ${CHANGE}"
+          echo "changed=${CHANGE}" >> $GITHUB_OUTPUT
+
+      - name: Create Seti-and-original-symbols font for real with current timestamp
+        if: steps.compare_font.outputs.changed == 'true'
+        run: |
+          cd bin/scripts
+          echo "Create font with current timestamp"
+          # We need to force creation and modification timestamp to be identical
+          # to make the compare_font step work next time
+          export SOURCE_DATE_EPOCH=$(date +%s)
+          ./generate-original-source.py
+          echo "${OLD_FONT_LS}"
+          ls -l ../../src/glyphs/original-source.otf
+
+      - name: Commit created font back to repo
+        if: steps.compare_font.outputs.changed == 'true'
+        uses: EndBug/add-and-commit@v9
+        with:
+          fetch: false
+          add: "['src/glyphs/original-source.otf', 'bin/scripts/lib/i_seti.sh']"
+          message: "[ci] Rebuild original-source font"
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com

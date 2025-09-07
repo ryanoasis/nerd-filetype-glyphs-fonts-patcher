@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+# coding=utf8
+#
+# Usually called via
+# $ fontforge check_glyphs fontfile1.tff [fontfile2.ttf ...] 2>/dev/null
+#
+# The output differs depending on number of specified fonts.
+# If only one font is examined full detail is shown.
+# If more fonts are specified only a summary for each font is listed.
+
+import sys
+import os.path
+import fontforge
+
+count_o = 0
+count_i = 0
+count_d = 0
+
+def val_to_text(v):
+    global count_o
+    global count_i
+    global count_d
+    parts = [ ]
+    if v & 2:
+        parts += ['open']
+        count_o += 1
+    else:
+        parts += ['    ']
+    if v & 4:
+        parts += ['intersect']
+        count_i += 1
+    else:
+        parts += ['         ']
+    if v & 8:
+        parts += ['direction']
+        count_d += 1
+    else:
+        parts += ['         ']
+    return ' '.join(parts)
+
+###### Let's go!
+
+if len(sys.argv) < 2:
+    print('Usage: {} font_name [font_name ...]\n'.format(sys.argv[0]))
+    sys.exit(1)
+
+print('Examining {} font files'.format(len(sys.argv) - 1))
+batch_mode = len(sys.argv) > 2
+if batch_mode:
+    print('Batch mode enabled')
+    print('| {:40} | {:5} | {:4} | {:4} | {:4} |'.format('file', '#glyp', 'open', 'self', 'dir'))
+
+for filename in sys.argv[1:]:
+    fullfile = os.path.basename(filename)
+    fname = os.path.splitext(fullfile)[0]
+    font = fontforge.open(filename, 1)
+    # print('======== {} ========'.format(fullfile))
+
+    font.encoding = 'UnicodeFull'
+    count = 0
+    count_o = 0
+    count_i = 0
+    count_d = 0
+    for c in range (1, 0xffffff):
+        if not c in font:
+            continue
+        font[c].unlinkRef()
+        font[c].removeOverlap()
+        val = val_to_text(font[c].validate(True))
+        if font[c].validation_state & 0xE:
+            if not batch_mode:
+                print(' {:04X} {:08X} {}  {}'.format(c, font[c].validation_state, val, font[c].glyphname))
+            font[c].correctDirection()
+
+        count += 1
+    if not batch_mode:
+        print('======== {} ========'.format(fullfile))
+        print('Sum of problems: open {}, intersect {}, direction {} (for a total of {} glyphs)'.format(count_o, count_i, count_d, count))
+    else:
+        print('| {:40} | {:5} | {:4} | {:4} | {:4} |'.format(fullfile, count, count_o, count_i, count_d))
+    font.close()

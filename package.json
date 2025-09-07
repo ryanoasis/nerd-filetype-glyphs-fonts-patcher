@@ -1,0 +1,35 @@
+{
+  "name": "nerd-fonts",
+  "version": "3.4.0",
+  "description": "Iconic font aggregator, collection, & patcher. 10,000+ icons, 65+ patched fonts: Hack, Source Code Pro, more. Glyph collections: Font Awesome, Material Design Icons, Octicons, & more",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "all-contributors-cli": "^4.8.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanoasis/nerd-fonts.git"
+  },
+  "keywords": [
+    "fonts",
+    "patched-fonts",
+    "powerline",
+    "shell",
+    "statusline",
+    "python",
+    "iconic-fonts",
+    "patcher",
+    "font-awesome",
+    "octicons"
+  ],
+  "author": "Ryan L McIntyre",
+  "license": "SEE LICENSE IN LICENSE file",
+  "bugs": {
+    "url": "https://github.com/ryanoasis/nerd-fonts/issues"
+  },
+  "homepage": "https://github.com/ryanoasis/nerd-fonts#readme"
+}

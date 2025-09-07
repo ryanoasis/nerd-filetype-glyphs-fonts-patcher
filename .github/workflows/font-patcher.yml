@@ -1,0 +1,131 @@
+
+name: "Font-Patcher"
+
+on:
+  pull_request:
+    branches: [ master ]
+    paths:
+      - 'font-patcher'
+      - 'src/glyphs/**'
+
+jobs:
+  tests:
+    name: font patcher tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        FontForgeRelease: [
+          { name: "FontForge January 2023 Release", version: "20230101", archiveType: "tar.xz" },
+          { name: "FontForge March 2022 Release", version: "20220308", archiveType: "tar.xz" },
+          { name: "FontForge 20th Anniversary Edition", version: "20201107", archiveType: "tar.xz" },
+          { name: "FontForge 2020 March Release", version: "20200314", archiveType: "tar.xz" },
+          # @TODO we need to build this FontForge version differently or just skip for now:
+          # { name: "Februrary 2015 (version after mimimum supported version)", version: "20150228", archiveType: "tar.gz" }
+        ]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup core dependencies
+        run: |
+          sudo apt update -y -q
+          sudo apt install software-properties-common -y -q
+          sudo apt install python3-fontforge -y -q
+
+      - name: Install FontForge
+        run: |
+          sudo apt install libjpeg-dev libtiff5-dev libpng-dev libfreetype6-dev libgif-dev libgtk-3-dev libxml2-dev libpango1.0-dev libcairo2-dev libspiro-dev python3-dev ninja-build cmake build-essential gettext libuninameslist-dev -y -q
+          curl -Lv "https://github.com/fontforge/fontforge/releases/download/${{matrix.FontForgeRelease.version}}/fontforge-${{matrix.FontForgeRelease.version}}.${{matrix.FontForgeRelease.archiveType}}" \
+            --output "FontForge.${{matrix.FontForgeRelease.archiveType}}"
+          echo "what files we got::"
+          ls -al
+          tar -xf "FontForge.${{matrix.FontForgeRelease.archiveType}}"
+          cd "$GITHUB_WORKSPACE/fontforge-${{matrix.FontForgeRelease.version}}/"
+          sudo mkdir build
+          cd build
+          sudo cmake -GNinja ..
+          sudo ninja
+          sudo ninja install
+
+      - name: Compile showttf
+        run: |
+          cd "$GITHUB_WORKSPACE/fontforge-${{matrix.FontForgeRelease.version}}/contrib/fonttools"
+          mkdir build
+          cd build
+          cmake -Wno-dev -GNinja ..
+          ninja showttf
+          echo "SHOWTTF=$(realpath showttf)" >> $GITHUB_ENV
+          cd ../../..
+
+      - name: Setup additional dependencies
+        run: |
+          pip install fonttools --quiet
+
+      - name: Set the value for FontForge version check
+        run: |
+          echo "FONTFORGE_VERSION=$(fontforge --version 2>&1 | grep Version | awk '{print $NF}')" >> $GITHUB_ENV
+
+      - name: Verify FontForge version
+        run: |
+          [[ "${{ env.FONTFORGE_VERSION }}" == "${{matrix.FontForgeRelease.version}}" ]] && echo "FontForge version matches expected" || exit 1
+
+      - name: Patcher typical test run
+        run: |
+          mkdir -p $GITHUB_WORKSPACE/temp/
+          fontforge --script ./font-patcher src/unpatched-fonts/Hack/Regular/Hack-Regular.ttf \
+          --complete --quiet --no-progressbars --outputdir $GITHUB_WORKSPACE/temp/
+
+      - name: Check if patched font generated
+        run: |
+          [ -e "$GITHUB_WORKSPACE/temp/HackNerdFont-Regular.ttf" ] && echo "File exists" || exit 1
+
+      - name: Setup Spot check font information 1
+        run: |
+          echo FONT_INFO=$(fc-scan --format "%{family}:%{fullname}:%{style}\n" "$GITHUB_WORKSPACE/temp/HackNerdFont-Regular.ttf") >> $GITHUB_ENV
+
+      # TODO fix issues setting and getting fullname and style with GITHUB_ENV :(
+      - name: Setup Spot check font information 2
+        run: |
+          echo FONT_FAMILY=${{ env.FONT_INFO }} | awk -F':' '{print $1}' >> $GITHUB_ENV
+
+      - name: Spot check font information
+        run: |
+          echo "FONT_FAMILY was ${{ env.FONT_FAMILY }}"
+          [[ "${{ env.FONT_FAMILY }}" == "Hack Nerd Font" ]] && echo "Font Family matches expected" || exit 1
+
+      - name: Spot check font properties
+        run: |
+          ${{ env.SHOWTTF }} -c "$GITHUB_WORKSPACE/temp/HackNerdFont-Regular.ttf" | grep -q 'File Checksum.*diff=0\s*$' && echo "TTF checksum ok" || exit 1
+          ORIG_MINPPEM=$(${{ env.SHOWTTF }} -c "src/unpatched-fonts/Hack/Regular/Hack-Regular.ttf" | grep 'lowestppem=' )
+          PATCH_MINPPEM=$(${{ env.SHOWTTF }} -c "$GITHUB_WORKSPACE/temp/HackNerdFont-Regular.ttf" | grep 'lowestppem=' )
+          echo "${ORIG_MINPPEM} == ${PATCH_MINPPEM}"
+          [[ ${ORIG_MINPPEM} == ${PATCH_MINPPEM} ]] && echo "lowestRecPPEM matches" || exit 1
+
+      - name: Patcher monospaced
+        run: |
+          mkdir -p $GITHUB_WORKSPACE/temp/
+          fontforge --script ./font-patcher src/unpatched-fonts/Hack/Regular/Hack-Regular.ttf \
+          --complete --mono --quiet --no-progressbars --outputdir $GITHUB_WORKSPACE/temp/
+
+      - name: Check if patched font generated
+        run: |
+          [ -e "$GITHUB_WORKSPACE/temp/HackNerdFontMono-Regular.ttf" ] && echo "File exists" || exit 1
+
+      - name: Patcher OTF, Bold variant, and RFN compliance
+        run: |
+          mkdir -p $GITHUB_WORKSPACE/temp/
+          fontforge --script ./font-patcher src/unpatched-fonts/CascadiaCode/CascadiaCode-Bold-vtt.ttf \
+          --complete --quiet --no-progressbars --outputdir $GITHUB_WORKSPACE/temp/
+
+      - name: Check if patched font generated
+        run: |
+          [ -e "$GITHUB_WORKSPACE/temp/CaskaydiaCoveNerdFont-Bold.ttf" ] && echo "File exists" || exit 1
+
+      - name: Check if font with references is patched
+        # (patch result not checked)
+        run: |
+          fontforge --script ./font-patcher src/unpatched-fonts/UbuntuMono/Regular/UbuntuMono-R.ttf \
+          --quiet --no-progressbars --outputdir $GITHUB_WORKSPACE/temp/
+          [ -e "$GITHUB_WORKSPACE/temp/UbuntuMonoNerdFont-Regular.ttf" ] && echo "File exists" || exit 1

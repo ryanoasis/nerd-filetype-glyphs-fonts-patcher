@@ -1,0 +1,67 @@
+#!/usr/bin/env python
+# coding=utf8
+#
+# Usually called in this directory via
+# $ fontforge --script make_bold
+
+# The resulting names in the font are ... bad, but we will rename it anyhow
+
+# Inspiration from Thai Pangsakulyanont's https://github.com/dtinth/comic-mono-font,
+# but fix a lot issues and changed weight by only 25 instead of 32 to have less clogged bowls.
+
+import fontforge
+
+font = fontforge.open('ComicShannsMono-Regular.sfd_modified')
+
+# Repair some issues in source
+font.selection.all()
+font.removeOverlap() # For example THERE DOES NOT EXIST (u_2204) is broken
+font.correctDirection()
+target_width = 550
+for g in font.selection.byGlyphs:
+    # For example ntilde is 600 wide
+    if g.width != target_width:
+        # resize and recenter
+        ( xmin, _, xmax, _ ) = g.boundingBox()
+        bb_width = xmax - xmin
+        if bb_width <= target_width:
+            # Do not introduce negative lsb
+            g.left_side_bearing = int((target_width - bb_width) / 2)
+        g.width = target_width
+font.selection.none()
+
+# WIN line metrics obviously wrong, as Nerd Fonts sometimes prefers that, fix it already
+font.os2_winascent = font.os2_typoascent
+font.os2_windescent = -font.os2_typodescent
+font.os2_use_typo_metrics = 1
+
+font.generate('ComicShannsMono-Regular.otf')
+
+# Create Bold face
+
+font.fontname = 'ComicMono-Bold'
+font.fullname = 'Comic Shanns Mono Bold'
+font.weight = 'Bold'
+font.os2_weight = 700
+font.os2_stylemap = 1 << 5 # Bold
+font.macstyle = 1 # Bold
+
+# Do not enbolden graphics and Braille
+font.encoding = 'UnicodeFull'
+font.selection.select(('ranges',), 0x2500, 0xffff)
+font.selection.select(('more',), '.notdef')
+font.selection.invert()
+
+# The boldening - albeit request to clean up self-intersections - produces
+# a lot of problematic glyphs, we try to fix most
+for g in font.selection.byGlyphs:
+    g.simplify()
+    g.changeWeight(25, 'LCG', 0, 0, 'squish', 1)
+    g.removeOverlap()
+    if g.selfIntersects():
+        g.simplify(10, ('forcelines',), 0.0, 100, 0)
+        if g.selfIntersects() and g.unicode != 0x05A:
+            g.simplify(2, ('ignoreslopes','ignoreextrema','smoothcurves'), 0.2, 100, 100)
+
+font.generate('ComicShannsMono-Bold.otf')
+font.close()

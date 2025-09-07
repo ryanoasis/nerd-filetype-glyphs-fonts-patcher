@@ -1,0 +1,34 @@
+name: Feature Request
+description: Suggest an idea to enhance this project.
+
+body:
+  - type: checkboxes
+    attributes:
+      label: Requirements
+      options:
+        - label: "I have searched the [issues](https://github.com/ryanoasis/nerd-fonts/issues) for my request and found nothing related or helpful"
+          required: true
+        - label: "I have checked the [FAQ](https://github.com/ryanoasis/nerd-fonts/wiki/FAQ-and-Troubleshooting) for help"
+          required: true
+        - label: "I have reviewed the [Wiki](https://github.com/ryanoasis/nerd-fonts/wiki) for relevant information"
+          required: true
+
+  - type: textarea
+    attributes:
+      label: Problem Description
+      description: Describe the problem or limitation you're facing that prompted this feature request.
+
+  - type: textarea
+    attributes:
+      label: Desired Solution
+      description: Describe the solution or enhancement you envision.
+
+  - type: textarea
+    attributes:
+      label: Alternatives Considered
+      description: Describe any alternative approaches or features you've thought about.
+
+  - type: textarea
+    attributes:
+      label: Additional Context
+      description: Include any other details, context, or screenshots that might help clarify the feature request.

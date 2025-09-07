@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+# coding=utf8
+
+# Create the final mapping file by combining the information from
+# the remix_mapping (which holds already the codepoints and file names
+# and that relation will not be changed) and the names of the
+# current (previous) Font Awesome Nerd Font mapping (from the
+# glyphnames.json file).
+# In pinciple this script just adds more names to the remix_mapping.
+
+# PREREQUISITES: Have remix_mapping file (generated with script remix)
+# $ ./analyze > mapping
+
+import re, sys
+from subprocess import run
+
+def collect_jq_names_for_one_codepoint(point, exclude, excludes):
+    global jq_names
+    ret = []
+    for n in jq_names:
+        if int(point, 16) in jq_names[n]:
+            ret.append(n)
+    if exclude in ret:
+        ret.remove(exclude)
+    for x in excludes:
+        if x in ret:
+            ret.remove(x)
+    return ret
+
+# print('Reading previous name-to-codepoint table (slow slow)')
+jq_names = {}
+for point in range(0xF000, 0xF300):
+    result = run([ 'jq', '-r',
+                'to_entries[] | select(.value.code == "{:04x}") | .key'.format(point),
+                '../../../glyphnames.json' ],
+            capture_output=True)
+    if result.returncode != 0:
+        sys.exit('Error fetching old names')
+    lines = result.stdout.decode("utf-8").split()
+    for n in lines:
+        if not n.startswith('fa-'):
+            print('WRONG START:', n)
+            sys.exit(1)
+        n = n[3:]
+        if n not in jq_names:
+            jq_names[n] = set([point])
+        else:
+            jq_names[n].add(point)
+            print('DOUBLE ENTRY:', n)
+            sys.exit(1)
+
+# print('Reading remix_mapping file')
+remix_mapping = []
+with open('remix_mapping', 'r') as f:
+    for line in f.readlines():
+        if line.startswith('#'):
+            continue
+        remix_mapping.append(tuple(re.split(' +', line.strip())))
+
+notes = ''
+unique_names = set()
+clashed_names = set()
+for orig_point, dest_point, filename, name in remix_mapping:
+    if name in jq_names:
+        codepointstring = '{:04X}'.format(list(jq_names[name])[0])
+        if codepointstring != dest_point:
+            for _, p, fn, nn in remix_mapping:
+                if codepointstring == p:
+                    notes += '# Name clash: name: {}, old: {}, new: {} ({}), name at old pos: {}\n'.format(
+                        name, codepointstring, dest_point, orig_point, nn)
+                    clashed_names.add(name)
+                    break
+
+print('# Font Awesome mapping file')
+print('#')
+print('# FA-code NF-code filename name...')
+print('#')
+
+
+remix_mapping.sort(key=(lambda x: x[1]))
+for orig_point, dest_point, filename, name in remix_mapping:
+    all_names = [ name ] + list(set(collect_jq_names_for_one_codepoint(dest_point, name, clashed_names)))
+    for n in all_names:
+        if n not in unique_names:
+            unique_names.add(n)
+            continue
+        print("ERROR name duplicate found: ", n)
+        sys.exit(1)
+
+    print("{} {} {} {}".format(orig_point, dest_point, filename, ' '.join(all_names)))
+
+print(notes)

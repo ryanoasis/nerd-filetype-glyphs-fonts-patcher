@@ -1,0 +1,226 @@
+# This file defines the codepoints for the individual glyphs in
+# original-source.otf and their names in the CSS and on the cheat
+# sheet (via i_seti.sh).
+#
+# If you add a svg to the directory you need to add also a line here.
+# Keep the numbers consecutive.
+# You can add aliases by adding a new line with the same offset but
+# different name; omit the filename on those lines.
+#
+# The Github workflow will automatically execute
+# generate-original-source.py to regenerate the font used to patch.
+#
+# offset	name (in i_seti.sh)			filename (.svg)
+#
+000		i_custom_folder_npm			npm-folder_nf.svg
+001		i_custom_folder_git			git-folder_nf.svg
+001		i_custom_folder_git_branch
+002		i_custom_folder_config			config-folder_nf.svg
+003		i_custom_folder_github			octocat-folder_nf.svg
+004		i_custom_folder_open			open-folder_nf.svg
+005		i_custom_folder				folder_nf.svg
+006		i_seti_stylus				stylus.svg
+007		i_seti_project				project.svg
+008		i_custom_play_arrow			play-arrow_nf.svg
+008		i_seti_play_arrow
+009		i_seti_sass				sass.svg
+010		i_seti_rails				rails.svg
+011		i_custom_ruby				ruby_nf.svg
+011		i_seti_ruby
+012		i_seti_python				python.svg
+013		i_seti_heroku				heroku.svg
+014		i_seti_php				php.svg
+015		i_seti_markdown				markdown.svg
+016		i_seti_license				license.svg
+017		i_seti_json				less.svg
+017		i_seti_less
+018		i_seti_javascript			javascript.svg
+019		i_seti_image				image.svg
+020		i_seti_html				html.svg
+021		i_seti_mustache				mustache.svg
+022		i_seti_gulp				gulp.svg
+023		i_seti_grunt				grunt.svg
+024		i_custom_default			file_nf.svg
+025		i_seti_folder				folder.svg
+026		i_seti_css				css.svg
+027		i_seti_config				config.svg
+028		i_seti_npm				npm.svg
+028		i_seti_npm_ignored
+029		i_custom_home				home_nf.svg
+029		i_seti_home
+030		i_seti_ejs				ejs.svg
+031		i_seti_xml				xml.svg
+032		i_seti_bower				bower.svg
+033		i_seti_coffee				coffee.svg
+033		i_seti_cjsx
+034		i_seti_twig				twig.svg
+035		i_custom_cpp				cpp_nf.svg
+036		i_custom_c				c_nf.svg
+037		i_seti_haskell				haskell.svg
+038		i_seti_lua				lua.svg
+039		i_indent_line				separator_nf.svg
+039		i_indentation_line
+039		i_indent_dotted_guide
+040		i_seti_karma				karma.svg
+041		i_seti_favicon				favicon.svg
+042		i_seti_julia				julia.svg
+043		i_seti_react				react.svg
+044		i_custom_go				go_nf.svg
+045		i_seti_go				go.svg
+046		i_seti_typescript			typescript.svg
+047		i_custom_msdos				ms-dos_nf.svg
+048		i_custom_windows			windows.svg
+049		i_custom_vim				vim_nf.svg
+050		i_custom_elm				elm_nf.svg
+050		i_seti_elm
+051		i_custom_elixir				elixir_nf.svg
+051		i_seti_elixir
+052		i_custom_electron			electron_nf.svg
+053		i_custom_crystal			crystal_nf.svg
+053		i_seti_crystal
+054		i_custom_purescript			purescript_nf.svg
+054		i_seti_purescript
+055		i_seti_puppet				puppet.svg
+055		i_custom_puppet
+056		i_custom_emacs				emacs_nf.svg
+057		i_custom_orgmode			orgmode_nf.svg
+058		i_custom_kotlin				kotlin_nf.svg
+058		i_seti_kotlin
+059		i_seti_apple				apple.svg
+060		i_seti_argdown				argdown.svg
+061		i_seti_asm				asm.svg
+062		i_seti_audio				audio.svg
+063		i_seti_babel				babel.svg
+064		i_custom_bazel				bazel_nf.svg
+064		i_seti_bazel
+065		i_seti_bicep				bicep.svg
+066		i_seti_bsl				bsl.svg
+067		i_seti_cake_php				cake_php.svg
+068		i_seti_cake				cake.svg
+069		i_seti_checkbox				checkbox.svg
+070		i_seti_checkbox_unchecked		checkbox-unchecked.svg
+071		i_seti_clock				clock.svg
+071		i_seti_time_cop
+072		i_seti_clojure				clojure.svg
+073		i_seti_code_climate			code-climate.svg
+074		i_seti_code_search			code-search.svg
+075		i_seti_coldfusion			coldfusion.svg
+076		i_seti_cpp				cpp.svg
+077		i_seti_crystal_embedded			crystal_embedded.svg
+078		i_seti_c_sharp				c-sharp.svg
+079		i_seti_c				c.svg
+080		i_seti_csv				csv.svg
+081		i_seti_cu				cu.svg
+082		i_seti_dart				dart.svg
+083		i_seti_db				db.svg
+084		i_seti_default				default.svg
+084		i_seti_text
+085		i_seti_deprecation_cop			deprecation-cop.svg
+086		i_seti_docker				docker.svg
+087		i_seti_d				d.svg
+088		i_seti_editorconfig			editorconfig.svg
+089		i_seti_elixir_script			elixir_script.svg
+090		i_seti_error				error.svg
+091		i_seti_eslint				eslint.svg
+092		i_seti_ethereum				ethereum.svg
+093		i_custom_firebase			firebase_nf.svg
+093		i_seti_firebase
+094		i_seti_firefox				firefox.svg
+095		i_seti_font				font.svg
+096		i_seti_f_sharp				f-sharp.svg
+097		i_seti_github				github.svg
+098		i_seti_gitlab				gitlab.svg
+099		i_seti_git				git.svg
+099		i_seti_git_folder
+099		i_seti_git_ignore
+100		i_seti_go2				go2.svg
+101		i_seti_godot				godot.svg
+102		i_seti_gradle				gradle.svg
+103		i_seti_grails				grails.svg
+104		i_seti_graphql				graphql.svg
+105		i_seti_hacklang				hacklang.svg
+106		i_seti_haml				haml.svg
+107		i_seti_happenings			happenings.svg
+108		i_seti_haxe				haxe.svg
+109		i_seti_hex				hex.svg
+110		i_seti_ignored				ignored.svg
+111		i_seti_illustrator			illustrator.svg
+112		i_seti_info				info.svg
+113		i_seti_ionic				ionic.svg
+114		i_seti_jade				jade.svg
+115		i_seti_java				java.svg
+116		i_seti_jenkins				jenkins.svg
+117		i_seti_jinja				jinja.svg
+118		i_seti_liquid				liquid.svg
+119		i_seti_livescript			livescript.svg
+120		i_seti_lock				lock.svg
+121		i_seti_makefile				makefile.svg
+122		i_seti_maven				maven.svg
+123		i_seti_mdo				mdo.svg
+124		i_seti_new_file				new-file.svg
+125		i_seti_nim				nim.svg
+126		i_seti_notebook				notebook.svg
+127		i_seti_nunjucks				nunjucks.svg
+128		i_seti_ocaml				ocaml.svg
+129		i_seti_odata				odata.svg
+130		i_seti_pddl				pddl.svg
+131		i_seti_pdf				pdf.svg
+132		i_seti_perl				perl.svg
+133		i_seti_photoshop			photoshop.svg
+134		i_seti_pipeline				pipeline.svg
+135		i_seti_plan				plan.svg
+136		i_seti_platformio			platformio.svg
+137		i_seti_powershell			powershell.svg
+138		i_seti_prisma				prisma.svg
+139		i_seti_prolog				prolog.svg
+140		i_seti_pug				pug.svg
+141		i_seti_reasonml				reasonml.svg
+142		i_seti_rescript				rescript.svg
+143		i_seti_rollup				rollup.svg
+144		i_seti_r				R.svg
+145		i_seti_rust				rust.svg
+146		i_seti_salesforce			salesforce.svg
+147		i_seti_sbt				sbt.svg
+148		i_seti_scala				scala.svg
+149		i_seti_search				search.svg
+150		i_seti_settings				settings.svg
+151		i_seti_shell				shell.svg
+152		i_seti_slim				slim.svg
+153		i_seti_smarty				smarty.svg
+154		i_seti_spring				spring.svg
+155		i_seti_stylelint			stylelint.svg
+156		i_seti_sublime				sublime.svg
+157		i_seti_svelte				svelte.svg
+158		i_seti_svg				svg.svg
+159		i_seti_swift				swift.svg
+160		i_seti_terraform			terraform.svg
+161		i_seti_tex				tex.svg
+162		i_seti_todo				todo.svg
+163		i_seti_tsconfig				tsconfig.svg
+164		i_seti_vala				vala.svg
+165		i_seti_video				video.svg
+166		i_seti_vue				vue.svg
+167		i_seti_wasm				wasm.svg
+168		i_seti_wat				wat.svg
+169		i_seti_webpack				webpack.svg
+170		i_seti_wgt				wgt.svg
+171		i_seti_word				word.svg
+172		i_seti_xls				xls.svg
+173		i_seti_yarn				yarn.svg
+174		i_seti_yml				yml.svg
+175		i_seti_zig				zig.svg
+176		i_seti_zip				zip.svg
+177		i_custom_asm				asm_nf.svg
+178		i_custom_v_lang				vlang_nf.svg
+179		i_custom_folder_oct			folder2_nf.svg
+180		i_custom_neovim				neovim_nf.svg
+181		i_custom_fennel				fennel_nf.svg
+182		i_custom_common_lisp			commonlisp_nf.svg
+183		i_custom_scheme				scheme_nf.svg
+184		i_custom_toml				toml_nf.svg
+185		i_custom_astro				astro_nf.svg
+186		i_custom_prettier			prettier_nf.svg
+187		i_custom_ada				ada_nf.svg
+188		i_custom_chuck				chuck_nf.svg
+189		i_custom_vitruvian			vitruvian_nf.svg
+190		i_custom_css				css_nf.svg

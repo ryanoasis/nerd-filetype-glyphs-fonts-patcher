@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+# coding=utf8
+
+import fontforge
+import sys
+
+def get_sfnt_dict(font):
+    """Extract SFNT table as nice dict"""
+    return { k: v for l, k, v in font.sfnt_names }
+
+if len(sys.argv) != 2:
+    print("Usage: {} font_name\n".format(sys.argv[0]))
+    sys.exit(1)
+
+font = fontforge.open(sys.argv[1])
+sfnt = get_sfnt_dict(font)
+
+print("Version is          '{}'".format(font.version));
+print("CID Version is      '{}'".format(font.cidversion));
+print("SFNT Revision is    '{}'".format(font.sfntRevision));
+if "Version" in sfnt:
+    print("SFNT ['Version'] is '{}'".format(sfnt["Version"]));
+else:
+    print("SFNT ['Version'] is not set".format(sys.argv[1]));
+
+font.close()

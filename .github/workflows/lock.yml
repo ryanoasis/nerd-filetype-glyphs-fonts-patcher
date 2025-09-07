@@ -1,0 +1,28 @@
+name: 'Lock Threads'
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'
+
+permissions:
+  issues: write
+
+concurrency:
+  group: lock
+
+jobs:
+  action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dessant/lock-threads@v5
+        with:
+          issue-inactive-days: '182'
+          issue-comment: >
+            This issue has been automatically locked since there
+            has not been any recent activity (i.e. last half year) after it was closed.
+            It helps our maintainers focus on the active issues.
+            If you have found a problem that seems similar, please open a new
+            issue, complete the issue template with all the details
+            necessary to reproduce, and mention this issue as reference.
+          process-only: 'issues'
+          exclude-any-issue-labels: keep_unlocked

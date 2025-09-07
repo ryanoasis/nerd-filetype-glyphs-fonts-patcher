@@ -1,0 +1,159 @@
+#!/usr/bin/env python3
+# coding=utf8
+
+# Create a new mapping file by combining the information from
+# the old mapping and checking which icons got dropped; are new;
+# or get a different svg file.
+
+# PREREQUISITES:
+# $ curl -OL https://github.com/devicons/devicon/archive/refs/tags/v2.16.0.tar.gz
+# $ tar zxf v2.16.0.tar.gz
+# $ mv devicon-*/icons .
+# $ cp -r vorillaz icons
+
+import re, os, sys
+
+vectorsdir = 'icons'
+
+def filename_from_name(filename):
+    """ Some icons have a name that is not the svg filename """
+    # Returns '-' if the icon is to be removed
+    # Giving a full pathname selects a certain svg variant
+    return {
+        'awk': 'fixed/awk-plain.svg', # added as fixed icon
+        'bower': 'bower/bower-line.svg',
+        'c_lang': 'c',
+        'clojure': 'clojure/clojure-line.svg',
+        'composer': 'composer/composer-line.svg',
+        'css3_full': 'css3/css3-plain-wordmark.svg',
+        'djangorest': 'djangorest/djangorest-plain-wordmark.svg',
+        'dotnet': 'dot-net',
+        'ghost': 'ghost/ghost-original-wordmark.svg',
+        'github_full': 'github/github-original-wordmark.svg',
+        'go': 'go/go-line.svg',
+        'grunt': 'grunt/grunt-line.svg',
+        'ie': 'ie10',
+        'jenkins': 'jenkins/jenkins-line.svg',
+        'meteorfull': 'meteor/meteor-plain-wordmark.svg',
+        'nodejs': 'nodejs/nodejs-plain-wordmark.svg',
+        'nodejs_small': 'nodejs',
+        'windows': 'windows8',
+    }.get(filename, filename)
+
+def get_aliases(names):
+    """ For some icons we would like to have aliases """
+    # Returns a list with aliases, first element is main name and glyphname
+    name = names[0]
+    return {
+        'c': [ 'c_lang', 'c' ],
+        'github_badge': [ 'github', 'github_badge' ],
+        'javascript_badge': [ 'javascript', 'javascript_badge' ],
+        'krakenjs_badge': [ 'krakenjs', 'krakenjs_badge' ],
+        'symfony_badge': [ 'symfony', 'symfony_badge' ],
+        'unifiedmodelinglanguage': [ 'unifiedmodelinglanguage', 'uml' ],
+    }.get(name, names)
+
+def file_with_ending(files, ending):
+    """ Return the (first) file out of a list of files that has the desired ending """
+    # Returns False if no match at all
+    matches = [ file for file in files if file.endswith(ending) ]
+    if not matches:
+        return False
+    return matches[0]
+
+def suggest_new_filename(name):
+    """ Return a specific svg filename for one icon, preferring some svg filename endings """
+    name = filename_from_name(name)
+    subdir = os.path.join(vectorsdir, name)
+    if not os.path.exists(subdir):
+        return False
+    if os.path.isfile(subdir):
+        # For translation to direct filename hits
+        return name
+    svgs = os.listdir(subdir)
+    filename = file_with_ending(svgs, 'plain.svg')
+    if not filename:
+        filename = file_with_ending(svgs, 'original.svg')
+    if not filename:
+        filename = file_with_ending(svgs, 'plain-wordmark.svg')
+    if not filename:
+        filename = file_with_ending(svgs, 'original-wordmark.svg')
+    if not filename:
+        return False
+    return os.path.join(name, filename)
+
+remix_mapping = []
+with open('mapping', 'r') as f:
+    for line in f.readlines():
+        if line.startswith('#'):
+            continue
+        c1, c2, n, *f = re.split(' +', line.strip())
+        remix_mapping.append((int(c1, 16), int(c2, 16), n, *f))
+
+new_names = os.listdir(vectorsdir)
+new_names.sort()
+new_names.remove('vorillaz') # If this fails one prerequisite step is missing
+if 'fixed' in new_names:
+    # This can exist after a generate run
+    new_names.remove('fixed')
+
+print('Found {} mapping entries and {} devicon directories'.format(
+    len(remix_mapping), len(new_names)))
+
+notes1 = ''
+notes2 = ''
+mapping = []
+for orig_point, dest_point, filename, *names in remix_mapping:
+    if not os.path.isfile(os.path.join(vectorsdir, filename)):
+        newfilename = suggest_new_filename(names[0])
+        if newfilename:
+            notes1 += '# SVG change: code: {:04X} name: {}, old: {}, new: {}\n'.format(
+                    orig_point, names[0], filename, newfilename)
+        filename = newfilename
+    if filename:
+        mapping.append((orig_point, dest_point, filename, *names))
+        dirname = os.path.dirname(filename)
+        if dirname.endswith('fixed'):
+            # Translate dirname for fixed icons
+            dirname = names[0]
+        if dirname in new_names:
+            new_names.remove(dirname)
+        continue
+
+    notes2 += '# Icon dropped: code: {:04X} name: {}\n'.format(
+                orig_point, names[0])
+
+index = 0xE700
+taken_codes = set([ e[1] for e in mapping ])
+for iconname in new_names:
+    filename = suggest_new_filename(iconname)
+    if not filename:
+        sys.exit('Can not find svg for "{}"'.format(iconname))
+    while index in taken_codes:
+        index = index + 1
+    mapping.append((index - 0x0100, index, filename, iconname))
+    taken_codes.add(index)
+
+with open('mapping', 'w', encoding = 'utf8') as f:
+    f.write('# Devicons mapping file\n')
+    f.write('#\n')
+    f.write('# DEV-code NF-code filename name [alias [...]]\n')
+    f.write('#\n')
+
+    mapping.sort(key=(lambda x: x[1]))
+    unique_names = set()
+    for orig_point, dest_point, filename, *names in mapping:
+        aliases = get_aliases(names)
+        for n in aliases:
+            if n not in unique_names:
+                unique_names.add(n)
+            else:
+                sys.exit('ERROR name duplicate found: {}'.format(n))
+        f.write('{:04X} {:04X} {} {}\n'.format(orig_point, dest_point, filename, ' '.join(aliases)))
+
+if notes1:
+    print(notes1)
+if notes2:
+    print(notes2)
+
+print('Generated new mapping with {} entries'.format(len(mapping)))

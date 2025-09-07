@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+# coding=utf8
+
+import fontforge
+import sys
+
+def get_sfnt_dict(font):
+    """Extract SFNT table as nice dict"""
+    return { k: v for l, k, v in font.sfnt_names }
+
+if len(sys.argv) < 2 or len(sys.argv) > 3:
+    print("Usage: {} [<sfnt-name>] font_name\n".format(sys.argv[0]))
+    sys.exit(1)
+
+if len(sys.argv) == 2:
+    fname = sys.argv[1]
+    sname = None
+else:
+    fname = sys.argv[2]
+    sname = sys.argv[1]
+
+font = fontforge.open(fname)
+sfnt = get_sfnt_dict(font)
+font.close()
+
+if sname:
+    for key in sname.split(','):
+        if key in sfnt:
+            print("SFNT {:20.20} is {:80.80}".format(key, '\'' + sfnt[key] + '\''));
+        else:
+            print("SFNT {:20.20} is not set".format(key));
+else:
+    for k in sfnt:
+        print("{:20.20} {:80.80}".format(k, sfnt[k]))
+

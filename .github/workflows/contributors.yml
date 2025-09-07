@@ -1,0 +1,46 @@
+name: Update contributors
+
+on:
+  push:
+     branches: [ master ]
+     paths:
+       - CONTRIBUTORS.md
+       - bin/scripts/update-all-contributors-website.py
+
+  workflow_dispatch:
+
+jobs:
+  do_update:
+    name: Update gh-pages contributors
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch pages from gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - name: Get details and script from default branch
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: bin/scripts
+          path: master
+      - name: Combine branches
+        run: |
+          mkdir -p bin
+          cp master/CONTRIBUTORS.md .
+          mv master/bin/scripts bin/scripts
+      - name: Update the page
+        run: |
+          cd bin/scripts
+          chmod u+x *
+          ls -l ../../_posts
+          ./update-all-contributors-website.py
+          ls -l ../../_posts
+      - name: Deploy page to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _posts
+          target-folder: _posts
+          commit-message: "[ci] Regenerate contributors"
+          git-config-name: GitHub Actions
+          git-config-email: 41898282+github-actions[bot]@users.noreply.github.com
+          clean: false

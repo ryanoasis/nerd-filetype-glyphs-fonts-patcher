@@ -1,0 +1,1 @@
+@font-face{font-family:'V233Symbols';src:url("../fonts/Symbols-2048-em Nerd Font Complete v233.woff2") format("woff2");font-weight:normal;font-style:normal}.nfold,.nerd-font,.nerd-fonts{font-family:'V233Symbols';font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}

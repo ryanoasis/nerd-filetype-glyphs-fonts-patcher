@@ -1,0 +1,78 @@
+--- gohufont-14.ttx	2024-06-11 21:49:37.271329386 +0200
++++ gohufont-14_.ttx	2024-06-11 22:01:46.502759124 +0200
+@@ -195,7 +195,7 @@
+     <GlyphID id="189" name="onequarter"/>
+     <GlyphID id="190" name="onehalf"/>
+     <GlyphID id="191" name="threequarters"/>
+-    <GlyphID id="192" name="question#1"/>
++    <GlyphID id="192" name="inverted"/>
+     <GlyphID id="193" name="Agrave"/>
+     <GlyphID id="194" name="Aacute"/>
+     <GlyphID id="195" name="Acircumflex"/>
+@@ -532,7 +532,7 @@
+     <mtx name="plusminus" width="1170" lsb="146"/>
+     <mtx name="q" width="1170" lsb="146"/>
+     <mtx name="question" width="1170" lsb="146"/>
+-    <mtx name="question#1" width="1170" lsb="146"/>
++    <mtx name="inverted" width="1170" lsb="146"/>
+     <mtx name="quotedbl" width="1170" lsb="293"/>
+     <mtx name="quotesingle" width="1170" lsb="439"/>
+     <mtx name="r" width="1170" lsb="146"/>
+@@ -701,7 +701,7 @@
+       <map code="0x3c" name="less"/><!-- LESS-THAN SIGN -->
+       <map code="0x3d" name="equal"/><!-- EQUALS SIGN -->
+       <map code="0x3e" name="greater"/><!-- GREATER-THAN SIGN -->
+-      <map code="0x3f" name="question#1"/><!-- QUESTION MARK -->
++      <map code="0x3f" name="question"/><!-- QUESTION MARK -->
+       <map code="0x40" name="at"/><!-- COMMERCIAL AT -->
+       <map code="0x41" name="A"/><!-- LATIN CAPITAL LETTER A -->
+       <map code="0x42" name="B"/><!-- LATIN CAPITAL LETTER B -->
+@@ -828,6 +828,7 @@
+       <map code="0xbc" name="onequarter"/><!-- VULGAR FRACTION ONE QUARTER -->
+       <map code="0xbd" name="onehalf"/><!-- VULGAR FRACTION ONE HALF -->
+       <map code="0xbe" name="threequarters"/><!-- VULGAR FRACTION THREE QUARTERS -->
++      <map code="0xbf" name="inverted"/><!-- INVERTED QUESTION MARK -->
+       <map code="0xc0" name="Agrave"/><!-- LATIN CAPITAL LETTER A WITH GRAVE -->
+       <map code="0xc1" name="Aacute"/><!-- LATIN CAPITAL LETTER A WITH ACUTE -->
+       <map code="0xc2" name="Acircumflex"/><!-- LATIN CAPITAL LETTER A WITH CIRCUMFLEX -->
+@@ -1166,7 +1167,7 @@
+       <map code="0x3c" name="less"/><!-- LESS-THAN SIGN -->
+       <map code="0x3d" name="equal"/><!-- EQUALS SIGN -->
+       <map code="0x3e" name="greater"/><!-- GREATER-THAN SIGN -->
+-      <map code="0x3f" name="question#1"/><!-- QUESTION MARK -->
++      <map code="0x3f" name="question"/><!-- QUESTION MARK -->
+       <map code="0x40" name="at"/><!-- COMMERCIAL AT -->
+       <map code="0x41" name="A"/><!-- LATIN CAPITAL LETTER A -->
+       <map code="0x42" name="B"/><!-- LATIN CAPITAL LETTER B -->
+@@ -1293,6 +1294,7 @@
+       <map code="0xbc" name="onequarter"/><!-- VULGAR FRACTION ONE QUARTER -->
+       <map code="0xbd" name="onehalf"/><!-- VULGAR FRACTION ONE HALF -->
+       <map code="0xbe" name="threequarters"/><!-- VULGAR FRACTION THREE QUARTERS -->
++      <map code="0xbf" name="inverted"/><!-- INVERTED QUESTION MARK -->
+       <map code="0xc0" name="Agrave"/><!-- LATIN CAPITAL LETTER A WITH GRAVE -->
+       <map code="0xc1" name="Aacute"/><!-- LATIN CAPITAL LETTER A WITH ACUTE -->
+       <map code="0xc2" name="Acircumflex"/><!-- LATIN CAPITAL LETTER A WITH CIRCUMFLEX -->
+@@ -9721,7 +9723,7 @@
+       <instructions/>
+     </TTGlyph>
+ 
+-    <TTGlyph name="question#1" xMin="146" yMin="1" xMax="1024" yMax="1464">
++    <TTGlyph name="inverted" xMin="146" yMin="1" xMax="1024" yMax="1464">
+       <contour>
+         <pt x="585" y="951" on="1"/>
+         <pt x="585" y="1025" on="1"/>
+@@ -11909,14 +11911,6 @@
+     <minMemType1 value="0"/>
+     <maxMemType1 value="0"/>
+     <psNames>
+-      <!-- This file uses unique glyph names based on the information
+-           found in the 'post' table. Since these names might not be unique,
+-           we have to invent artificial names in case of clashes. In order to
+-           be able to retain the original information, we need a name to
+-           ps name mapping for those cases where they differ. That's what
+-           you see below.
+-            -->
+-      <psName name="question#1" psName="question"/>
+     </psNames>
+     <extraNames>
+       <!-- following are the name that are not taken from the standard Mac glyph order -->

@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+# coding=utf8
+
+import fontforge
+import sys
+
+if len(sys.argv) != 2:
+    print("Usage: {} font_name\n".format(sys.argv[0]))
+    sys.exit(1)
+
+font = fontforge.open(sys.argv[1])
+
+panose = list(font.os2_panose)
+print("Panose 4 = {} in {}".format(panose[3], font.fullname))
+
+font.close()

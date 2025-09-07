@@ -1,0 +1,71 @@
+name: Docker release
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      # Keep this in line with .dockerignore
+      - bin/scripts/docker-entrypoint.sh
+      - bin/scripts/name_parser/Fontname*.py
+      - src/glyphs/**
+      - .dockerignore
+      - Dockerfile
+      - font-patcher
+  workflow_dispatch:
+
+jobs:
+  publish-image:
+    name: Publish image
+    runs-on: ubuntu-latest
+    if: ${{ github.repository_owner == 'ryanoasis' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Determine font-patcher version
+        id: patcher
+        run: |
+          ver_raw=$(grep "^\s*script_version\s*=\s*[\"'][0-9.]*[\"']" font-patcher)
+          echo "VERSION RAW ${ver_raw}"
+          ver=$(sed -E "s/.*[\"']([0-9.]+)[\"'].*/v\1/" <<< "$ver_raw")
+          echo "VERSION     ${ver}"
+          echo "version=${ver}" >> $GITHUB_OUTPUT
+
+        # Docker Meta provides automatic, standard tagging
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: nerdfonts/patcher
+          flavor: latest=true
+          tags: |
+            type=semver,pattern={{version}},value=${{ steps.patcher.outputs.version }}
+            type=raw,value=master,enable={{is_default_branch}}
+
+        # QEMU allows us to build container images for multiple architectures (amd64, ARM etc...)
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: linux/amd64,linux/arm64
+
+        # Docker Buildx provides Buildkit support
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          platforms: linux/amd64,linux/arm64
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PAT }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags:  ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

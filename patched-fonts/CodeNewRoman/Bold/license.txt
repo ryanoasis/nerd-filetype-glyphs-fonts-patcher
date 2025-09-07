@@ -1,0 +1,33 @@
+© 2014 Sam Radian. All Rights Reserved. 
+***
+C is either a registered trademark or a trademark of C font family in the Sri Lanka and/or other countries.
+***
+Code New Roman is aimed for use in programming environments and other circumstances where a monospaced font is specified. All characters have the same width, like old typewriters, making it a good choice for personal and business correspondance. This font improved and based on Mac OS Western New Roman,MONACO, Windows Consolas/Lusida Consolas, ABeeZee and Bitstream Vera Sans Mono.This font display allowed a design with proportions closer to normal text than traditional monospaced fonts like Courier. This allows for more comfortably reading of extended text on screen. OpenType features include hanging or lining numerals; slashed, dotted and normal zeros; and alternative shapes for a number of lowercase letters. The look of text can be tuned to personal taste by varying the number of bars and waves.
+***
+This font is freeware; you may redistribute and/or modify it under the terms of below,
+1. Integrates modify from Code New Roman.otf.
+2. Integrates/includes/aggregates C.ttf into a proprietary executable installer, such as Windows font weaver.
+3. Links to http://fb.com/Code.New.Roman
+This guarantees your right to use, modify, and redistribute this font under certain conditions.
+You may use this  font is included to display and print content. You may also can,
+(i) embed this font in content as permitted by the embedding restrictions included in this font; and 
+(ii) temporarily download this font to a printer or other output device to help print content.
+This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL
+
+Designer: SamRadian@gmail.com
+***
+http://scripts.sil.org/OFL
+***
+CNR- Code New Roman
+*** update are available
+http://smallapp.wordpress.com/code-new-roman
+***
+http://fb.com/sam.radian
+***
+
+tag
+***
+Code New Roman, is, aimed, for, use, in, programming, environments, and, other, circumstances, where, a, monospaced, font, is, specified,. All, characters, have, the, same, width, like, old, typewriters, making, it, a, good, choice, for, personal, and, business, correspondance, This, font, improved, and ,based on ,Mac OS ,Western, New Roman, MONACO, Windows, Consolas, Lusida, Consolas, ABeeZee, and Bitstream, Vera, Sans, Mono,.This, font ,display, allowed ,a ,design, with ,proportions ,closer ,to normal, text ,than ,traditional ,monospaced ,fonts, like ,Courier. ,This ,allows ,for ,more ,comfortably ,reading ,of, extended, text, on ,screen., OpenType ,features ,include, hanging ,or ,lining ,numerals; ,slashed, dotted, and ,normal, zeros; and ,alternative ,shapes, for, a ,number, of, lowercase ,letters. ,The ,look, of, text ,can, be, tuned, to, personal ,taste, by, varying, the ,number, of,bars ,and, waves,.
+
+download pages
+**************

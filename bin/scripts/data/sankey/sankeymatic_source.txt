@@ -1,0 +1,72 @@
+// SankeyMATIC diagram inputs - Saved: 11/21/2024, 1:47:46 PM
+// https://sankeymatic.com/build/
+
+// === Nodes and Flows ===
+
+    Powerline Symbols: 7 icons [7] Nerd Fonts: 10,390 icons
+    Powerline Extra Symbols: 33 icons [33] Nerd Fonts: 10,390 icons
+    Font Awesome: 1474 icons [1474] Nerd Fonts: 10,390 icons
+    Font Awesome Extension: 170 icons [170] Nerd Fonts: 10,390 icons
+    Devicons:496 icons [496] Nerd Fonts: 10,390 icons
+    Weather Icons: 228 icons [228] Nerd Fonts: 10,390 icons
+    Seti UI + Custom: 190 icons [190] Nerd Fonts: 10,390 icons
+    Octicons: 310 icons [310] Nerd Fonts: 10,390 icons
+    Font Logos: 130 icons [130] Nerd Fonts: 10,390 icons
+    IEC Power Symbols: 5 icons [5] Nerd Fonts: 10,390 icons
+    Pomicons: 11 icons [11] Nerd Fonts: 10,390 icons
+    Material Design: 6,896 icons [4119] Nerd Fonts: 10,390 icons
+    Codicons: 439 [439] Nerd Fonts: 10,390 icons
+
+// === Settings ===
+
+size w 600
+  h 764
+margin l 12
+  r 12
+  t 18
+  b 20
+bg color #ffffff
+  transparent N
+node w 18
+  h 53
+  spacing 71
+  border 0
+  theme a
+  color #888888
+  opacity 1
+flow curvature 0.7
+  inheritfrom source
+  color #999999
+  opacity 0.45
+layout order automatic
+  justifyorigins N
+  justifyends N
+  reversegraph N
+  attachincompletesto nearest
+labels color #000000
+  hide N
+  highlight 0.55
+  fontface monospace
+  linespacing 0.2
+  relativesize 100
+  magnify 100
+labelname appears Y
+  size 14
+  weight 400
+labelvalue appears N
+  fullprecision Y
+  position after
+  weight 400
+labelposition autoalign 0
+  scheme per_stage
+  first after
+  breakpoint 2
+value format ',.'
+  prefix ''
+  suffix ' icons'
+themeoffset a 0
+  b 0
+  c 0
+  d 7
+meta mentionsankeymatic N
+  listimbalances Y

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Gravit.io -->
+
+<svg
+   style="isolation:isolate"
+   viewBox="0 0 500 500"
+   width="500px"
+   height="500px"
+   version="1.1"
+   id="svg30"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5">
+    <clipPath
+       id="_clipPath_8TWIgR1z3pxinjWBiigzcEIrVJKv9Gq4">
+      <rect
+         width="500"
+         height="500"
+         id="rect2" />
+    </clipPath>
+    <defs
+       id="defs20">
+      <filter
+         id="Hmac7mZraFWHw0G84Yxj4QuzeTFp0E7Y"
+         x="-0.22015058"
+         y="-0.085804489"
+         width="1.4403012"
+         height="1.171609"
+         filterUnits="objectBoundingBox"
+         color-interpolation-filters="sRGB">
+        <feGaussianBlur
+           in="SourceGraphic"
+           stdDeviation="6.440413594258542"
+           id="feGaussianBlur9" />
+        <feOffset
+           dx="0"
+           dy="0"
+           result="pf_100_offsetBlur"
+           id="feOffset11" />
+        <feFlood
+           flood-color="#000000"
+           flood-opacity="0.65"
+           id="feFlood13" />
+        <feComposite
+           in2="pf_100_offsetBlur"
+           operator="in"
+           result="pf_100_dropShadow"
+           id="feComposite15" />
+        <feBlend
+           in="SourceGraphic"
+           in2="pf_100_dropShadow"
+           mode="normal"
+           id="feBlend17" />
+      </filter>
+    </defs>
+  </defs>
+  <path
+     id="path7"
+     style="fill-rule:evenodd"
+     d="M 457.5918 38.388672 C 456.79678 38.305576 455.94311 38.305203 455.03711 38.392578 L 340.78516 49.398438 C 333.53816 50.097437 325.71041 56.246094 323.31641 63.121094 L 261.41406 240.85547 L 327.25586 428.97656 L 463.70508 49.541016 C 465.8602 43.545516 463.15695 38.970342 457.5918 38.388672 z M 189.62109 446.98242 L 188.84375 449.2168 C 186.75991 455.19611 189.49486 460.18701 195.03125 461.38867 C 194.65288 460.69375 194.29937 459.98907 194.03711 459.25977 L 189.62109 446.98242 z " />
+  <path
+     d="M 44.963,38.392 159.214,49.398 C 166.461,50.097 174.298,56.243 176.704,63.115 L 314.022,455.448 C 315.224,458.885 313.245,461.673 309.604,461.673 H 197.695 C 190.414,461.673 182.502,456.111 180.038,449.259 L 36.295,49.541 C 33.832,42.689 37.715,37.693 44.963,38.392 Z"
+     fill="#5d87bf"
+     id="path26"
+     style="fill:#000001;fill-opacity:1" />
+</svg>

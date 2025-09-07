@@ -1,0 +1,53 @@
+name: Bug Report
+description: Help us improve by reporting an issue.
+
+body:
+  - type: checkboxes
+    attributes:
+      label: Requirements
+      options:
+        - label: "I have searched the [issues](https://github.com/ryanoasis/nerd-fonts/issues) for my issue and found nothing related or helpful"
+        - label: "I have searched the [FAQ](https://github.com/ryanoasis/nerd-fonts/wiki/FAQ-and-Troubleshooting) for help"
+        - label: "I have checked the [Wiki](https://github.com/ryanoasis/nerd-fonts/wiki) for help"
+
+  - type: textarea
+    attributes:
+      label: Experienced Behavior
+      description: Describe the issue you encountered.
+
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: Explain what you expected to happen.
+
+  - type: textarea
+    attributes:
+      label: Example Symbols or Text
+      description: Provide the codepoint of affected symbols or paste the text causing the issue (no screenshots).
+
+  - type: input
+    attributes:
+      label: Font Used
+      placeholder: Specify the exact name of the font file.
+
+  - type: input
+    attributes:
+      label: Source of Font File
+      placeholder: Link (if downloaded), self-patched, or source.
+
+  - type: input
+    attributes:
+      label: Terminal Emulator (and the title of the terminal window)
+      placeholder: Specify your terminal emulator (e.g., iTerm2, urxvt, kitty).
+
+  - type: input
+    attributes:
+      label: Operating System and Version
+      placeholder: Specify OS (e.g., macOS 14.5, Ubuntu 24.04, Windows 11).
+
+  - type: textarea
+    attributes:
+      label: Screenshots
+      description: |
+        Include any other relevant details or screenshots here.
+        Screenshots help tremendously. Try to include the title of terminal windows and possibly settings dialogues.

@@ -1,0 +1,18 @@
+---
+title: "Cheat Sheet"
+short_title: "Icons"
+bg: '#5e574b'
+color: '#69e8ff'
+fa-icon: search
+page: cheat-sheet
+style: container
+---
+
+<h1 class="center">Cheat Sheet</h1>
+
+<input type="text" id="glyphSearch" placeholder="Search for glyphs/icons here..." title="Type in a glyph name or hex codepoint" class="nerd-font-cheat-sheet-search nerd-font-input tertiary sanity-test" autofocus />
+
+<div id="glyphCheatSheet" class="nerd-font-cheat-sheet"></div>
+
+<script>
+const glyphs = {

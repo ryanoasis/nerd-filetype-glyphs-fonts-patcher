@@ -1,0 +1,38 @@
+name: "Shellcheck"
+
+on:
+  pull_request:
+    branches: [ master ]
+    paths:
+      - '**/*.sh'
+  workflow_dispatch:
+
+jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Check scripts (1/2)
+        run: |
+          shellcheck -V
+          rm -f sc.log
+          find . -path '*/bin/scripts/lib/*' -prune -o -name '*.sh' -print -exec bash -c 'shellcheck -f gcc -e SC2155 {} | tee -a sc.log' \;
+          # SC2155: Declare and assign separately to avoid masking return values
+
+      - name: Check scripts (2/2)
+        run: |
+          find bin/scripts/lib -name '*.sh' -not -name 'i_m*' -print -exec bash -c 'shellcheck -f gcc -e SC2034 {} | tee -a sc.log' \;
+          # SC2034: ... appears unused. Verify use (or export if used externally)
+
+      - name: Check for issues
+        run: |
+          num=$(wc -l < sc.log)
+          if [ "$num" -gt 0 ]; then
+            echo "Found $num messages from ShellCheck - please fix them"
+            exit 1
+          fi
+          echo "Found $num messages from ShellCheck, all good!"

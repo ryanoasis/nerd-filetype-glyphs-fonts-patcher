@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   viewBox="0 0 32 32"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs11" />
+  <style
+     id="style2">.st0{fill:#231f20}</style>
+  <path
+     id="path4"
+     class="st0"
+     d="M 15.5 6.5 L 7 15 L 15.599609 23.599609 L 15.599609 19.300781 L 11.300781 15 L 15.5 10.800781 L 15.5 6.5 z M 16.199219 6.5 L 16.199219 10.800781 L 20.5 15.099609 L 16.199219 19.400391 L 16.199219 23.699219 L 25 15 L 16.199219 6.5 z M 15.599609 11.900391 L 12.5 15 L 15.599609 18 L 15.599609 11.900391 z " />
+</svg>

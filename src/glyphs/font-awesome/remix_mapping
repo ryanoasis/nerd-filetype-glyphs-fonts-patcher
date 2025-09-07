@@ -1,0 +1,1937 @@
+# Intermediate mapping file
+#
+# FA-code NF-code filename FA-name
+#
+F000 F000 solid/martini-glass-empty.svg martini_glass_empty
+F001 F001 solid/music.svg music
+F002 F002 solid/magnifying-glass.svg magnifying_glass
+# RENAME envelope to envelope_o
+F003 F003 regular/envelope.svg envelope_o
+F004 F004 solid/heart.svg heart
+F005 F005 solid/star.svg star
+# RENAME star to star_o
+F006 F006 regular/star.svg star_o
+F007 F007 solid/user.svg user
+F008 F008 solid/film.svg film
+F009 F009 solid/table-cells-large.svg table_cells_large
+F00A F00A solid/table-cells.svg table_cells
+F00B F00B solid/table-list.svg table_list
+F00C F00C solid/check.svg check
+F00D F00D solid/xmark.svg xmark
+F00E F00E solid/magnifying-glass-plus.svg magnifying_glass_plus
+F010 F010 solid/magnifying-glass-minus.svg magnifying_glass_minus
+F011 F011 solid/power-off.svg power_off
+F012 F012 solid/signal.svg signal
+F013 F013 solid/gear.svg gear
+F014 F014 regular/trash-can.svg trash_can
+F015 F015 solid/house.svg house
+# RENAME file to file_o
+F016 F016 regular/file.svg file_o
+F017 F017 regular/clock.svg clock
+F018 F018 solid/road.svg road
+F019 F019 solid/download.svg download
+F01A F01A regular/circle-down.svg circle_down
+F01B F01B regular/circle-up.svg circle_up
+F01C F01C solid/inbox.svg inbox
+# RENAME circle_play to play_circle_o
+F01D F01D regular/circle-play.svg play_circle_o
+F01E F01E solid/arrow-rotate-right.svg arrow_rotate_right
+F021 F021 solid/arrows-rotate.svg arrows_rotate
+F022 F022 regular/rectangle-list.svg rectangle_list
+F023 F023 solid/lock.svg lock
+F024 F024 solid/flag.svg flag
+F025 F025 solid/headphones.svg headphones
+F026 F026 solid/volume-off.svg volume_off
+F027 F027 solid/volume-low.svg volume_low
+F028 F028 solid/volume-high.svg volume_high
+F029 F029 solid/qrcode.svg qrcode
+F02A F02A solid/barcode.svg barcode
+F02B F02B solid/tag.svg tag
+F02C F02C solid/tags.svg tags
+F02D F02D solid/book.svg book
+F02E F02E solid/bookmark.svg bookmark
+F02F F02F solid/print.svg print
+F030 F030 solid/camera.svg camera
+F031 F031 solid/font.svg font
+F032 F032 solid/bold.svg bold
+F033 F033 solid/italic.svg italic
+F034 F034 solid/text-height.svg text_height
+F035 F035 solid/text-width.svg text_width
+F036 F036 solid/align-left.svg align_left
+F037 F037 solid/align-center.svg align_center
+F038 F038 solid/align-right.svg align_right
+F039 F039 solid/align-justify.svg align_justify
+F03A F03A solid/list.svg list
+F03B F03B solid/outdent.svg outdent
+F03C F03C solid/indent.svg indent
+F03D F03D solid/video.svg video
+F03E F03E regular/image.svg image
+F040 F040 solid/pencil.svg pencil
+F041 F041 solid/location-pin.svg location_pin
+F042 F042 solid/circle-half-stroke.svg circle_half_stroke
+F043 F043 solid/droplet.svg droplet
+F044 F044 regular/pen-to-square.svg pen_to_square
+# RENAME share_from_square to share_square_o
+F045 F045 regular/share-from-square.svg share_square_o
+# RENAME square_check to check_square_o
+F046 F046 regular/square-check.svg check_square_o
+F047 F047 solid/arrows-up-down-left-right.svg arrows_up_down_left_right
+F048 F048 solid/backward-step.svg backward_step
+F049 F049 solid/backward-fast.svg backward_fast
+F04A F04A solid/backward.svg backward
+F04B F04B solid/play.svg play
+F04C F04C solid/pause.svg pause
+F04D F04D solid/stop.svg stop
+F04E F04E solid/forward.svg forward
+F050 F050 solid/forward-fast.svg forward_fast
+F051 F051 solid/forward-step.svg forward_step
+F052 F052 solid/eject.svg eject
+F053 F053 solid/chevron-left.svg chevron_left
+F054 F054 solid/chevron-right.svg chevron_right
+F055 F055 solid/circle-plus.svg circle_plus
+F056 F056 solid/circle-minus.svg circle_minus
+# RENAME circle_xmark to remove_sign
+F057 F057 solid/circle-xmark.svg remove_sign
+# RENAME circle_check to ok_sign
+F058 F058 solid/circle-check.svg ok_sign
+F059 F059 solid/circle-question.svg circle_question
+F05A F05A solid/circle-info.svg circle_info
+F05B F05B solid/crosshairs.svg crosshairs
+F05C F05C regular/circle-xmark.svg circle_xmark
+F05D F05D regular/circle-check.svg circle_check
+F05E F05E solid/ban.svg ban
+F060 F060 solid/arrow-left.svg arrow_left
+F061 F061 solid/arrow-right.svg arrow_right
+F062 F062 solid/arrow-up.svg arrow_up
+F063 F063 solid/arrow-down.svg arrow_down
+F064 F064 solid/share.svg share
+F065 F065 solid/expand.svg expand
+F066 F066 solid/compress.svg compress
+F067 F067 solid/plus.svg plus
+F068 F068 solid/minus.svg minus
+F069 F069 solid/asterisk.svg asterisk
+F06A F06A solid/circle-exclamation.svg circle_exclamation
+F06B F06B solid/gift.svg gift
+F06C F06C solid/leaf.svg leaf
+F06D F06D solid/fire.svg fire
+F06E F06E regular/eye.svg eye
+F070 F070 regular/eye-slash.svg eye_slash
+F071 F071 solid/triangle-exclamation.svg triangle_exclamation
+F072 F072 solid/plane.svg plane
+F073 F073 regular/calendar-days.svg calendar_days
+F074 F074 solid/shuffle.svg shuffle
+F075 F075 solid/comment.svg comment
+F076 F076 solid/magnet.svg magnet
+F077 F077 solid/chevron-up.svg chevron_up
+F078 F078 solid/chevron-down.svg chevron_down
+F079 F079 solid/retweet.svg retweet
+F07A F07A solid/cart-shopping.svg cart_shopping
+F07B F07B solid/folder.svg folder
+F07C F07C solid/folder-open.svg folder_open
+F07D F07D solid/arrows-up-down.svg arrows_up_down
+F07E F07E solid/arrows-left-right.svg arrows_left_right
+F080 F080 regular/chart-bar.svg chart_bar
+F081 F081 brands/square-twitter.svg square_twitter
+F082 F082 brands/square-facebook.svg square_facebook
+F083 F083 solid/camera-retro.svg camera_retro
+F084 F084 solid/key.svg key
+F085 F085 solid/gears.svg gears
+F086 F086 solid/comments.svg comments
+# RENAME thumbs_up to thumbs_o_up
+F087 F087 regular/thumbs-up.svg thumbs_o_up
+# RENAME thumbs_down to thumbs_o_down
+F088 F088 regular/thumbs-down.svg thumbs_o_down
+F089 F089 solid/star-half.svg star_half
+# RENAME heart to heard_o
+F08A F08A regular/heart.svg heard_o
+F08B F08B solid/arrow-right-from-bracket.svg arrow_right_from_bracket
+# RENAME linkedin to linkedin_square
+F08C F08C brands/linkedin.svg linkedin_square
+F08D F08D solid/thumbtack.svg thumbtack
+F08E F08E solid/arrow-up-right-from-square.svg arrow_up_right_from_square
+F090 F090 solid/arrow-right-to-bracket.svg arrow_right_to_bracket
+F091 F091 solid/trophy.svg trophy
+F092 F092 brands/square-github.svg square_github
+F093 F093 solid/upload.svg upload
+F094 F094 regular/lemon.svg lemon
+F095 F095 solid/phone.svg phone
+# RENAME square to square_o
+F096 F096 regular/square.svg square_o
+# RENAME bookmark to bookmark_o
+F097 F097 regular/bookmark.svg bookmark_o
+F098 F098 solid/square-phone.svg square_phone
+F099 F099 brands/twitter.svg twitter
+F09A F09A brands/facebook.svg facebook
+F09B F09B brands/github.svg github
+F09C F09C solid/unlock.svg unlock
+F09D F09D regular/credit-card.svg credit_card
+F09E F09E solid/rss.svg rss
+F0A0 F0A0 regular/hard-drive.svg hard_drive
+F0A1 F0A1 solid/bullhorn.svg bullhorn
+# RENAME bell to bell_o
+F0A2 F0A2 regular/bell.svg bell_o
+F0A3 F0A3 solid/certificate.svg certificate
+F0A4 F0A4 regular/hand-point-right.svg hand_point_right
+F0A5 F0A5 regular/hand-point-left.svg hand_point_left
+F0A6 F0A6 regular/hand-point-up.svg hand_point_up
+F0A7 F0A7 regular/hand-point-down.svg hand_point_down
+F0A8 F0A8 solid/circle-arrow-left.svg circle_arrow_left
+F0A9 F0A9 solid/circle-arrow-right.svg circle_arrow_right
+F0AA F0AA solid/circle-arrow-up.svg circle_arrow_up
+F0AB F0AB solid/circle-arrow-down.svg circle_arrow_down
+F0AC F0AC solid/globe.svg globe
+F0AD F0AD solid/wrench.svg wrench
+F0AE F0AE solid/list-check.svg list_check
+F0B0 F0B0 solid/filter.svg filter
+F0B1 F0B1 solid/briefcase.svg briefcase
+F0B2 F0B2 solid/up-down-left-right.svg up_down_left_right
+F0C0 F0C0 solid/users.svg users
+F0C1 F0C1 solid/link.svg link
+F0C2 F0C2 solid/cloud.svg cloud
+F0C3 F0C3 solid/flask.svg flask
+F0C4 F0C4 solid/scissors.svg scissors
+F0C5 F0C5 regular/copy.svg copy
+F0C6 F0C6 solid/paperclip.svg paperclip
+F0C7 F0C7 regular/floppy-disk.svg floppy_disk
+F0C8 F0C8 solid/square.svg square
+F0C9 F0C9 solid/bars.svg bars
+F0CA F0CA solid/list-ul.svg list_ul
+F0CB F0CB solid/list-ol.svg list_ol
+F0CC F0CC solid/strikethrough.svg strikethrough
+F0CD F0CD solid/underline.svg underline
+F0CE F0CE solid/table.svg table
+F0D0 F0D0 solid/wand-magic.svg wand_magic
+F0D1 F0D1 solid/truck.svg truck
+F0D2 F0D2 brands/pinterest.svg pinterest
+F0D3 F0D3 brands/square-pinterest.svg square_pinterest
+F0D4 F0D4 brands/square-google-plus.svg square_google_plus
+# RENAME google_plus_g to google_plus
+F0D5 F0D5 brands/google-plus-g.svg google_plus
+F0D6 F0D6 solid/money-bill.svg money_bill
+F0D7 F0D7 solid/caret-down.svg caret_down
+F0D8 F0D8 solid/caret-up.svg caret_up
+F0D9 F0D9 solid/caret-left.svg caret_left
+F0DA F0DA solid/caret-right.svg caret_right
+F0DB F0DB solid/table-columns.svg table_columns
+F0DC F0DC solid/sort.svg sort
+F0DD F0DD solid/sort-down.svg sort_down
+F0DE F0DE solid/sort-up.svg sort_up
+F0E0 F0E0 solid/envelope.svg envelope
+F0E1 F0E1 brands/linkedin-in.svg linkedin_in
+F0E2 F0E2 solid/arrow-rotate-left.svg arrow_rotate_left
+F0E3 F0E3 solid/gavel.svg gavel
+F0E4 F0E4 solid/gauge-simple-high.svg gauge_simple_high
+# RENAME comment to comment_o
+F0E5 F0E5 regular/comment.svg comment_o
+# RENAME comments to comments_o
+F0E6 F0E6 regular/comments.svg comments_o
+F0E7 F0E7 solid/bolt.svg bolt
+F0E8 F0E8 solid/sitemap.svg sitemap
+F0E9 F0E9 solid/umbrella.svg umbrella
+F0EA F0EA solid/paste.svg paste
+F0EB F0EB regular/lightbulb.svg lightbulb
+F0EC F0EC solid/arrow-right-arrow-left.svg arrow_right_arrow_left
+F0ED F0ED solid/cloud-arrow-down.svg cloud_arrow_down
+F0EE F0EE solid/cloud-arrow-up.svg cloud_arrow_up
+F0F0 F0F0 solid/user-doctor.svg user_doctor
+F0F1 F0F1 solid/stethoscope.svg stethoscope
+F0F2 F0F2 solid/suitcase.svg suitcase
+F0F3 F0F3 solid/bell.svg bell
+F0F4 F0F4 solid/mug-saucer.svg mug_saucer
+F0F5 F0F5 solid/utensils.svg utensils
+# RENAME file_lines to file_text_o
+F0F6 F0F6 regular/file-lines.svg file_text_o
+# RENAME building to building_o
+F0F7 F0F7 regular/building.svg building_o
+F0F8 F0F8 regular/hospital.svg hospital
+F0F9 F0F9 solid/truck-medical.svg truck_medical
+F0FA F0FA solid/suitcase-medical.svg suitcase_medical
+F0FB F0FB solid/jet-fighter.svg jet_fighter
+F0FC F0FC solid/beer-mug-empty.svg beer_mug_empty
+F0FD F0FD solid/square-h.svg square_h
+F0FE F0FE solid/square-plus.svg square_plus
+F100 F100 solid/angles-left.svg angles_left
+F101 F101 solid/angles-right.svg angles_right
+F102 F102 solid/angles-up.svg angles_up
+F103 F103 solid/angles-down.svg angles_down
+F104 F104 solid/angle-left.svg angle_left
+F105 F105 solid/angle-right.svg angle_right
+F106 F106 solid/angle-up.svg angle_up
+F107 F107 solid/angle-down.svg angle_down
+F108 F108 solid/desktop.svg desktop
+F109 F109 solid/laptop.svg laptop
+F3FA F10A solid/tablet-screen-button.svg tablet_screen_button
+F3CD F10B solid/mobile-screen-button.svg mobile_screen_button
+# RENAME circle to circle_o
+F10C F10C regular/circle.svg circle_o
+F10D F10D solid/quote-left.svg quote_left
+F10E F10E solid/quote-right.svg quote_right
+F110 F110 solid/spinner.svg spinner
+F111 F111 solid/circle.svg circle
+F112 F112 solid/reply.svg reply
+F113 F113 brands/github-alt.svg github_alt
+# RENAME folder to folder_o
+F114 F114 regular/folder.svg folder_o
+# RENAME folder_open to folder_open_o
+F115 F115 regular/folder-open.svg folder_open_o
+F118 F118 regular/face-smile.svg face_smile
+F119 F119 regular/face-frown.svg face_frown
+F11A F11A regular/face-meh.svg face_meh
+F11B F11B solid/gamepad.svg gamepad
+F11C F11C regular/keyboard.svg keyboard
+# RENAME flag to flag_o
+F11D F11D regular/flag.svg flag_o
+F11E F11E solid/flag-checkered.svg flag_checkered
+F120 F120 solid/terminal.svg terminal
+F121 F121 solid/code.svg code
+F122 F122 solid/reply-all.svg reply_all
+# RENAME star_half to star_half_o
+F123 F123 regular/star-half.svg star_half_o
+F124 F124 solid/location-arrow.svg location_arrow
+F125 F125 solid/crop.svg crop
+F126 F126 solid/code-branch.svg code_branch
+F127 F127 solid/link-slash.svg link_slash
+F128 F128 solid/question.svg question
+F129 F129 solid/info.svg info
+F12A F12A solid/exclamation.svg exclamation
+F12B F12B solid/superscript.svg superscript
+F12C F12C solid/subscript.svg subscript
+F12D F12D solid/eraser.svg eraser
+F12E F12E solid/puzzle-piece.svg puzzle_piece
+F130 F130 solid/microphone.svg microphone
+F131 F131 solid/microphone-slash.svg microphone_slash
+F132 F132 solid/shield.svg shield
+# RENAME calendar to calendar_o
+F133 F133 regular/calendar.svg calendar_o
+F134 F134 solid/fire-extinguisher.svg fire_extinguisher
+F135 F135 solid/rocket.svg rocket
+F136 F136 brands/maxcdn.svg maxcdn
+F137 F137 solid/circle-chevron-left.svg circle_chevron_left
+F138 F138 solid/circle-chevron-right.svg circle_chevron_right
+F139 F139 solid/circle-chevron-up.svg circle_chevron_up
+F13A F13A solid/circle-chevron-down.svg circle_chevron_down
+F13B F13B brands/html5.svg html5
+F13C F13C brands/css3.svg css3
+F13D F13D solid/anchor.svg anchor
+F13E F13E solid/unlock-keyhole.svg unlock_keyhole
+F140 F140 solid/bullseye.svg bullseye
+F141 F141 solid/ellipsis.svg ellipsis
+F142 F142 solid/ellipsis-vertical.svg ellipsis_vertical
+F143 F143 solid/square-rss.svg square_rss
+F144 F144 solid/circle-play.svg circle_play
+F145 F145 solid/ticket.svg ticket
+F146 F146 solid/square-minus.svg square_minus
+# RENAME square_minus to minus_square_o
+F147 F147 regular/square-minus.svg minus_square_o
+F148 F148 solid/arrow-turn-up.svg arrow_turn_up
+F149 F149 solid/arrow-turn-down.svg arrow_turn_down
+F14A F14A solid/square-check.svg square_check
+F14B F14B solid/square-pen.svg square_pen
+F14C F14C solid/square-arrow-up-right.svg square_arrow_up_right
+F14D F14D solid/share-from-square.svg share_from_square
+F14E F14E regular/compass.svg compass
+F150 F150 regular/square-caret-down.svg square_caret_down
+F151 F151 regular/square-caret-up.svg square_caret_up
+F152 F152 regular/square-caret-right.svg square_caret_right
+F153 F153 solid/euro-sign.svg euro_sign
+F154 F154 solid/sterling-sign.svg sterling_sign
+F155 F155 solid/dollar-sign.svg dollar_sign
+F156 F156 solid/rupee-sign.svg rupee_sign
+F157 F157 solid/yen-sign.svg yen_sign
+F158 F158 solid/ruble-sign.svg ruble_sign
+F159 F159 solid/won-sign.svg won_sign
+F15A F15A brands/btc.svg btc
+F15B F15B solid/file.svg file
+F15C F15C solid/file-lines.svg file_lines
+F15D F15D solid/arrow-down-a-z.svg arrow_down_a_z
+F15E F15E solid/arrow-up-a-z.svg arrow_up_a_z
+F160 F160 solid/arrow-down-wide-short.svg arrow_down_wide_short
+F161 F161 solid/arrow-up-wide-short.svg arrow_up_wide_short
+F162 F162 solid/arrow-down-1-9.svg arrow_down_1_9
+F163 F163 solid/arrow-up-1-9.svg arrow_up_1_9
+F164 F164 solid/thumbs-up.svg thumbs_up
+F165 F165 solid/thumbs-down.svg thumbs_down
+F166 F166 brands/square-youtube.svg square_youtube
+F167 F16A brands/youtube.svg youtube
+F168 F168 brands/xing.svg xing
+F169 F169 brands/square-xing.svg square_xing
+F16B F16B brands/dropbox.svg dropbox
+F16C F16C brands/stack-overflow.svg stack_overflow
+F16D F16D brands/instagram.svg instagram
+F16E F16E brands/flickr.svg flickr
+F170 F170 brands/adn.svg adn
+F171 F171 brands/bitbucket.svg bitbucket
+F173 F173 brands/tumblr.svg tumblr
+F174 F174 brands/square-tumblr.svg square_tumblr
+F175 F175 solid/arrow-down-long.svg arrow_down_long
+F176 F176 solid/arrow-up-long.svg arrow_up_long
+F177 F177 solid/arrow-left-long.svg arrow_left_long
+F178 F178 solid/arrow-right-long.svg arrow_right_long
+F179 F179 brands/apple.svg apple
+F17A F17A brands/windows.svg windows
+F17B F17B brands/android.svg android
+F17C F17C brands/linux.svg linux
+F17D F17D brands/dribbble.svg dribbble
+F17E F17E brands/skype.svg skype
+F180 F180 brands/foursquare.svg foursquare
+F181 F181 brands/trello.svg trello
+F182 F182 solid/person-dress.svg person_dress
+F183 F183 solid/person.svg person
+F184 F184 brands/gratipay.svg gratipay
+F185 F185 regular/sun.svg sun
+F186 F186 regular/moon.svg moon
+F187 F187 solid/box-archive.svg box_archive
+F188 F188 solid/bug.svg bug
+F189 F189 brands/vk.svg vk
+F18A F18A brands/weibo.svg weibo
+F18B F18B brands/renren.svg renren
+F18C F18C brands/pagelines.svg pagelines
+F18D F18D brands/stack-exchange.svg stack_exchange
+F18E F18E regular/circle-right.svg circle_right
+F190 F190 regular/circle-left.svg circle_left
+F191 F191 regular/square-caret-left.svg square_caret_left
+F192 F192 regular/circle-dot.svg circle_dot
+F193 F193 solid/wheelchair.svg wheelchair
+F194 F194 brands/square-vimeo.svg square_vimeo
+F195 F195 solid/lira-sign.svg lira_sign
+# RENAME square_plus to plus_square_o
+F196 F196 regular/square-plus.svg plus_square_o
+F197 F197 solid/shuttle-space.svg shuttle_space
+F198 F198 brands/slack.svg slack
+F199 F199 solid/square-envelope.svg square_envelope
+F19A F19A brands/wordpress.svg wordpress
+F19B F19B brands/openid.svg openid
+F19C F19C solid/building-columns.svg building_columns
+F19D F19D solid/graduation-cap.svg graduation_cap
+F19E F19E brands/yahoo.svg yahoo
+F1A0 F1A0 brands/google.svg google
+F1A1 F1A1 brands/reddit.svg reddit
+F1A2 F1A2 brands/square-reddit.svg square_reddit
+F1A3 F1A3 brands/stumbleupon-circle.svg stumbleupon_circle
+F1A4 F1A4 brands/stumbleupon.svg stumbleupon
+F1A5 F1A5 brands/delicious.svg delicious
+F1A6 F1A6 brands/digg.svg digg
+F1A7 F1A7 brands/pied-piper-pp.svg pied_piper_pp
+F1A8 F1A8 brands/pied-piper-alt.svg pied_piper_alt
+F1A9 F1A9 brands/drupal.svg drupal
+F1AA F1AA brands/joomla.svg joomla
+F1AB F1AB solid/language.svg language
+F1AC F1AC solid/fax.svg fax
+F1AD F1AD solid/building.svg building
+F1AE F1AE solid/child.svg child
+F1B0 F1B0 solid/paw.svg paw
+F1B1 F1B1 solid/spoon.svg spoon
+F1B2 F1B2 solid/cube.svg cube
+F1B3 F1B3 solid/cubes.svg cubes
+F1B4 F1B4 brands/behance.svg behance
+F1B5 F1B5 brands/square-behance.svg square_behance
+F1B6 F1B6 brands/steam.svg steam
+F1B7 F1B7 brands/square-steam.svg square_steam
+F1B8 F1B8 solid/recycle.svg recycle
+F1B9 F1B9 solid/car.svg car
+F1BA F1BA solid/taxi.svg taxi
+F1BB F1BB solid/tree.svg tree
+F1BC F1BC brands/spotify.svg spotify
+F1BD F1BD brands/deviantart.svg deviantart
+F1BE F1BE brands/soundcloud.svg soundcloud
+F1C0 F1C0 solid/database.svg database
+F1C1 F1C1 regular/file-pdf.svg file_pdf
+F1C2 F1C2 regular/file-word.svg file_word
+F1C3 F1C3 regular/file-excel.svg file_excel
+F1C4 F1C4 regular/file-powerpoint.svg file_powerpoint
+F1C5 F1C5 regular/file-image.svg file_image
+F1C6 F1C6 regular/file-zipper.svg file_zipper
+F1C7 F1C7 regular/file-audio.svg file_audio
+F1C8 F1C8 regular/file-video.svg file_video
+F1C9 F1C9 regular/file-code.svg file_code
+F1CA F1CA brands/vine.svg vine
+F1CB F1CB brands/codepen.svg codepen
+F1CC F1CC brands/jsfiddle.svg jsfiddle
+F1CD F1CD regular/life-ring.svg life_ring
+F1CE F1CE solid/circle-notch.svg circle_notch
+F1D0 F1D0 brands/rebel.svg rebel
+F1D1 F1D1 brands/empire.svg empire
+F1D2 F1D2 brands/square-git.svg square_git
+F1D3 F1D3 brands/git.svg git
+F1D4 F1D4 brands/hacker-news.svg hacker_news
+F1D5 F1D5 brands/tencent-weibo.svg tencent_weibo
+F1D6 F1D6 brands/qq.svg qq
+F1D7 F1D7 brands/weixin.svg weixin
+F1D8 F1D8 solid/paper-plane.svg paper_plane
+# RENAME paper_plane to paper_plane_o
+F1D9 F1D9 regular/paper-plane.svg paper_plane_o
+F1DA F1DA solid/clock-rotate-left.svg clock_rotate_left
+# RENAME circle to circle_thin
+F1DB F1DB regular/circle.svg circle_thin
+F1DC F1DC solid/heading.svg heading
+F1DD F1DD solid/paragraph.svg paragraph
+F1DE F1DE solid/sliders.svg sliders
+F1E0 F1E0 solid/share-nodes.svg share_nodes
+F1E1 F1E1 solid/square-share-nodes.svg square_share_nodes
+F1E2 F1E2 solid/bomb.svg bomb
+F1E3 F1E3 regular/futbol.svg futbol
+F1E4 F1E4 solid/tty.svg tty
+F1E5 F1E5 solid/binoculars.svg binoculars
+F1E6 F1E6 solid/plug.svg plug
+F1E7 F1E7 brands/slideshare.svg slideshare
+F1E8 F1E8 brands/twitch.svg twitch
+F1E9 F1E9 brands/yelp.svg yelp
+F1EA F1EA regular/newspaper.svg newspaper
+F1EB F1EB solid/wifi.svg wifi
+F1EC F1EC solid/calculator.svg calculator
+F1ED F1ED brands/paypal.svg paypal
+F1EE F1EE brands/google-wallet.svg google_wallet
+F1F0 F1F0 brands/cc-visa.svg cc_visa
+F1F1 F1F1 brands/cc-mastercard.svg cc_mastercard
+F1F2 F1F2 brands/cc-discover.svg cc_discover
+F1F3 F1F3 brands/cc-amex.svg cc_amex
+F1F4 F1F4 brands/cc-paypal.svg cc_paypal
+F1F5 F1F5 brands/cc-stripe.svg cc_stripe
+F1F6 F1F6 solid/bell-slash.svg bell_slash
+# RENAME bell_slash to bell_slash_o
+F1F7 F1F7 regular/bell-slash.svg bell_slash_o
+F1F8 F1F8 solid/trash.svg trash
+F1F9 F1F9 regular/copyright.svg copyright
+F1FA F1FA solid/at.svg at
+F1FB F1FB solid/eye-dropper.svg eye_dropper
+F1FC F1FC solid/paintbrush.svg paintbrush
+F1FD F1FD solid/cake-candles.svg cake_candles
+F1FE F1FE solid/chart-area.svg chart_area
+F200 F200 solid/chart-pie.svg chart_pie
+F201 F201 solid/chart-line.svg chart_line
+F202 F202 brands/lastfm.svg lastfm
+F203 F203 brands/square-lastfm.svg square_lastfm
+F204 F204 solid/toggle-off.svg toggle_off
+F205 F205 solid/toggle-on.svg toggle_on
+F206 F206 solid/bicycle.svg bicycle
+F207 F207 solid/bus.svg bus
+F208 F208 brands/ioxhost.svg ioxhost
+F209 F209 brands/angellist.svg angellist
+F20A F20A regular/closed-captioning.svg closed_captioning
+F20B F20B solid/shekel-sign.svg shekel_sign
+F20D F20D brands/buysellads.svg buysellads
+F20E F20E brands/connectdevelop.svg connectdevelop
+F210 F210 brands/dashcube.svg dashcube
+F211 F211 brands/forumbee.svg forumbee
+F212 F212 brands/leanpub.svg leanpub
+F213 F213 brands/sellsy.svg sellsy
+F214 F214 brands/shirtsinbulk.svg shirtsinbulk
+F215 F215 brands/simplybuilt.svg simplybuilt
+F216 F216 brands/skyatlas.svg skyatlas
+F217 F217 solid/cart-plus.svg cart_plus
+F218 F218 solid/cart-arrow-down.svg cart_arrow_down
+F3A5 F219 regular/gem.svg gem
+F21A F21A solid/ship.svg ship
+F21B F21B solid/user-secret.svg user_secret
+F21C F21C solid/motorcycle.svg motorcycle
+F21D F21D solid/street-view.svg street_view
+F21E F21E solid/heart-pulse.svg heart_pulse
+F221 F221 solid/venus.svg venus
+F222 F222 solid/mars.svg mars
+F223 F223 solid/mercury.svg mercury
+# RENAME mars_and_venus to transgender
+F224 F224 solid/mars-and-venus.svg transgender
+# RENAME transgender to transgender_alt
+F225 F225 solid/transgender.svg transgender_alt
+F226 F226 solid/venus-double.svg venus_double
+F227 F227 solid/mars-double.svg mars_double
+F228 F228 solid/venus-mars.svg venus_mars
+F229 F229 solid/mars-stroke.svg mars_stroke
+F22A F22A solid/mars-stroke-up.svg mars_stroke_up
+F22B F22B solid/mars-stroke-right.svg mars_stroke_right
+F22C F22C solid/neuter.svg neuter
+F22D F22D solid/genderless.svg genderless
+F231 F231 brands/pinterest-p.svg pinterest_p
+F232 F232 brands/whatsapp.svg whatsapp
+F233 F233 solid/server.svg server
+F234 F234 solid/user-plus.svg user_plus
+F235 F235 solid/user-xmark.svg user_xmark
+F236 F236 solid/bed.svg bed
+F237 F237 brands/viacoin.svg viacoin
+F238 F238 solid/train.svg train
+F239 F239 solid/train-subway.svg train_subway
+F23A F23A brands/medium.svg medium
+F23B F23B brands/y-combinator.svg y_combinator
+F23C F23C brands/optin-monster.svg optin_monster
+F23D F23D brands/opencart.svg opencart
+F23E F23E brands/expeditedssl.svg expeditedssl
+F240 F240 solid/battery-full.svg battery_full
+F241 F241 solid/battery-three-quarters.svg battery_three_quarters
+F242 F242 solid/battery-half.svg battery_half
+F243 F243 solid/battery-quarter.svg battery_quarter
+F244 F244 solid/battery-empty.svg battery_empty
+F245 F245 solid/arrow-pointer.svg arrow_pointer
+F246 F246 solid/i-cursor.svg i_cursor
+F247 F247 regular/object-group.svg object_group
+F248 F248 regular/object-ungroup.svg object_ungroup
+F249 F249 solid/note-sticky.svg note_sticky
+# RENAME note_sticky to sticky_note_o
+F24A F24A regular/note-sticky.svg sticky_note_o
+F24B F24B brands/cc-jcb.svg cc_jcb
+F24C F24C brands/cc-diners-club.svg cc_diners_club
+F24D F24D regular/clone.svg clone
+F24E F24E solid/scale-balanced.svg scale_balanced
+# RENAME hourglass to hourglass_o
+F250 F250 regular/hourglass.svg hourglass_o
+F251 F251 solid/hourglass-start.svg hourglass_start
+F252 F252 regular/hourglass-half.svg hourglass_half
+F253 F253 solid/hourglass-end.svg hourglass_end
+F254 F254 solid/hourglass.svg hourglass
+F255 F255 regular/hand-back-fist.svg hand_back_fist
+F256 F256 regular/hand.svg hand
+F257 F257 regular/hand-scissors.svg hand_scissors
+F258 F258 regular/hand-lizard.svg hand_lizard
+F259 F259 regular/hand-spock.svg hand_spock
+F25A F25A regular/hand-pointer.svg hand_pointer
+F25B F25B regular/hand-peace.svg hand_peace
+F25C F25C solid/trademark.svg trademark
+F25D F25D regular/registered.svg registered
+F25E F25E brands/creative-commons.svg creative_commons
+F260 F260 brands/gg.svg gg
+F261 F261 brands/gg-circle.svg gg_circle
+F263 F263 brands/odnoklassniki.svg odnoklassniki
+F264 F264 brands/square-odnoklassniki.svg square_odnoklassniki
+F265 F265 brands/get-pocket.svg get_pocket
+F266 F266 brands/wikipedia-w.svg wikipedia_w
+F267 F267 brands/safari.svg safari
+F268 F268 brands/chrome.svg chrome
+F269 F269 brands/firefox.svg firefox
+F26A F26A brands/opera.svg opera
+F26B F26B brands/internet-explorer.svg internet_explorer
+F26C F26C solid/tv.svg tv
+F26D F26D brands/contao.svg contao
+F26E F26E brands/500px.svg 500px
+F270 F270 brands/amazon.svg amazon
+F271 F271 regular/calendar-plus.svg calendar_plus
+F272 F272 regular/calendar-minus.svg calendar_minus
+F273 F273 regular/calendar-xmark.svg calendar_xmark
+F274 F274 regular/calendar-check.svg calendar_check
+F275 F275 solid/industry.svg industry
+F276 F276 solid/map-pin.svg map_pin
+F277 F277 solid/signs-post.svg signs_post
+# RENAME map to map_o
+F278 F278 regular/map.svg map_o
+F279 F279 solid/map.svg map
+F27A F27A solid/message.svg message
+F27B F27B regular/comment-dots.svg comment_dots
+F27C F27C brands/houzz.svg houzz
+F27D F27D brands/vimeo-v.svg vimeo_v
+F27E F27E brands/black-tie.svg black_tie
+F280 F280 brands/fonticons.svg fonticons
+F281 F281 brands/reddit-alien.svg reddit_alien
+F282 F282 brands/edge.svg edge
+# RENAME credit_card to credit_card_alt
+F283 F283 solid/credit-card.svg credit_card_alt
+F284 F284 brands/codiepie.svg codiepie
+F285 F285 brands/modx.svg modx
+F286 F286 brands/fort-awesome.svg fort_awesome
+F287 F287 brands/usb.svg usb
+F288 F288 brands/product-hunt.svg product_hunt
+F289 F289 brands/mixcloud.svg mixcloud
+F28A F28A brands/scribd.svg scribd
+F28B F28B solid/circle-pause.svg circle_pause
+# RENAME circle_pause to pause_circle_o
+F28C F28C regular/circle-pause.svg pause_circle_o
+F28D F28D solid/circle-stop.svg circle_stop
+# RENAME circle_stop to stop_circle_o
+F28E F28E regular/circle-stop.svg stop_circle_o
+F290 F290 solid/bag-shopping.svg bag_shopping
+F291 F291 solid/basket-shopping.svg basket_shopping
+F292 F292 solid/hashtag.svg hashtag
+F293 F293 brands/bluetooth.svg bluetooth
+F294 F294 brands/bluetooth-b.svg bluetooth_b
+F295 F295 solid/percent.svg percent
+F296 F296 brands/gitlab.svg gitlab
+F297 F297 brands/wpbeginner.svg wpbeginner
+F298 F298 brands/wpforms.svg wpforms
+F299 F299 brands/envira.svg envira
+F29A F29A solid/universal-access.svg universal_access
+F29B F29B brands/accessible-icon.svg accessible_icon
+# RENAME circle_question to question_circle_o
+F29C F29C regular/circle-question.svg question_circle_o
+F29D F29D solid/person-walking-with-cane.svg person_walking_with_cane
+F29E F29E solid/audio-description.svg audio_description
+F2A0 F2A0 solid/phone-volume.svg phone_volume
+F2A1 F2A1 solid/braille.svg braille
+F2A2 F2A2 solid/ear-listen.svg ear_listen
+F2A3 F2A3 solid/hands-asl-interpreting.svg hands_asl_interpreting
+F2A4 F2A4 solid/ear-deaf.svg ear_deaf
+F2A5 F2A5 brands/glide.svg glide
+F2A6 F2A6 brands/glide-g.svg glide_g
+F2A7 F2A7 solid/hands.svg hands
+F2A8 F2A8 solid/eye-low-vision.svg eye_low_vision
+F2A9 F2A9 brands/viadeo.svg viadeo
+F2AA F2AA brands/square-viadeo.svg square_viadeo
+F2AB F2AB brands/snapchat.svg snapchat
+F2AD F2AD brands/square-snapchat.svg square_snapchat
+F2AE F2AE brands/pied-piper.svg pied_piper
+F2B0 F2B0 brands/first-order.svg first_order
+F2B1 F2B1 brands/yoast.svg yoast
+F2B2 F2B2 brands/themeisle.svg themeisle
+# RENAME google_plus to google_plus_circle
+F2B3 F2B3 brands/google-plus.svg google_plus_circle
+F2B4 F2B4 solid/font-awesome.svg font_awesome
+F2B5 F2B5 regular/handshake.svg handshake
+F2B6 F2B6 solid/envelope-open.svg envelope_open
+# RENAME envelope_open to envelope_open_o
+F2B7 F2B7 regular/envelope-open.svg envelope_open_o
+F2B8 F2B8 brands/linode.svg linode
+F2B9 F2B9 solid/address-book.svg address_book
+# RENAME address_book to address_book_o
+F2BA F2BA regular/address-book.svg address_book_o
+F2BB F2BB solid/address-card.svg address_card
+# RENAME address_card to address_card_o
+F2BC F2BC regular/address-card.svg address_card_o
+F2BD F2BD solid/circle-user.svg circle_user
+# RENAME circle_user to user_circle_o
+F2BE F2BE regular/circle-user.svg user_circle_o
+# RENAME user to user_o
+F2C0 F2C0 regular/user.svg user_o
+F2C1 F2C1 regular/id-badge.svg id_badge
+F2C2 F2C2 solid/id-card.svg id_card
+# RENAME id_card to id_card_o
+F2C3 F2C3 regular/id-card.svg id_card_o
+F2C4 F2C4 brands/quora.svg quora
+F2C5 F2C5 brands/free-code-camp.svg free_code_camp
+F2C6 F2C6 brands/telegram.svg telegram
+F2C7 F2C7 solid/temperature-full.svg temperature_full
+F2C8 F2C8 solid/temperature-three-quarters.svg temperature_three_quarters
+F2C9 F2C9 solid/temperature-half.svg temperature_half
+F2CA F2CA solid/temperature-quarter.svg temperature_quarter
+F2CB F2CB solid/temperature-empty.svg temperature_empty
+F2CC F2CC solid/shower.svg shower
+F2CD F2CD solid/bath.svg bath
+F2CE F2CE solid/podcast.svg podcast
+F2D0 F2D0 regular/window-maximize.svg window_maximize
+F2D1 F2D1 regular/window-minimize.svg window_minimize
+F2D2 F2D2 regular/window-restore.svg window_restore
+F2D3 F2D3 solid/square-xmark.svg square_xmark
+F2D4 F2D4 regular/rectangle-xmark.svg rectangle_xmark
+F2D5 F2D5 brands/bandcamp.svg bandcamp
+F2D6 F2D6 brands/grav.svg grav
+F2D7 F2D7 brands/etsy.svg etsy
+F2D8 F2D8 brands/imdb.svg imdb
+F2D9 F2D9 brands/ravelry.svg ravelry
+F2DA F2DA brands/sellcast.svg sellcast
+F2DB F2DB solid/microchip.svg microchip
+F2DC F2DC regular/snowflake.svg snowflake
+F2DD F2DD brands/superpowers.svg superpowers
+F2DE F2DE brands/wpexplorer.svg wpexplorer
+F2E0 F2E0 brands/meetup.svg meetup
+F2EA F2EA solid/rotate-left.svg rotate_left
+F2F1 F2F1 solid/rotate.svg rotate
+F2F2 F2F2 solid/stopwatch.svg stopwatch
+F2F5 F2F5 solid/right-from-bracket.svg right_from_bracket
+F2F6 F2F6 solid/right-to-bracket.svg right_to_bracket
+F2F9 F2F9 solid/rotate-right.svg rotate_right
+F2FE F2FE solid/poo.svg poo
+F302 F00F regular/images.svg images
+F304 F01F solid/pen.svg pen
+F305 F020 solid/pen-clip.svg pen_clip
+F309 F03F solid/down-long.svg down_long
+F30A F04F solid/left-long.svg left_long
+F31C F05F solid/file-pen.svg file_pen
+F31E F06F solid/maximize.svg maximize
+# RENAME clipboard to clipboard_alt
+F328 F07F regular/clipboard.svg clipboard_alt
+F337 F08F solid/left-right.svg left_right
+F338 F09F solid/up-down.svg up_down
+F35C F0AF brands/square-font-awesome-stroke.svg square_font_awesome_stroke
+F35D F0B3 solid/up-right-from-square.svg up_right_from_square
+F360 F0B4 solid/square-up-right.svg square_up_right
+F362 F0B5 solid/right-left.svg right_left
+# RENAME repeat to repeat_alt
+F363 F0B6 solid/repeat.svg repeat_alt
+F369 F0B7 brands/accusoft.svg accusoft
+F36A F0B8 brands/adversal.svg adversal
+F36B F0B9 brands/affiliatetheme.svg affiliatetheme
+F36C F0BA brands/algolia.svg algolia
+F36D F0BB brands/amilia.svg amilia
+F36E F0BC brands/angrycreative.svg angrycreative
+F36F F0BD brands/app-store.svg app_store
+F370 F0BE brands/app-store-ios.svg app_store_ios
+F371 F0BF brands/apper.svg apper
+F372 F0CF brands/asymmetrik.svg asymmetrik
+F373 F0DF brands/audible.svg audible
+F375 F0EF brands/aws.svg aws
+F378 F0FF brands/bimobject.svg bimobject
+F379 F10F brands/bitcoin.svg bitcoin
+F37A F116 brands/bity.svg bity
+F37B F117 brands/blackberry.svg blackberry
+F37C F11F brands/blogger.svg blogger
+F37D F12F brands/blogger-b.svg blogger_b
+F37F F13F brands/buromobelexperte.svg buromobelexperte
+F380 F14F brands/centercode.svg centercode
+F383 F15F brands/cloudscale.svg cloudscale
+F384 F167 brands/cloudsmith.svg cloudsmith
+F385 F16F brands/cloudversify.svg cloudversify
+F386 F172 solid/code-commit.svg code_commit
+F387 F17F solid/code-merge.svg code_merge
+F388 F18F brands/cpanel.svg cpanel
+F38B F19F brands/css3-alt.svg css3_alt
+F38C F1AF brands/cuttlefish.svg cuttlefish
+F38D F1BF brands/d-and-d.svg d_and_d
+F38E F1CF brands/deploydog.svg deploydog
+F38F F1DF brands/deskpro.svg deskpro
+F391 F1EF brands/digital-ocean.svg digital_ocean
+F392 F1FF brands/discord.svg discord
+F393 F20C brands/discourse.svg discourse
+F394 F20F brands/dochub.svg dochub
+F395 F21F brands/docker.svg docker
+F396 F220 brands/draft2digital.svg draft2digital
+F397 F22E brands/square-dribbble.svg square_dribbble
+F399 F22F brands/dyalog.svg dyalog
+F39A F230 brands/earlybirds.svg earlybirds
+F39D F23F brands/erlang.svg erlang
+F39E F24F brands/facebook-f.svg facebook_f
+F39F F25F brands/facebook-messenger.svg facebook_messenger
+F3A1 F262 brands/firstdraft.svg firstdraft
+F3A2 F26F brands/fonticons-fi.svg fonticons_fi
+F3A3 F27F brands/fort-awesome-alt.svg fort_awesome_alt
+F3A4 F28F brands/freebsd.svg freebsd
+F219 F29F solid/diamond.svg diamond
+F3A6 F2AC brands/gitkraken.svg gitkraken
+F3A7 F2AF brands/gofore.svg gofore
+F3A8 F2BF brands/goodreads.svg goodreads
+F3A9 F2CF brands/goodreads-g.svg goodreads_g
+F3AA F2DF brands/google-drive.svg google_drive
+F3AB F2E1 brands/google-play.svg google_play
+F3AC F2E2 brands/gripfire.svg gripfire
+F3AD F2E3 brands/grunt.svg grunt
+F3AE F2E4 brands/gulp.svg gulp
+F3AF F2E5 brands/square-hacker-news.svg square_hacker_news
+F3B0 F2E6 brands/hire-a-helper.svg hire_a_helper
+F3B1 F2E7 brands/hotjar.svg hotjar
+F3B2 F2E8 brands/hubspot.svg hubspot
+F3B4 F2E9 brands/itunes.svg itunes
+F3B5 F2EB brands/itunes-note.svg itunes_note
+F3B6 F2EC brands/jenkins.svg jenkins
+F3B7 F2ED brands/joget.svg joget
+F3B8 F2EE brands/js.svg js
+F3B9 F2EF brands/square-js.svg square_js
+F3BA F2F0 brands/keycdn.svg keycdn
+F3BB F2F3 brands/kickstarter.svg kickstarter
+F3BC F2F4 brands/kickstarter-k.svg kickstarter_k
+F3BD F2F7 brands/laravel.svg laravel
+F3BE F2F8 solid/turn-down.svg turn_down
+F3BF F2FA solid/turn-up.svg turn_up
+F3C0 F2FB brands/line.svg line
+F3C1 F2FC solid/lock-open.svg lock_open
+F3C3 F2FD brands/lyft.svg lyft
+F3C4 F2FF brands/magento.svg magento
+F3C5 ED00 solid/location-dot.svg location_dot
+F3C6 ED01 brands/medapps.svg medapps
+F3C8 ED02 brands/medrt.svg medrt
+F3C9 ED03 solid/microphone-lines.svg microphone_lines
+F3CA ED04 brands/microsoft.svg microsoft
+F3CB ED05 brands/mix.svg mix
+F3CC ED06 brands/mizuni.svg mizuni
+F10B ED07 solid/mobile-button.svg mobile_button
+F3CE ED08 solid/mobile.svg mobile
+F3CF ED09 solid/mobile-screen.svg mobile_screen
+F3D0 ED0A brands/monero.svg monero
+F3D1 ED0B regular/money-bill-1.svg money_bill_1
+F3D2 ED0C brands/napster.svg napster
+F3D3 ED0D brands/node-js.svg node_js
+F3D4 ED0E brands/npm.svg npm
+F3D5 ED0F brands/ns8.svg ns8
+F3D6 ED10 brands/nutritionix.svg nutritionix
+F3D7 ED11 brands/page4.svg page4
+F3D8 ED12 brands/palfed.svg palfed
+F3D9 ED13 brands/patreon.svg patreon
+F3DA ED14 brands/periscope.svg periscope
+F3DB ED15 brands/phabricator.svg phabricator
+F3DC ED16 brands/phoenix-framework.svg phoenix_framework
+F3DD ED17 solid/phone-slash.svg phone_slash
+F3DF ED18 brands/playstation.svg playstation
+F3E0 ED19 solid/image-portrait.svg image_portrait
+F3E1 ED1A brands/pushed.svg pushed
+F3E2 ED1B brands/python.svg python
+F3E3 ED1C brands/red-river.svg red_river
+F3E4 ED1D brands/wpressr.svg wpressr
+F3E6 ED1E brands/replyd.svg replyd
+F3E7 ED1F brands/resolving.svg resolving
+F3E8 ED20 brands/rocketchat.svg rocketchat
+F3E9 ED21 brands/rockrms.svg rockrms
+F3EA ED22 brands/schlix.svg schlix
+F3EB ED23 brands/searchengin.svg searchengin
+F3EC ED24 brands/servicestack.svg servicestack
+F3ED ED25 solid/shield-halved.svg shield_halved
+F3EE ED26 brands/sistrix.svg sistrix
+F3F3 ED27 brands/speakap.svg speakap
+F3F5 ED28 brands/staylinked.svg staylinked
+F3F6 ED29 brands/steam-symbol.svg steam_symbol
+F3F7 ED2A brands/sticker-mule.svg sticker_mule
+F3F8 ED2B brands/studiovinari.svg studiovinari
+F3F9 ED2C brands/supple.svg supple
+F10A ED2D solid/tablet-button.svg tablet_button
+F3FB ED2E solid/tablet.svg tablet
+F3FD ED2F solid/gauge-high.svg gauge_high
+F3FF ED30 solid/ticket-simple.svg ticket_simple
+F402 ED31 brands/uber.svg uber
+F403 ED32 brands/uikit.svg uikit
+F404 ED33 brands/uniregistry.svg uniregistry
+F405 ED34 brands/untappd.svg untappd
+F406 ED35 solid/user-large.svg user_large
+F407 ED36 brands/ussunnah.svg ussunnah
+F408 ED37 brands/vaadin.svg vaadin
+F409 ED38 brands/viber.svg viber
+F40A ED39 brands/vimeo.svg vimeo
+F40B ED3A brands/vnv.svg vnv
+F40C ED3B brands/square-whatsapp.svg square_whatsapp
+F40D ED3C brands/whmcs.svg whmcs
+F411 ED3D brands/wordpress-simple.svg wordpress_simple
+F412 ED3E brands/xbox.svg xbox
+F413 ED3F brands/yandex.svg yandex
+F414 ED40 brands/yandex-international.svg yandex_international
+F415 ED41 brands/apple-pay.svg apple_pay
+F416 ED42 brands/cc-apple-pay.svg cc_apple_pay
+F417 ED43 brands/fly.svg fly
+F419 ED44 brands/node.svg node
+F41A ED45 brands/osi.svg osi
+F41B ED46 brands/react.svg react
+F41C ED47 brands/autoprefixer.svg autoprefixer
+F41D ED48 brands/less.svg less
+F41E ED49 brands/sass.svg sass
+F41F ED4A brands/vuejs.svg vuejs
+F420 ED4B brands/angular.svg angular
+F421 ED4C brands/aviato.svg aviato
+F422 ED4D solid/down-left-and-up-right-to-center.svg down_left_and_up_right_to_center
+F423 ED4E brands/ember.svg ember
+F424 ED4F solid/up-right-and-down-left-from-center.svg up_right_and_down_left_from_center
+F426 ED50 brands/gitter.svg gitter
+F427 ED51 brands/hooli.svg hooli
+F428 ED52 brands/strava.svg strava
+F429 ED53 brands/stripe.svg stripe
+F42A ED54 brands/stripe-s.svg stripe_s
+F42B ED55 brands/typo3.svg typo3
+F42C ED56 brands/amazon-pay.svg amazon_pay
+F42D ED57 brands/cc-amazon-pay.svg cc_amazon_pay
+F42E ED58 brands/ethereum.svg ethereum
+F42F ED59 brands/korvue.svg korvue
+F430 ED5A brands/elementor.svg elementor
+F432 ED5B solid/baseball-bat-ball.svg baseball_bat_ball
+F433 ED5C solid/baseball.svg baseball
+F434 ED5D solid/basketball.svg basketball
+F436 ED5E solid/bowling-ball.svg bowling_ball
+F439 ED5F solid/chess.svg chess
+F43A ED60 regular/chess-bishop.svg chess_bishop
+F43C ED61 solid/chess-board.svg chess_board
+F43F ED62 regular/chess-king.svg chess_king
+F441 ED63 regular/chess-knight.svg chess_knight
+F443 ED64 regular/chess-pawn.svg chess_pawn
+F445 ED65 regular/chess-queen.svg chess_queen
+F447 ED66 regular/chess-rook.svg chess_rook
+F44B ED67 solid/dumbbell.svg dumbbell
+F44D ED68 brands/flipboard.svg flipboard
+F44E ED69 solid/football.svg football
+F450 ED6A solid/golf-ball-tee.svg golf_ball_tee
+F452 ED6B brands/hips.svg hips
+F453 ED6C solid/hockey-puck.svg hockey_puck
+F457 ED6D brands/php.svg php
+F458 ED6E solid/broom-ball.svg broom_ball
+F459 ED6F brands/quinscape.svg quinscape
+F45C ED70 regular/square-full.svg square_full
+F45D ED71 solid/table-tennis-paddle-ball.svg table_tennis_paddle_ball
+F45F ED72 solid/volleyball.svg volleyball
+F461 ED73 solid/hand-dots.svg hand_dots
+F462 ED74 solid/bandage.svg bandage
+F466 ED75 solid/box.svg box
+F468 ED76 solid/boxes-stacked.svg boxes_stacked
+F469 ED77 solid/briefcase-medical.svg briefcase_medical
+F46A ED78 solid/fire-flame-simple.svg fire_flame_simple
+F46B ED79 solid/capsules.svg capsules
+F46C ED7A solid/clipboard-check.svg clipboard_check
+F46D ED7B solid/clipboard-list.svg clipboard_list
+F470 ED7C solid/person-dots-from-line.svg person_dots_from_line
+F471 ED7D solid/dna.svg dna
+F472 ED7E solid/dolly.svg dolly
+F474 ED7F solid/cart-flatbed.svg cart_flatbed
+F477 ED80 solid/file-medical.svg file_medical
+F478 ED81 solid/file-waveform.svg file_waveform
+F479 ED82 solid/kit-medical.svg kit_medical
+F47E ED83 solid/circle-h.svg circle_h
+F47F ED84 solid/id-card-clip.svg id_card_clip
+F481 ED85 solid/notes-medical.svg notes_medical
+F482 ED86 solid/pallet.svg pallet
+F484 ED87 solid/pills.svg pills
+F485 ED88 solid/prescription-bottle.svg prescription_bottle
+F486 ED89 solid/prescription-bottle-medical.svg prescription_bottle_medical
+F487 ED8A solid/bed-pulse.svg bed_pulse
+F48B ED8B solid/truck-fast.svg truck_fast
+F48D ED8C solid/smoking.svg smoking
+F48E ED8D solid/syringe.svg syringe
+F490 ED8E solid/tablets.svg tablets
+# RENAME thermometer to thermometer_alt
+F491 ED8F solid/thermometer.svg thermometer_alt
+F492 ED90 solid/vial.svg vial
+F493 ED91 solid/vials.svg vials
+F494 ED92 solid/warehouse.svg warehouse
+F496 ED93 solid/weight-scale.svg weight_scale
+F497 ED94 solid/x-ray.svg x_ray
+F49E ED95 solid/box-open.svg box_open
+F4B3 ED96 solid/comment-slash.svg comment_slash
+F4B8 ED97 solid/couch.svg couch
+F4B9 ED98 solid/circle-dollar-to-slot.svg circle_dollar_to_slot
+F4BA ED99 solid/dove.svg dove
+F4BD ED9A solid/hand-holding.svg hand_holding
+F4BE ED9B solid/hand-holding-heart.svg hand_holding_heart
+F4C0 ED9C solid/hand-holding-dollar.svg hand_holding_dollar
+F4C1 ED9D solid/hand-holding-droplet.svg hand_holding_droplet
+F4C2 ED9E solid/hands-holding.svg hands_holding
+F4C4 ED9F solid/handshake-angle.svg handshake_angle
+F4C6 EDA0 solid/handshake-simple.svg handshake_simple
+F4CD EDA1 solid/parachute-box.svg parachute_box
+F4CE EDA2 solid/people-carry-box.svg people_carry_box
+F4D3 EDA3 solid/piggy-bank.svg piggy_bank
+F4D5 EDA4 brands/readme.svg readme
+F4D6 EDA5 solid/ribbon.svg ribbon
+F4D7 EDA6 solid/route.svg route
+F4D8 EDA7 solid/seedling.svg seedling
+F4D9 EDA8 solid/sign-hanging.svg sign_hanging
+F4DA EDA9 regular/face-smile-wink.svg face_smile_wink
+F4DB EDAA solid/tape.svg tape
+F4DE EDAB solid/truck-ramp-box.svg truck_ramp_box
+F4DF EDAC solid/truck-moving.svg truck_moving
+F4E2 EDAD solid/video-slash.svg video_slash
+F4E3 EDAE solid/wine-glass.svg wine_glass
+F4E4 EDAF brands/java.svg java
+F4E5 EDB0 brands/pied-piper-hat.svg pied_piper_hat
+F4E7 EDB1 brands/creative-commons-by.svg creative_commons_by
+F4E8 EDB2 brands/creative-commons-nc.svg creative_commons_nc
+F4E9 EDB3 brands/creative-commons-nc-eu.svg creative_commons_nc_eu
+F4EA EDB4 brands/creative-commons-nc-jp.svg creative_commons_nc_jp
+F4EB EDB5 brands/creative-commons-nd.svg creative_commons_nd
+F4EC EDB6 brands/creative-commons-pd.svg creative_commons_pd
+F4ED EDB7 brands/creative-commons-pd-alt.svg creative_commons_pd_alt
+F4EE EDB8 brands/creative-commons-remix.svg creative_commons_remix
+F4EF EDB9 brands/creative-commons-sa.svg creative_commons_sa
+F4F0 EDBA brands/creative-commons-sampling.svg creative_commons_sampling
+F4F1 EDBB brands/creative-commons-sampling-plus.svg creative_commons_sampling_plus
+F4F2 EDBC brands/creative-commons-share.svg creative_commons_share
+F4F3 EDBD brands/creative-commons-zero.svg creative_commons_zero
+F4F4 EDBE brands/ebay.svg ebay
+F4F5 EDBF brands/keybase.svg keybase
+F4F6 EDC0 brands/mastodon.svg mastodon
+F4F7 EDC1 brands/r-project.svg r_project
+F4F8 EDC2 brands/researchgate.svg researchgate
+F4F9 EDC3 brands/teamspeak.svg teamspeak
+F4FA EDC4 solid/user-large-slash.svg user_large_slash
+F4FB EDC5 solid/user-astronaut.svg user_astronaut
+F4FC EDC6 solid/user-check.svg user_check
+F4FD EDC7 solid/user-clock.svg user_clock
+F4FE EDC8 solid/user-gear.svg user_gear
+F4FF EDC9 solid/user-pen.svg user_pen
+F500 EDCA solid/user-group.svg user_group
+F501 EDCB solid/user-graduate.svg user_graduate
+F502 EDCC solid/user-lock.svg user_lock
+F503 EDCD solid/user-minus.svg user_minus
+F504 EDCE solid/user-ninja.svg user_ninja
+F505 EDCF solid/user-shield.svg user_shield
+F506 EDD0 solid/user-slash.svg user_slash
+F507 EDD1 solid/user-tag.svg user_tag
+F508 EDD2 solid/user-tie.svg user_tie
+F509 EDD3 solid/users-gear.svg users_gear
+F50A EDD4 brands/first-order-alt.svg first_order_alt
+F50B EDD5 brands/fulcrum.svg fulcrum
+F50C EDD6 brands/galactic-republic.svg galactic_republic
+F50D EDD7 brands/galactic-senate.svg galactic_senate
+F50E EDD8 brands/jedi-order.svg jedi_order
+F50F EDD9 brands/mandalorian.svg mandalorian
+F510 EDDA brands/old-republic.svg old_republic
+F511 EDDB brands/phoenix-squadron.svg phoenix_squadron
+F512 EDDC brands/sith.svg sith
+F513 EDDD brands/trade-federation.svg trade_federation
+F514 EDDE brands/wolf-pack-battalion.svg wolf_pack_battalion
+F515 EDDF solid/scale-unbalanced.svg scale_unbalanced
+F516 EDE0 solid/scale-unbalanced-flip.svg scale_unbalanced_flip
+F517 EDE1 solid/blender.svg blender
+F518 EDE2 solid/book-open.svg book_open
+F519 EDE3 solid/tower-broadcast.svg tower_broadcast
+F51A EDE4 solid/broom.svg broom
+F51B EDE5 solid/chalkboard.svg chalkboard
+F51C EDE6 solid/chalkboard-user.svg chalkboard_user
+F51D EDE7 solid/church.svg church
+F51E EDE8 solid/coins.svg coins
+F51F EDE9 solid/compact-disc.svg compact_disc
+F520 EDEA solid/crow.svg crow
+F521 EDEB solid/crown.svg crown
+F522 EDEC solid/dice.svg dice
+F523 EDED solid/dice-five.svg dice_five
+F524 EDEE solid/dice-four.svg dice_four
+F525 EDEF solid/dice-one.svg dice_one
+F526 EDF0 solid/dice-six.svg dice_six
+F527 EDF1 solid/dice-three.svg dice_three
+F528 EDF2 solid/dice-two.svg dice_two
+F529 EDF3 solid/divide.svg divide
+F52A EDF4 solid/door-closed.svg door_closed
+F52B EDF5 solid/door-open.svg door_open
+F52C EDF6 solid/equals.svg equals
+F52D EDF7 solid/feather.svg feather
+F52E EDF8 solid/frog.svg frog
+F52F EDF9 solid/gas-pump.svg gas_pump
+F530 EDFA solid/glasses.svg glasses
+F531 EDFB solid/greater-than.svg greater_than
+F532 EDFC solid/greater-than-equal.svg greater_than_equal
+F533 EDFD solid/helicopter.svg helicopter
+F534 EDFE solid/infinity.svg infinity
+F535 EDFF solid/kiwi-bird.svg kiwi_bird
+F543 EE0C solid/receipt.svg receipt
+F544 EE0D solid/robot.svg robot
+F545 EE0E solid/ruler.svg ruler
+F546 EE0F solid/ruler-combined.svg ruler_combined
+F547 EE10 solid/ruler-horizontal.svg ruler_horizontal
+F548 EE11 solid/ruler-vertical.svg ruler_vertical
+F549 EE12 solid/school.svg school
+F54A EE13 solid/screwdriver.svg screwdriver
+F54B EE14 solid/shoe-prints.svg shoe_prints
+F54C EE15 solid/skull.svg skull
+F54D EE16 solid/ban-smoking.svg ban_smoking
+F54E EE17 solid/store.svg store
+F54F EE18 solid/shop.svg shop
+F550 EE19 solid/bars-staggered.svg bars_staggered
+F551 EE1A solid/stroopwafel.svg stroopwafel
+F552 EE1B solid/toolbox.svg toolbox
+F553 EE1C solid/shirt.svg shirt
+F554 EE1D solid/person-walking.svg person_walking
+F555 EE1E solid/wallet.svg wallet
+F556 EE1F regular/face-angry.svg face_angry
+F557 EE20 solid/archway.svg archway
+F558 EE21 solid/book-atlas.svg book_atlas
+F559 EE22 solid/award.svg award
+F55A EE23 solid/delete-left.svg delete_left
+F55B EE24 solid/bezier-curve.svg bezier_curve
+F55C EE25 solid/bong.svg bong
+F55D EE26 solid/brush.svg brush
+F55E EE27 solid/bus-simple.svg bus_simple
+F55F EE28 solid/cannabis.svg cannabis
+F560 EE29 solid/check-double.svg check_double
+F561 EE2A solid/martini-glass-citrus.svg martini_glass_citrus
+F562 EE2B solid/bell-concierge.svg bell_concierge
+F563 EE2C solid/cookie.svg cookie
+F564 EE2D solid/cookie-bite.svg cookie_bite
+F565 EE2E solid/crop-simple.svg crop_simple
+F566 EE2F solid/tachograph-digital.svg tachograph_digital
+F567 EE30 regular/face-dizzy.svg face_dizzy
+F568 EE31 solid/compass-drafting.svg compass_drafting
+F569 EE32 solid/drum.svg drum
+F56A EE33 solid/drum-steelpan.svg drum_steelpan
+F56B EE34 solid/feather-pointed.svg feather_pointed
+F56C EE35 solid/file-contract.svg file_contract
+F56D EE36 solid/file-arrow-down.svg file_arrow_down
+F56E EE37 solid/file-export.svg file_export
+F56F EE38 solid/file-import.svg file_import
+F570 EE39 solid/file-invoice.svg file_invoice
+F571 EE3A solid/file-invoice-dollar.svg file_invoice_dollar
+F572 EE3B solid/file-prescription.svg file_prescription
+F573 EE3C solid/file-signature.svg file_signature
+F574 EE3D solid/file-arrow-up.svg file_arrow_up
+F575 EE3E solid/fill.svg fill
+F576 EE3F solid/fill-drip.svg fill_drip
+F577 EE40 solid/fingerprint.svg fingerprint
+F578 EE41 solid/fish.svg fish
+F579 EE42 regular/face-flushed.svg face_flushed
+F57A EE43 regular/face-frown-open.svg face_frown_open
+F57B EE44 solid/martini-glass.svg martini_glass
+F57C EE45 solid/earth-africa.svg earth_africa
+F57D EE46 solid/earth-americas.svg earth_americas
+F57E EE47 solid/earth-asia.svg earth_asia
+F57F EE48 regular/face-grimace.svg face_grimace
+F580 EE49 regular/face-grin.svg face_grin
+F581 EE4A regular/face-grin-wide.svg face_grin_wide
+F582 EE4B regular/face-grin-beam.svg face_grin_beam
+F583 EE4C regular/face-grin-beam-sweat.svg face_grin_beam_sweat
+F584 EE4D regular/face-grin-hearts.svg face_grin_hearts
+F585 EE4E regular/face-grin-squint.svg face_grin_squint
+F586 EE4F regular/face-grin-squint-tears.svg face_grin_squint_tears
+F587 EE50 regular/face-grin-stars.svg face_grin_stars
+F588 EE51 regular/face-grin-tears.svg face_grin_tears
+F589 EE52 regular/face-grin-tongue.svg face_grin_tongue
+F58A EE53 regular/face-grin-tongue-squint.svg face_grin_tongue_squint
+F58B EE54 regular/face-grin-tongue-wink.svg face_grin_tongue_wink
+F58C EE55 regular/face-grin-wink.svg face_grin_wink
+F58D EE56 solid/grip.svg grip
+F58E EE57 solid/grip-vertical.svg grip_vertical
+F58F EE58 solid/headphones-simple.svg headphones_simple
+F590 EE59 solid/headset.svg headset
+F591 EE5A solid/highlighter.svg highlighter
+F592 EE5B brands/hornbill.svg hornbill
+F593 EE5C solid/hot-tub-person.svg hot_tub_person
+# RENAME hotel to hotel_building
+F594 EE5D solid/hotel.svg hotel_building
+F595 EE5E solid/joint.svg joint
+F596 EE5F regular/face-kiss.svg face_kiss
+F597 EE60 regular/face-kiss-beam.svg face_kiss_beam
+F598 EE61 regular/face-kiss-wink-heart.svg face_kiss_wink_heart
+F599 EE62 regular/face-laugh.svg face_laugh
+F59A EE63 regular/face-laugh-beam.svg face_laugh_beam
+F59B EE64 regular/face-laugh-squint.svg face_laugh_squint
+F59C EE65 regular/face-laugh-wink.svg face_laugh_wink
+F59D EE66 solid/cart-flatbed-suitcase.svg cart_flatbed_suitcase
+F59E EE67 brands/mailchimp.svg mailchimp
+F59F EE68 solid/map-location.svg map_location
+F5A0 EE69 solid/map-location-dot.svg map_location_dot
+F5A1 EE6A solid/marker.svg marker
+F5A2 EE6B solid/medal.svg medal
+F5A3 EE6C brands/megaport.svg megaport
+F5A4 EE6D regular/face-meh-blank.svg face_meh_blank
+F5A5 EE6E regular/face-rolling-eyes.svg face_rolling_eyes
+F5A6 EE6F solid/monument.svg monument
+F5A7 EE70 solid/mortar-pestle.svg mortar_pestle
+F5A8 EE71 brands/nimblr.svg nimblr
+F5AA EE72 solid/paint-roller.svg paint_roller
+F5AB EE73 solid/passport.svg passport
+F5AC EE74 solid/pen-fancy.svg pen_fancy
+F5AD EE75 solid/pen-nib.svg pen_nib
+F5AE EE76 solid/pen-ruler.svg pen_ruler
+F5AF EE77 solid/plane-arrival.svg plane_arrival
+F5B0 EE78 solid/plane-departure.svg plane_departure
+F5B1 EE79 solid/prescription.svg prescription
+F5B2 EE7A brands/rev.svg rev
+F5B3 EE7B regular/face-sad-cry.svg face_sad_cry
+F5B4 EE7C regular/face-sad-tear.svg face_sad_tear
+F5B5 EE7D brands/shopware.svg shopware
+F5B6 EE7E solid/van-shuttle.svg van_shuttle
+F5B7 EE7F solid/signature.svg signature
+F5B8 EE80 regular/face-smile-beam.svg face_smile_beam
+F5BA EE81 solid/solar-panel.svg solar_panel
+F5BB EE82 solid/spa.svg spa
+F5BC EE83 solid/splotch.svg splotch
+F5BD EE84 solid/spray-can.svg spray_can
+F5BE EE85 brands/squarespace.svg squarespace
+F5BF EE86 solid/stamp.svg stamp
+F5C0 EE87 regular/star-half-stroke.svg star_half_stroke
+F5C1 EE88 solid/suitcase-rolling.svg suitcase_rolling
+F5C2 EE89 regular/face-surprise.svg face_surprise
+F5C3 EE8A solid/swatchbook.svg swatchbook
+F5C4 EE8B solid/person-swimming.svg person_swimming
+F5C5 EE8C solid/water-ladder.svg water_ladder
+F5C6 EE8D brands/themeco.svg themeco
+F5C7 EE8E solid/droplet-slash.svg droplet_slash
+F5C8 EE8F regular/face-tired.svg face_tired
+F5C9 EE90 solid/tooth.svg tooth
+F5CA EE91 solid/umbrella-beach.svg umbrella_beach
+F5CB EE92 solid/vector-square.svg vector_square
+F5CC EE93 brands/weebly.svg weebly
+F5CD EE94 solid/weight-hanging.svg weight_hanging
+F5CE EE95 solid/wine-glass-empty.svg wine_glass_empty
+F5CF EE96 brands/wix.svg wix
+F5D0 EE97 solid/spray-can-sparkles.svg spray_can_sparkles
+F5D1 EE98 solid/apple-whole.svg apple_whole
+F5D2 EE99 solid/atom.svg atom
+F5D7 EE9A solid/bone.svg bone
+F5DA EE9B solid/book-open-reader.svg book_open_reader
+F5DC EE9C solid/brain.svg brain
+F5DE EE9D solid/car-rear.svg car_rear
+F5DF EE9E solid/car-battery.svg car_battery
+F5E1 EE9F solid/car-burst.svg car_burst
+F5E4 EEA0 solid/car-side.svg car_side
+F5E7 EEA1 solid/charging-station.svg charging_station
+F5EB EEA2 solid/diamond-turn-right.svg diamond_turn_right
+F5EE EEA3 solid/draw-polygon.svg draw_polygon
+F5F1 EEA4 brands/ello.svg ello
+F5F7 EEA5 brands/hackerrank.svg hackerrank
+F5FA EEA6 brands/kaggle.svg kaggle
+F5FC EEA7 solid/laptop-code.svg laptop_code
+F5FD EEA8 solid/layer-group.svg layer_group
+F601 EEA9 solid/location-crosshairs.svg location_crosshairs
+F604 EEAA solid/lungs.svg lungs
+F60F EEAB brands/markdown.svg markdown
+F610 EEAC solid/microscope.svg microscope
+F612 EEAD brands/neos.svg neos
+F613 EEAE solid/oil-can.svg oil_can
+F619 EEAF solid/poop.svg poop
+F61F EEB0 solid/shapes.svg shapes
+F621 EEB1 solid/star-of-life.svg star_of_life
+F624 EEB2 solid/gauge.svg gauge
+F629 EEB3 solid/gauge-simple.svg gauge_simple
+F62E EEB4 solid/teeth.svg teeth
+F62F EEB5 solid/teeth-open.svg teeth_open
+F630 EEB6 solid/masks-theater.svg masks_theater
+F637 EEB7 solid/traffic-light.svg traffic_light
+F63B EEB8 solid/truck-monster.svg truck_monster
+F63C EEB9 solid/truck-pickup.svg truck_pickup
+F63F EEBA brands/zhihu.svg zhihu
+F641 EEBB solid/rectangle-ad.svg rectangle_ad
+F642 EEBC brands/alipay.svg alipay
+F644 EEBD solid/ankh.svg ankh
+F647 EEBE solid/book-bible.svg book_bible
+F64A EEBF solid/business-time.svg business_time
+F64F EEC0 solid/city.svg city
+F651 EEC1 solid/comment-dollar.svg comment_dollar
+F653 EEC2 solid/comments-dollar.svg comments_dollar
+F654 EEC3 solid/cross.svg cross
+F655 EEC4 solid/dharmachakra.svg dharmachakra
+F658 EEC5 solid/envelope-open-text.svg envelope_open_text
+F65D EEC6 solid/folder-minus.svg folder_minus
+F65E EEC7 solid/folder-plus.svg folder_plus
+F662 EEC8 solid/filter-circle-dollar.svg filter_circle_dollar
+F664 EEC9 solid/gopuram.svg gopuram
+F665 EECA solid/hamsa.svg hamsa
+F666 EECB solid/bahai.svg bahai
+F669 EECC solid/jedi.svg jedi
+F66A EECD solid/book-journal-whills.svg book_journal_whills
+F66B EECE solid/kaaba.svg kaaba
+F66D EECF solid/khanda.svg khanda
+F66F EED0 solid/landmark.svg landmark
+F674 EED1 solid/envelopes-bulk.svg envelopes_bulk
+F676 EED2 solid/menorah.svg menorah
+F678 EED3 solid/mosque.svg mosque
+F679 EED4 solid/om.svg om
+F67B EED5 solid/spaghetti-monster-flying.svg spaghetti_monster_flying
+F67C EED6 solid/peace.svg peace
+F67F EED7 solid/place-of-worship.svg place_of_worship
+F681 EED8 solid/square-poll-vertical.svg square_poll_vertical
+F682 EED9 solid/square-poll-horizontal.svg square_poll_horizontal
+F683 EEDA solid/person-praying.svg person_praying
+F684 EEDB solid/hands-praying.svg hands_praying
+F687 EEDC solid/book-quran.svg book_quran
+F688 EEDD solid/magnifying-glass-dollar.svg magnifying_glass_dollar
+F689 EEDE solid/magnifying-glass-location.svg magnifying_glass_location
+F696 EEDF solid/socks.svg socks
+F698 EEE0 solid/square-root-variable.svg square_root_variable
+F699 EEE1 solid/star-and-crescent.svg star_and_crescent
+F69A EEE2 solid/star-of-david.svg star_of_david
+F69B EEE3 solid/synagogue.svg synagogue
+F69D EEE4 brands/the-red-yeti.svg the_red_yeti
+F6A0 EEE5 solid/scroll-torah.svg scroll_torah
+F6A1 EEE6 solid/torii-gate.svg torii_gate
+F6A7 EEE7 solid/vihara.svg vihara
+F6A9 EEE8 solid/volume-xmark.svg volume_xmark
+F6AD EEE9 solid/yin-yang.svg yin_yang
+F6B6 EEEA solid/blender-phone.svg blender_phone
+F6B7 EEEB solid/book-skull.svg book_skull
+F6BB EEEC solid/campground.svg campground
+F6BE EEED solid/cat.svg cat
+F6C0 EEEE solid/chair.svg chair
+F6C3 EEEF solid/cloud-moon.svg cloud_moon
+F6C4 EEF0 solid/cloud-sun.svg cloud_sun
+F6C8 EEF1 solid/cow.svg cow
+F6C9 EEF2 brands/critical-role.svg critical_role
+F6CA EEF3 brands/d-and-d-beyond.svg d_and_d_beyond
+F6CC EEF4 brands/dev.svg dev
+F6CF EEF5 solid/dice-d20.svg dice_d20
+F6D1 EEF6 solid/dice-d6.svg dice_d6
+F6D3 EEF7 solid/dog.svg dog
+F6D5 EEF8 solid/dragon.svg dragon
+F6D7 EEF9 solid/drumstick-bite.svg drumstick_bite
+F6D9 EEFA solid/dungeon.svg dungeon
+F6DC EEFB brands/fantasy-flight-games.svg fantasy_flight_games
+F6DD EEFC solid/file-csv.svg file_csv
+F6DE EEFD solid/hand-fist.svg hand_fist
+F6E2 EEFE solid/ghost.svg ghost
+F6E3 EEFF solid/hammer.svg hammer
+F6E6 EF00 solid/hanukiah.svg hanukiah
+F6E8 EF01 solid/hat-wizard.svg hat_wizard
+F6EC EF02 solid/person-hiking.svg person_hiking
+F6ED EF03 solid/hippo.svg hippo
+F6F0 EF04 solid/horse.svg horse
+F6F1 EF05 solid/house-chimney-crack.svg house_chimney_crack
+F6F2 EF06 solid/hryvnia-sign.svg hryvnia_sign
+F6FA EF07 solid/mask.svg mask
+F6FC EF08 solid/mountain.svg mountain
+F6FF EF09 solid/network-wired.svg network_wired
+F700 EF0A solid/otter.svg otter
+F70B EF0B solid/ring.svg ring
+F70C EF0C solid/person-running.svg person_running
+F70E EF0D solid/scroll.svg scroll
+F714 EF0E solid/skull-crossbones.svg skull_crossbones
+F715 EF0F solid/slash.svg slash
+F717 EF10 solid/spider.svg spider
+F71E EF11 solid/toilet-paper.svg toilet_paper
+F722 EF12 solid/tractor.svg tractor
+F728 EF13 solid/user-injured.svg user_injured
+F729 EF14 solid/vr-cardboard.svg vr_cardboard
+F72B EF15 solid/wand-sparkles.svg wand_sparkles
+F72E EF16 solid/wind.svg wind
+F72F EF17 solid/wine-bottle.svg wine_bottle
+F730 EF18 brands/wizards-of-the-coast.svg wizards_of_the_coast
+F731 EF19 brands/think-peaks.svg think_peaks
+F73B EF1A solid/cloud-meatball.svg cloud_meatball
+F73C EF1B solid/cloud-moon-rain.svg cloud_moon_rain
+F73D EF1C solid/cloud-rain.svg cloud_rain
+F740 EF1D solid/cloud-showers-heavy.svg cloud_showers_heavy
+F743 EF1E solid/cloud-sun-rain.svg cloud_sun_rain
+F747 EF1F solid/democrat.svg democrat
+F74D EF20 solid/flag-usa.svg flag_usa
+F751 EF21 solid/hurricane.svg hurricane
+F752 EF22 solid/landmark-dome.svg landmark_dome
+F753 EF23 solid/meteor.svg meteor
+F756 EF24 solid/person-booth.svg person_booth
+F75A EF25 solid/poo-storm.svg poo_storm
+F75B EF26 solid/rainbow.svg rainbow
+F75D EF27 brands/reacteurope.svg reacteurope
+F75E EF28 solid/republican.svg republican
+F75F EF29 solid/smog.svg smog
+F769 EF2A solid/temperature-high.svg temperature_high
+F76B EF2B solid/temperature-low.svg temperature_low
+F76C EF2C solid/cloud-bolt.svg cloud_bolt
+F76F EF2D solid/tornado.svg tornado
+F770 EF2E solid/volcano.svg volcano
+F772 EF2F solid/check-to-slot.svg check_to_slot
+F773 EF30 solid/water.svg water
+F77A EF31 brands/artstation.svg artstation
+F77B EF32 brands/atlassian.svg atlassian
+F77C EF33 solid/baby.svg baby
+F77D EF34 solid/baby-carriage.svg baby_carriage
+F780 EF35 solid/biohazard.svg biohazard
+F781 EF36 solid/blog.svg blog
+F783 EF37 solid/calendar-day.svg calendar_day
+F784 EF38 solid/calendar-week.svg calendar_week
+F785 EF39 brands/canadian-maple-leaf.svg canadian_maple_leaf
+F786 EF3A solid/candy-cane.svg candy_cane
+F787 EF3B solid/carrot.svg carrot
+F788 EF3C solid/cash-register.svg cash_register
+F789 EF3D brands/centos.svg centos
+F78C EF3E solid/minimize.svg minimize
+F78D EF3F brands/confluence.svg confluence
+F790 EF40 brands/dhl.svg dhl
+F791 EF41 brands/diaspora.svg diaspora
+F793 EF42 solid/dumpster.svg dumpster
+F794 EF43 solid/dumpster-fire.svg dumpster_fire
+F796 EF44 solid/ethernet.svg ethernet
+F797 EF45 brands/fedex.svg fedex
+F798 EF46 brands/fedora.svg fedora
+F799 EF47 brands/figma.svg figma
+F79C EF48 solid/gifts.svg gifts
+F79F EF49 solid/champagne-glasses.svg champagne_glasses
+F7A0 EF4A solid/whiskey-glass.svg whiskey_glass
+F7A2 EF4B solid/earth-europe.svg earth_europe
+F7A4 EF4C solid/grip-lines.svg grip_lines
+F7A5 EF4D solid/grip-lines-vertical.svg grip_lines_vertical
+F7A6 EF4E solid/guitar.svg guitar
+F7A9 EF4F solid/heart-crack.svg heart_crack
+F7AA EF50 solid/holly-berry.svg holly_berry
+F7AB EF51 solid/horse-head.svg horse_head
+F7AD EF52 solid/icicles.svg icicles
+F7AE EF53 solid/igloo.svg igloo
+F7AF EF54 brands/intercom.svg intercom
+F7B0 EF55 brands/invision.svg invision
+F7B1 EF56 brands/jira.svg jira
+F7B3 EF57 brands/mendeley.svg mendeley
+F7B5 EF58 solid/mitten.svg mitten
+F7B6 EF59 solid/mug-hot.svg mug_hot
+F7B9 EF5A solid/radiation.svg radiation
+F7BA EF5B solid/circle-radiation.svg circle_radiation
+F7BB EF5C brands/raspberry-pi.svg raspberry_pi
+F7BC EF5D brands/redhat.svg redhat
+F7BD EF5E solid/restroom.svg restroom
+F7BF EF5F solid/satellite.svg satellite
+F7C0 EF60 solid/satellite-dish.svg satellite_dish
+F7C2 EF61 solid/sd-card.svg sd_card
+F7C4 EF62 solid/sim-card.svg sim_card
+F7C5 EF63 solid/person-skating.svg person_skating
+F7C6 EF64 brands/sketch.svg sketch
+F7C9 EF65 solid/person-skiing.svg person_skiing
+F7CA EF66 solid/person-skiing-nordic.svg person_skiing_nordic
+F7CC EF67 solid/sleigh.svg sleigh
+F7CD EF68 solid/comment-sms.svg comment_sms
+F7CE EF69 solid/person-snowboarding.svg person_snowboarding
+F7D0 EF6A solid/snowman.svg snowman
+F7D2 EF6B solid/snowplow.svg snowplow
+F7D3 EF6C brands/sourcetree.svg sourcetree
+F7D6 EF6D brands/suse.svg suse
+F7D7 EF6E solid/tenge-sign.svg tenge_sign
+F7D8 EF6F solid/toilet.svg toilet
+F7D9 EF70 solid/screwdriver-wrench.svg screwdriver_wrench
+F7DA EF71 solid/cable-car.svg cable_car
+F7DF EF72 brands/ubuntu.svg ubuntu
+F7E0 EF73 brands/ups.svg ups
+F7E1 EF74 brands/usps.svg usps
+F7E3 EF75 brands/yarn.svg yarn
+F7E4 EF76 solid/fire-flame-curved.svg fire_flame_curved
+F7E5 EF77 solid/bacon.svg bacon
+F7E6 EF78 solid/book-medical.svg book_medical
+F7EC EF79 solid/bread-slice.svg bread_slice
+F7EF EF7A solid/cheese.svg cheese
+F7F2 EF7B solid/house-chimney-medical.svg house_chimney_medical
+F7F3 EF7C solid/clipboard-user.svg clipboard_user
+F7F5 EF7D solid/comment-medical.svg comment_medical
+F7F7 EF7E solid/crutch.svg crutch
+F7FA EF7F solid/disease.svg disease
+F7FB EF80 solid/egg.svg egg
+F802 EF81 solid/folder-tree.svg folder_tree
+F805 EF82 solid/burger.svg burger
+F806 EF83 solid/hand-middle-finger.svg hand_middle_finger
+F807 EF84 solid/helmet-safety.svg helmet_safety
+F80B EF85 solid/house-chimney.svg house_chimney
+F80D EF86 solid/hospital-user.svg hospital_user
+F80F EF87 solid/hotdog.svg hotdog
+F810 EF88 solid/ice-cream.svg ice_cream
+F812 EF89 solid/laptop-medical.svg laptop_medical
+F815 EF8A solid/pager.svg pager
+F816 EF8B solid/pepper-hot.svg pepper_hot
+F818 EF8C solid/pizza-slice.svg pizza_slice
+F81D EF8D solid/sack-dollar.svg sack_dollar
+F827 EF8E solid/book-tanakh.svg book_tanakh
+F828 EF8F solid/bars-progress.svg bars_progress
+F829 EF90 solid/trash-arrow-up.svg trash_arrow_up
+F82A EF91 solid/trash-can-arrow-up.svg trash_can_arrow_up
+F82F EF92 solid/user-nurse.svg user_nurse
+F834 EF93 brands/airbnb.svg airbnb
+F835 EF94 brands/battle-net.svg battle_net
+F836 EF95 brands/bootstrap.svg bootstrap
+F837 EF96 brands/buffer.svg buffer
+F838 EF97 brands/chromecast.svg chromecast
+F839 EF98 brands/evernote.svg evernote
+F83A EF99 brands/itch-io.svg itch_io
+F83B EF9A brands/salesforce.svg salesforce
+F83C EF9B brands/speaker-deck.svg speaker_deck
+F83D EF9C brands/symfony.svg symfony
+F83E EF9D solid/wave-square.svg wave_square
+F83F EF9E brands/waze.svg waze
+F840 EF9F brands/yammer.svg yammer
+F841 EFA0 brands/git-alt.svg git_alt
+F842 EFA1 brands/stackpath.svg stackpath
+F84A EFA2 solid/person-biking.svg person_biking
+F84C EFA3 solid/border-all.svg border_all
+F850 EFA4 solid/border-none.svg border_none
+F853 EFA5 solid/border-top-left.svg border_top_left
+F85E EFA6 solid/person-digging.svg person_digging
+F863 EFA7 solid/fan.svg fan
+F86D EFA8 solid/icons.svg icons
+F879 EFA9 solid/phone-flip.svg phone_flip
+F87B EFAA solid/square-phone-flip.svg square_phone_flip
+F87C EFAB solid/photo-film.svg photo_film
+F87D EFAC solid/text-slash.svg text_slash
+F881 EFAD solid/arrow-down-z-a.svg arrow_down_z_a
+F882 EFAE solid/arrow-up-z-a.svg arrow_up_z_a
+F884 EFAF solid/arrow-down-short-wide.svg arrow_down_short_wide
+F885 EFB0 solid/arrow-up-short-wide.svg arrow_up_short_wide
+F886 EFB1 solid/arrow-down-9-1.svg arrow_down_9_1
+F887 EFB2 solid/arrow-up-9-1.svg arrow_up_9_1
+F891 EFB3 solid/spell-check.svg spell_check
+F897 EFB4 solid/voicemail.svg voicemail
+F89E EFB5 brands/cotton-bureau.svg cotton_bureau
+F8A6 EFB6 brands/buy-n-large.svg buy_n_large
+F8C0 EFB7 solid/hat-cowboy.svg hat_cowboy
+F8C1 EFB8 solid/hat-cowboy-side.svg hat_cowboy_side
+F8CA EFB9 brands/mdb.svg mdb
+F8CC EFBA solid/computer-mouse.svg computer_mouse
+F8D2 EFBB brands/orcid.svg orcid
+F8D7 EFBC solid/radio.svg radio
+F8D9 EFBD solid/record-vinyl.svg record_vinyl
+F8E1 EFBE brands/swift.svg swift
+F8E8 EFBF brands/umbraco.svg umbraco
+F8EF EFC0 solid/walkie-talkie.svg walkie_talkie
+F8FF EFC1 solid/caravan.svg caravan
+# E005 0000 solid/faucet.svg faucet
+# E006 0000 solid/faucet-drip.svg faucet_drip
+# E007 0000 brands/firefox-browser.svg firefox_browser
+# E00D 0000 solid/house-chimney-window.svg house_chimney_window
+# E012 0000 solid/house-signal.svg house_signal
+# E013 0000 brands/ideal.svg ideal
+# E01A 0000 brands/microblog.svg microblog
+# E01E 0000 brands/square-pied-piper.svg square_pied_piper
+# E03F 0000 solid/temperature-arrow-down.svg temperature_arrow_down
+# E040 0000 solid/temperature-arrow-up.svg temperature_arrow_up
+# E041 0000 solid/trailer.svg trailer
+# E049 0000 brands/unity.svg unity
+# E052 0000 brands/dailymotion.svg dailymotion
+# E055 0000 brands/square-instagram.svg square_instagram
+# E056 0000 brands/mixer.svg mixer
+# E057 0000 brands/shopify.svg shopify
+# E059 0000 solid/bacteria.svg bacteria
+# E05A 0000 solid/bacterium.svg bacterium
+# E05B 0000 solid/box-tissue.svg box_tissue
+# E05C 0000 solid/hand-holding-medical.svg hand_holding_medical
+# E05D 0000 solid/hand-sparkles.svg hand_sparkles
+# E05E 0000 solid/hands-bubbles.svg hands_bubbles
+# E05F 0000 solid/handshake-simple-slash.svg handshake_simple_slash
+# E060 0000 solid/handshake-slash.svg handshake_slash
+# E061 0000 solid/head-side-cough.svg head_side_cough
+# E062 0000 solid/head-side-cough-slash.svg head_side_cough_slash
+# E063 0000 solid/head-side-mask.svg head_side_mask
+# E064 0000 solid/head-side-virus.svg head_side_virus
+# E065 0000 solid/house-chimney-user.svg house_chimney_user
+# E066 0000 solid/house-laptop.svg house_laptop
+# E067 0000 solid/lungs-virus.svg lungs_virus
+# E068 0000 solid/people-arrows.svg people_arrows
+# E069 0000 solid/plane-slash.svg plane_slash
+# E06A 0000 solid/pump-medical.svg pump_medical
+# E06B 0000 solid/pump-soap.svg pump_soap
+# E06C 0000 solid/shield-virus.svg shield_virus
+# E06D 0000 solid/sink.svg sink
+# E06E 0000 solid/soap.svg soap
+# E06F 0000 solid/stopwatch-20.svg stopwatch_20
+# E070 0000 solid/shop-slash.svg shop_slash
+# E071 0000 solid/store-slash.svg store_slash
+# E072 0000 solid/toilet-paper-slash.svg toilet_paper_slash
+# E073 0000 solid/users-slash.svg users_slash
+# E074 0000 solid/virus.svg virus
+# E075 0000 solid/virus-slash.svg virus_slash
+# E076 0000 solid/viruses.svg viruses
+# E077 0000 brands/deezer.svg deezer
+# E078 0000 brands/edge-legacy.svg edge_legacy
+# E079 0000 brands/google-pay.svg google_pay
+# E07A 0000 brands/rust.svg rust
+# E07B 0000 brands/tiktok.svg tiktok
+# E07C 0000 brands/unsplash.svg unsplash
+# E07D 0000 brands/cloudflare.svg cloudflare
+# E07E 0000 brands/guilded.svg guilded
+# E07F 0000 brands/hive.svg hive
+# E080 0000 brands/42-group.svg 42_group
+# E081 0000 brands/instalod.svg instalod
+# E082 0000 brands/octopus-deploy.svg octopus_deploy
+# E083 0000 brands/perbyte.svg perbyte
+# E084 0000 brands/uncharted.svg uncharted
+# E085 0000 solid/vest.svg vest
+# E086 0000 solid/vest-patches.svg vest_patches
+# E087 0000 brands/watchman-monitoring.svg watchman_monitoring
+# E088 0000 brands/wodu.svg wodu
+# E097 0000 solid/arrow-trend-down.svg arrow_trend_down
+# E098 0000 solid/arrow-trend-up.svg arrow_trend_up
+# E09A 0000 solid/arrow-up-from-bracket.svg arrow_up_from_bracket
+# E0A9 0000 solid/austral-sign.svg austral_sign
+# E0AC 0000 solid/baht-sign.svg baht_sign
+# E0B4 0000 solid/bitcoin-sign.svg bitcoin_sign
+# E0B7 0000 solid/bolt-lightning.svg bolt_lightning
+# E0BB 0000 solid/book-bookmark.svg book_bookmark
+# E0D8 0000 solid/camera-rotate.svg camera_rotate
+# E0DF 0000 solid/cedi-sign.svg cedi_sign
+# E0E3 0000 solid/chart-column.svg chart_column
+# E0E4 0000 solid/chart-gantt.svg chart_gantt
+# E131 0000 solid/clapperboard.svg clapperboard
+# E139 0000 solid/clover.svg clover
+# E13A 0000 solid/code-compare.svg code_compare
+# E13B 0000 solid/code-fork.svg code_fork
+# E13C 0000 solid/code-pull-request.svg code_pull_request
+# E140 0000 solid/colon-sign.svg colon_sign
+# E152 0000 solid/cruzeiro-sign.svg cruzeiro_sign
+# E163 0000 solid/display.svg display
+# E169 0000 solid/dong-sign.svg dong_sign
+# E16D 0000 solid/elevator.svg elevator
+# E17B 0000 solid/filter-circle-xmark.svg filter_circle_xmark
+# E184 0000 solid/florin-sign.svg florin_sign
+# E185 0000 regular/folder-closed.svg folder_closed
+# E18F 0000 solid/franc-sign.svg franc_sign
+# E19A 0000 solid/guarani-sign.svg guarani_sign
+# E19B 0000 solid/gun.svg gun
+# E1A8 0000 solid/hands-clapping.svg hands_clapping
+# E1B0 0000 solid/house-user.svg house_user
+# E1BC 0000 solid/indian-rupee-sign.svg indian_rupee_sign
+# E1C4 0000 solid/kip-sign.svg kip_sign
+# E1C8 0000 solid/lari-sign.svg lari_sign
+# E1D3 0000 solid/litecoin-sign.svg litecoin_sign
+# E1D5 0000 solid/manat-sign.svg manat_sign
+# E1D7 0000 solid/mask-face.svg mask_face
+# E1ED 0000 solid/mill-sign.svg mill_sign
+# E1F3 0000 solid/money-bills.svg money_bills
+# E1F6 0000 solid/naira-sign.svg naira_sign
+# E1FE 0000 solid/notdef.svg notdef
+# E209 0000 solid/panorama.svg panorama
+# E221 0000 solid/peseta-sign.svg peseta_sign
+# E222 0000 solid/peso-sign.svg peso_sign
+# E22D 0000 solid/plane-up.svg plane_up
+# E23D 0000 solid/rupiah-sign.svg rupiah_sign
+# E289 0000 solid/stairs.svg stairs
+# E29C 0000 solid/timeline.svg timeline
+# E2B7 0000 solid/truck-front.svg truck_front
+# E2BB 0000 solid/turkish-lira-sign.svg turkish_lira_sign
+# E2C5 0000 solid/vault.svg vault
+# E2CA 0000 solid/wand-magic-sparkles.svg wand_magic_sparkles
+# E2CD 0000 solid/wheat-awn.svg wheat_awn
+# E2CE 0000 solid/wheelchair-move.svg wheelchair_move
+# E2D0 0000 brands/wirsindhandwerk.svg wirsindhandwerk
+# E2E6 0000 solid/bangladeshi-taka-sign.svg bangladeshi_taka_sign
+# E2EB 0000 solid/bowl-rice.svg bowl_rice
+# E31E 0000 solid/person-pregnant.svg person_pregnant
+# E340 0000 brands/bots.svg bots
+# E360 0000 brands/cmplid.svg cmplid
+# E3B1 0000 solid/house-crack.svg house_crack
+# E3B2 0000 solid/house-medical.svg house_medical
+# E3D9 0000 brands/bilibili.svg bilibili
+# E3F5 0000 solid/cent-sign.svg cent_sign
+# E40F 0000 brands/golang.svg golang
+# E43A 0000 brands/pix.svg pix
+# E43C 0000 solid/plus-minus.svg plus_minus
+# E445 0000 solid/sailboat.svg sailboat
+# E447 0000 solid/section.svg section
+# E448 0000 solid/shrimp.svg shrimp
+# E44A 0000 brands/sitrox.svg sitrox
+# E46C 0000 solid/brazilian-real-sign.svg brazilian_real_sign
+# E473 0000 solid/chart-simple.svg chart_simple
+# E476 0000 solid/diagram-next.svg diagram_next
+# E477 0000 solid/diagram-predecessor.svg diagram_predecessor
+# E47A 0000 solid/diagram-successor.svg diagram_successor
+# E47B 0000 solid/earth-oceania.svg earth_oceania
+# E490 0000 solid/bug-slash.svg bug_slash
+# E494 0000 solid/file-circle-plus.svg file_circle_plus
+# E499 0000 brands/hashnode.svg hashnode
+# E49B 0000 brands/meta.svg meta
+# E4A0 0000 brands/padlet.svg padlet
+# E4A5 0000 solid/shop-lock.svg shop_lock
+# E4A8 0000 solid/virus-covid.svg virus_covid
+# E4A9 0000 solid/virus-covid-slash.svg virus_covid_slash
+# E4AA 0000 solid/anchor-circle-check.svg anchor_circle_check
+# E4AB 0000 solid/anchor-circle-exclamation.svg anchor_circle_exclamation
+# E4AC 0000 solid/anchor-circle-xmark.svg anchor_circle_xmark
+# E4AD 0000 solid/anchor-lock.svg anchor_lock
+# E4AF 0000 solid/arrow-down-up-across-line.svg arrow_down_up_across_line
+# E4B0 0000 solid/arrow-down-up-lock.svg arrow_down_up_lock
+# E4B3 0000 solid/arrow-right-to-city.svg arrow_right_to_city
+# E4B5 0000 solid/arrow-up-from-ground-water.svg arrow_up_from_ground_water
+# E4B6 0000 solid/arrow-up-from-water-pump.svg arrow_up_from_water_pump
+# E4B7 0000 solid/arrow-up-right-dots.svg arrow_up_right_dots
+# E4B8 0000 solid/arrows-down-to-line.svg arrows_down_to_line
+# E4B9 0000 solid/arrows-down-to-people.svg arrows_down_to_people
+# E4BA 0000 solid/arrows-left-right-to-line.svg arrows_left_right_to_line
+# E4BB 0000 solid/arrows-spin.svg arrows_spin
+# E4BC 0000 solid/arrows-split-up-and-left.svg arrows_split_up_and_left
+# E4BD 0000 solid/arrows-to-circle.svg arrows_to_circle
+# E4BE 0000 solid/arrows-to-dot.svg arrows_to_dot
+# E4BF 0000 solid/arrows-to-eye.svg arrows_to_eye
+# E4C0 0000 solid/arrows-turn-right.svg arrows_turn_right
+# E4C1 0000 solid/arrows-turn-to-dots.svg arrows_turn_to_dots
+# E4C2 0000 solid/arrows-up-to-line.svg arrows_up_to_line
+# E4C3 0000 solid/bore-hole.svg bore_hole
+# E4C4 0000 solid/bottle-droplet.svg bottle_droplet
+# E4C5 0000 solid/bottle-water.svg bottle_water
+# E4C6 0000 solid/bowl-food.svg bowl_food
+# E4C7 0000 solid/boxes-packing.svg boxes_packing
+# E4C8 0000 solid/bridge.svg bridge
+# E4C9 0000 solid/bridge-circle-check.svg bridge_circle_check
+# E4CA 0000 solid/bridge-circle-exclamation.svg bridge_circle_exclamation
+# E4CB 0000 solid/bridge-circle-xmark.svg bridge_circle_xmark
+# E4CC 0000 solid/bridge-lock.svg bridge_lock
+# E4CE 0000 solid/bridge-water.svg bridge_water
+# E4CF 0000 solid/bucket.svg bucket
+# E4D0 0000 solid/bugs.svg bugs
+# E4D1 0000 solid/building-circle-arrow-right.svg building_circle_arrow_right
+# E4D2 0000 solid/building-circle-check.svg building_circle_check
+# E4D3 0000 solid/building-circle-exclamation.svg building_circle_exclamation
+# E4D4 0000 solid/building-circle-xmark.svg building_circle_xmark
+# E4D5 0000 solid/building-flag.svg building_flag
+# E4D6 0000 solid/building-lock.svg building_lock
+# E4D7 0000 solid/building-ngo.svg building_ngo
+# E4D8 0000 solid/building-shield.svg building_shield
+# E4D9 0000 solid/building-un.svg building_un
+# E4DA 0000 solid/building-user.svg building_user
+# E4DB 0000 solid/building-wheat.svg building_wheat
+# E4DC 0000 solid/burst.svg burst
+# E4DD 0000 solid/car-on.svg car_on
+# E4DE 0000 solid/car-tunnel.svg car_tunnel
+# E4E0 0000 solid/child-combatant.svg child_combatant
+# E4E1 0000 solid/children.svg children
+# E4E2 0000 solid/circle-nodes.svg circle_nodes
+# E4E3 0000 solid/clipboard-question.svg clipboard_question
+# E4E4 0000 solid/cloud-showers-water.svg cloud_showers_water
+# E4E5 0000 solid/computer.svg computer
+# E4E6 0000 solid/cubes-stacked.svg cubes_stacked
+# E4E8 0000 solid/envelope-circle-check.svg envelope_circle_check
+# E4E9 0000 solid/explosion.svg explosion
+# E4EA 0000 solid/ferry.svg ferry
+# E4EB 0000 solid/file-circle-exclamation.svg file_circle_exclamation
+# E4ED 0000 solid/file-circle-minus.svg file_circle_minus
+# E4EF 0000 solid/file-circle-question.svg file_circle_question
+# E4F0 0000 solid/file-shield.svg file_shield
+# E4F1 0000 solid/fire-burner.svg fire_burner
+# E4F2 0000 solid/fish-fins.svg fish_fins
+# E4F3 0000 solid/flask-vial.svg flask_vial
+# E4F4 0000 solid/glass-water.svg glass_water
+# E4F5 0000 solid/glass-water-droplet.svg glass_water_droplet
+# E4F6 0000 solid/group-arrows-rotate.svg group_arrows_rotate
+# E4F7 0000 solid/hand-holding-hand.svg hand_holding_hand
+# E4F8 0000 solid/handcuffs.svg handcuffs
+# E4F9 0000 solid/hands-bound.svg hands_bound
+# E4FA 0000 solid/hands-holding-child.svg hands_holding_child
+# E4FB 0000 solid/hands-holding-circle.svg hands_holding_circle
+# E4FC 0000 solid/heart-circle-bolt.svg heart_circle_bolt
+# E4FD 0000 solid/heart-circle-check.svg heart_circle_check
+# E4FE 0000 solid/heart-circle-exclamation.svg heart_circle_exclamation
+# E4FF 0000 solid/heart-circle-minus.svg heart_circle_minus
+# E500 0000 solid/heart-circle-plus.svg heart_circle_plus
+# E501 0000 solid/heart-circle-xmark.svg heart_circle_xmark
+# E502 0000 solid/helicopter-symbol.svg helicopter_symbol
+# E503 0000 solid/helmet-un.svg helmet_un
+# E507 0000 solid/hill-avalanche.svg hill_avalanche
+# E508 0000 solid/hill-rockslide.svg hill_rockslide
+# E509 0000 solid/house-circle-check.svg house_circle_check
+# E50A 0000 solid/house-circle-exclamation.svg house_circle_exclamation
+# E50B 0000 solid/house-circle-xmark.svg house_circle_xmark
+# E50C 0000 solid/house-fire.svg house_fire
+# E50D 0000 solid/house-flag.svg house_flag
+# E50E 0000 solid/house-flood-water.svg house_flood_water
+# E50F 0000 solid/house-flood-water-circle-arrow-right.svg house_flood_water_circle_arrow_right
+# E510 0000 solid/house-lock.svg house_lock
+# E511 0000 solid/house-medical-circle-check.svg house_medical_circle_check
+# E512 0000 solid/house-medical-circle-exclamation.svg house_medical_circle_exclamation
+# E513 0000 solid/house-medical-circle-xmark.svg house_medical_circle_xmark
+# E514 0000 solid/house-medical-flag.svg house_medical_flag
+# E515 0000 solid/house-tsunami.svg house_tsunami
+# E516 0000 solid/jar.svg jar
+# E517 0000 solid/jar-wheat.svg jar_wheat
+# E518 0000 solid/jet-fighter-up.svg jet_fighter_up
+# E519 0000 solid/jug-detergent.svg jug_detergent
+# E51A 0000 solid/kitchen-set.svg kitchen_set
+# E51B 0000 solid/land-mine-on.svg land_mine_on
+# E51C 0000 solid/landmark-flag.svg landmark_flag
+# E51D 0000 solid/laptop-file.svg laptop_file
+# E51E 0000 solid/lines-leaning.svg lines_leaning
+# E51F 0000 solid/location-pin-lock.svg location_pin_lock
+# E520 0000 solid/locust.svg locust
+# E521 0000 solid/magnifying-glass-arrow-right.svg magnifying_glass_arrow_right
+# E522 0000 solid/magnifying-glass-chart.svg magnifying_glass_chart
+# E523 0000 solid/mars-and-venus-burst.svg mars_and_venus_burst
+# E524 0000 solid/mask-ventilator.svg mask_ventilator
+# E525 0000 solid/mattress-pillow.svg mattress_pillow
+# E527 0000 solid/mobile-retro.svg mobile_retro
+# E528 0000 solid/money-bill-transfer.svg money_bill_transfer
+# E529 0000 solid/money-bill-trend-up.svg money_bill_trend_up
+# E52A 0000 solid/money-bill-wheat.svg money_bill_wheat
+# E52B 0000 solid/mosquito.svg mosquito
+# E52C 0000 solid/mosquito-net.svg mosquito_net
+# E52D 0000 solid/mound.svg mound
+# E52E 0000 solid/mountain-city.svg mountain_city
+# E52F 0000 solid/mountain-sun.svg mountain_sun
+# E530 0000 brands/nfc-directional.svg nfc_directional
+# E531 0000 brands/nfc-symbol.svg nfc_symbol
+# E532 0000 solid/oil-well.svg oil_well
+# E533 0000 solid/people-group.svg people_group
+# E534 0000 solid/people-line.svg people_line
+# E535 0000 solid/people-pulling.svg people_pulling
+# E536 0000 solid/people-robbery.svg people_robbery
+# E537 0000 solid/people-roof.svg people_roof
+# E538 0000 solid/person-arrow-down-to-line.svg person_arrow_down_to_line
+# E539 0000 solid/person-arrow-up-from-line.svg person_arrow_up_from_line
+# E53A 0000 solid/person-breastfeeding.svg person_breastfeeding
+# E53B 0000 solid/person-burst.svg person_burst
+# E53C 0000 solid/person-cane.svg person_cane
+# E53D 0000 solid/person-chalkboard.svg person_chalkboard
+# E53E 0000 solid/person-circle-check.svg person_circle_check
+# E53F 0000 solid/person-circle-exclamation.svg person_circle_exclamation
+# E540 0000 solid/person-circle-minus.svg person_circle_minus
+# E541 0000 solid/person-circle-plus.svg person_circle_plus
+# E542 0000 solid/person-circle-question.svg person_circle_question
+# E543 0000 solid/person-circle-xmark.svg person_circle_xmark
+# E544 0000 solid/person-dress-burst.svg person_dress_burst
+# E545 0000 solid/person-drowning.svg person_drowning
+# E546 0000 solid/person-falling.svg person_falling
+# E547 0000 solid/person-falling-burst.svg person_falling_burst
+# E548 0000 solid/person-half-dress.svg person_half_dress
+# E549 0000 solid/person-harassing.svg person_harassing
+# E54A 0000 solid/person-military-pointing.svg person_military_pointing
+# E54B 0000 solid/person-military-rifle.svg person_military_rifle
+# E54C 0000 solid/person-military-to-person.svg person_military_to_person
+# E54D 0000 solid/person-rays.svg person_rays
+# E54E 0000 solid/person-rifle.svg person_rifle
+# E54F 0000 solid/person-shelter.svg person_shelter
+# E551 0000 solid/person-walking-arrow-loop-left.svg person_walking_arrow_loop_left
+# E552 0000 solid/person-walking-arrow-right.svg person_walking_arrow_right
+# E553 0000 solid/person-walking-dashed-line-arrow-right.svg person_walking_dashed_line_arrow_right
+# E554 0000 solid/person-walking-luggage.svg person_walking_luggage
+# E555 0000 solid/plane-circle-check.svg plane_circle_check
+# E556 0000 solid/plane-circle-exclamation.svg plane_circle_exclamation
+# E557 0000 solid/plane-circle-xmark.svg plane_circle_xmark
+# E558 0000 solid/plane-lock.svg plane_lock
+# E55A 0000 solid/plate-wheat.svg plate_wheat
+# E55B 0000 solid/plug-circle-bolt.svg plug_circle_bolt
+# E55C 0000 solid/plug-circle-check.svg plug_circle_check
+# E55D 0000 solid/plug-circle-exclamation.svg plug_circle_exclamation
+# E55E 0000 solid/plug-circle-minus.svg plug_circle_minus
+# E55F 0000 solid/plug-circle-plus.svg plug_circle_plus
+# E560 0000 solid/plug-circle-xmark.svg plug_circle_xmark
+# E561 0000 solid/ranking-star.svg ranking_star
+# E562 0000 solid/road-barrier.svg road_barrier
+# E563 0000 solid/road-bridge.svg road_bridge
+# E564 0000 solid/road-circle-check.svg road_circle_check
+# E565 0000 solid/road-circle-exclamation.svg road_circle_exclamation
+# E566 0000 solid/road-circle-xmark.svg road_circle_xmark
+# E567 0000 solid/road-lock.svg road_lock
+# E568 0000 solid/road-spikes.svg road_spikes
+# E569 0000 solid/rug.svg rug
+# E56A 0000 solid/sack-xmark.svg sack_xmark
+# E56B 0000 solid/school-circle-check.svg school_circle_check
+# E56C 0000 solid/school-circle-exclamation.svg school_circle_exclamation
+# E56D 0000 solid/school-circle-xmark.svg school_circle_xmark
+# E56E 0000 solid/school-flag.svg school_flag
+# E56F 0000 solid/school-lock.svg school_lock
+# E570 0000 brands/screenpal.svg screenpal
+# E571 0000 solid/sheet-plastic.svg sheet_plastic
+# E572 0000 solid/shield-cat.svg shield_cat
+# E573 0000 solid/shield-dog.svg shield_dog
+# E574 0000 solid/shield-heart.svg shield_heart
+# E576 0000 solid/square-nfi.svg square_nfi
+# E577 0000 solid/square-person-confined.svg square_person_confined
+# E578 0000 solid/square-virus.svg square_virus
+# E579 0000 solid/staff-snake.svg staff_snake
+# E57A 0000 solid/sun-plant-wilt.svg sun_plant_wilt
+# E57B 0000 solid/tarp.svg tarp
+# E57C 0000 solid/tarp-droplet.svg tarp_droplet
+# E57D 0000 solid/tent.svg tent
+# E57E 0000 solid/tent-arrow-down-to-line.svg tent_arrow_down_to_line
+# E57F 0000 solid/tent-arrow-left-right.svg tent_arrow_left_right
+# E580 0000 solid/tent-arrow-turn-left.svg tent_arrow_turn_left
+# E581 0000 solid/tent-arrows-down.svg tent_arrows_down
+# E582 0000 solid/tents.svg tents
+# E583 0000 solid/toilet-portable.svg toilet_portable
+# E584 0000 solid/toilets-portable.svg toilets_portable
+# E585 0000 solid/tower-cell.svg tower_cell
+# E586 0000 solid/tower-observation.svg tower_observation
+# E587 0000 solid/tree-city.svg tree_city
+# E589 0000 solid/trowel.svg trowel
+# E58A 0000 solid/trowel-bricks.svg trowel_bricks
+# E58B 0000 solid/truck-arrow-right.svg truck_arrow_right
+# E58C 0000 solid/truck-droplet.svg truck_droplet
+# E58D 0000 solid/truck-field.svg truck_field
+# E58E 0000 solid/truck-field-un.svg truck_field_un
+# E58F 0000 solid/truck-plane.svg truck_plane
+# E591 0000 solid/users-between-lines.svg users_between_lines
+# E592 0000 solid/users-line.svg users_line
+# E593 0000 solid/users-rays.svg users_rays
+# E594 0000 solid/users-rectangle.svg users_rectangle
+# E595 0000 solid/users-viewfinder.svg users_viewfinder
+# E596 0000 solid/vial-circle-check.svg vial_circle_check
+# E597 0000 solid/vial-virus.svg vial_virus
+# E598 0000 solid/wheat-awn-circle-exclamation.svg wheat_awn_circle_exclamation
+# E599 0000 solid/worm.svg worm
+# E59A 0000 solid/xmarks-lines.svg xmarks_lines
+# E59C 0000 solid/child-dress.svg child_dress
+# E59D 0000 solid/child-reaching.svg child_reaching
+# E5A0 0000 solid/file-circle-check.svg file_circle_check
+# E5A1 0000 solid/file-circle-xmark.svg file_circle_xmark
+# E5A9 0000 solid/person-through-window.svg person_through_window
+# E5AA 0000 solid/plant-wilt.svg plant_wilt
+# E5AC 0000 brands/space-awesome.svg space_awesome
+# E5AD 0000 brands/square-font-awesome.svg square_font_awesome
+# E5AE 0000 brands/square-gitlab.svg square_gitlab
+# E5AF 0000 solid/stapler.svg stapler
+# E5B4 0000 solid/train-tram.svg train_tram
+# E5C6 0000 brands/odysee.svg odysee
+# E5C7 0000 brands/stubber.svg stubber
+# E60B 0000 brands/debian.svg debian
+# E60C 0000 brands/shoelace.svg shoelace
+# E618 0000 brands/threads.svg threads
+# E619 0000 brands/square-threads.svg square_threads
+# E61A 0000 brands/square-x-twitter.svg square_x_twitter
+# E61B 0000 brands/x-twitter.svg x_twitter
+# E62B 0000 brands/opensuse.svg opensuse
+# E62D 0000 brands/letterboxd.svg letterboxd
+# E62E 0000 brands/square-letterboxd.svg square_letterboxd
+# E62F 0000 brands/mintbit.svg mintbit
+# E63B 0000 brands/google-scholar.svg google_scholar
+# E63C 0000 brands/brave.svg brave
+# E63D 0000 brands/brave-reverse.svg brave_reverse
+# E640 0000 brands/pixiv.svg pixiv
+# E641 0000 brands/upwork.svg upwork
+# E65C 0000 brands/webflow.svg webflow
+# E663 0000 brands/signal-messenger.svg signal_messenger
+F374 EFC2 brands/avianex.svg avianex
+F536 EFC3 solid/less-than.svg less_than
+F537 EFC4 solid/less-than-equal.svg less_than_equal
+F538 EFC5 solid/memory.svg memory
+F539 EFC6 solid/microphone-lines-slash.svg microphone_lines_slash
+F53A EFC7 solid/money-bill-wave.svg money_bill_wave
+F53B EFC8 solid/money-bill-1-wave.svg money_bill_1_wave
+F53C EFC9 solid/money-check.svg money_check
+F53D EFCA solid/money-check-dollar.svg money_check_dollar
+F53E EFCB solid/not-equal.svg not_equal
+F53F EFCC solid/palette.svg palette
+F540 EFCD solid/square-parking.svg square_parking
+F542 EFCE solid/diagram-project.svg diagram_project
+# Summary
+# - Duplicates 37
+# - Dropped 401
+# - From original range 676 (0x2A4)
+# - From extended F0 range 799 (0x31F)
+# - From E0 range 0 (0x0)

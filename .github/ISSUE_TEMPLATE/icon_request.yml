@@ -1,0 +1,56 @@
+name: Icon Request
+description: Suggest to include one individual icon.
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        NerdFonts is a Icon Set aggregator, i.e. it takes whole sets of icons
+        and combines them into a font. As such it does not add individual
+        icons - except in exceptional circumstances.
+
+  - type: markdown
+    attributes:
+      value: |
+        The way to go is through upstream addition. Depending on upstream
+        project they probably will add the icon only if it is 'important'
+        enough, for some unspecific definition of 'important'; usually
+        meaning that there are more than 3 and a half people needing and
+        really using the icon later on. For example there are ten-thousand
+        different Linux distributions, but you will find only the more or
+        less 'major' ones' icons.
+
+  - type: markdown
+    attributes:
+      value: |
+        One reason is, at least for fonts (icon fonts) that the number of
+        codepoints is a limited resource. If a codepoint is given to some
+        project's icon but the project dies after 3 years, that renders
+        that codepoint useless; and removal of that icon will take years again.
+
+  - type: checkboxes
+    attributes:
+      label: Requirements
+      options:
+        - label: "I have searched the (also closed) [issues](https://github.com/ryanoasis/nerd-fonts/issues) for the icon and found nothing related or helpful"
+        - label: "I have searched the [suggestion list](https://github.com/ryanoasis/nerd-fonts/discussions/1095)"
+
+  - type: textarea
+    attributes:
+      label: Justification
+      description: Please explain why the convention not to include individual icons should be ignored. Give a list of icon sets you already contacted for inclusion but the request has been turned down (with links to the Issue / PR over there).
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: Which icon do you think should be added. Give name, links to its project, include the icon as image if possible.
+
+  - type: textarea
+    attributes:
+      label: Use scenario
+      description: Describe how the icon will be used (your expected purpose of the icon).
+
+  - type: input
+    attributes:
+      label: Icon license
+      placeholder: Specify the license of the icon or icon files.

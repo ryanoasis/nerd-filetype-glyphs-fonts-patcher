@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+# coding=utf8
+
+# This extracts the names and source and destination codepoints
+# of the old octicons font file to keep their codepoints stable
+#
+# You do not need to redo it, the result is in the repo
+#
+# Usage:
+# fontforge analyze_octicons > mapping
+
+import fontforge
+
+octi_orig = "octicons.ttf"
+current_cp = 0xF400
+
+print('# Examining {}'.format(octi_orig))
+
+font = fontforge.open(octi_orig)
+for glyph in font.glyphs('encoding'):
+    point = glyph.unicode
+    if point < 0:
+        continue
+    desti = glyph.unicode
+    if point < 0xF000:
+        desti = point
+    else:
+        desti = current_cp
+        current_cp += 1
+    print("{:X} {:X} {}".format(point, desti, glyph.glyphname))
+
+font.close()

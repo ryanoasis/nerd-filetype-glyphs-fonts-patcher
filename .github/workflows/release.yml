@@ -1,0 +1,415 @@
+# triggers a release or a release candidate based on the version defined in package.json
+
+name: Release
+
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  # push:
+  #   branches: [ master ]
+  #   paths-ignore:
+  #     - 'images/**'
+  #     - '**.md'
+  #     - '.all-contributorsrc'
+  #     - 'CONTRIBUTORS.md'
+  #     - 'chocolatey/**'
+  #     - 'bin/scripts/lib/**'
+  #     - 'Dockerfile'
+  #     - 'install.ps1'
+  #     - 'install.sh'
+  #     - 'LICENSE'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  setup-fonts-matrix:
+    runs-on: ubuntu-latest
+    # If you have a fork and want to run the release workflow, adapt this line:
+    if: ${{ github.repository_owner == 'ryanoasis' }}
+
+    steps:
+      - name: Fetch information
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: bin/scripts
+
+      - name: Determine font matrix
+        id: set-matrix
+        run: |
+          cd -- $GITHUB_WORKSPACE/bin/scripts/
+          chmod u+x get-font-names-from-json.sh
+          fontNames=$(./get-font-names-from-json.sh)
+          echo "${fontNames}"
+          echo "matrix=${fontNames}" >> $GITHUB_OUTPUT
+
+      - name: Fetch release version
+        id: rel_ver
+        run: |
+          cd -- "$GITHUB_WORKSPACE"
+          echo "Contents of package.json:"
+          cat package.json
+          RELEASE_VERSION=$(jq '.version' package.json | sed 's/[ ",]//g')
+          echo "val=$RELEASE_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Determine candidate status
+        id: rel_can
+        run: |
+          if [[ "${{ steps.rel_ver.outputs.val }}" == *"-RC"* ]]; then
+            CAN="val=true"
+          else
+            CAN="val=false"
+          fi
+          echo "${CAN}"
+          echo "${CAN}" >> $GITHUB_OUTPUT
+
+      - name: Determine new release or re-release
+        # If the tag exists it is obviously a re-release
+
+        # This would need a complete checkout, that we want to avoid
+        # uses: mukunku/tag-exists-action
+        #   with:
+        #     tag: "v${{ steps.rel_ver.outputs.val }}"
+        #   env:
+        #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: rel_pre_existing
+        run: |
+          RPE=$(curl -v "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/tags" | jq '.[].name' | grep -q '^"v${{ steps.rel_ver.outputs.val }}"$' \
+            && echo "exists=true" || echo "exists=false")
+          echo "${RPE}" >> $GITHUB_OUTPUT
+          echo "Tag exists: ${RPE}"
+
+      - name: Upload release only on first trigger for release and always on release candidate
+        id: upload
+        # Upload release when:
+        # * This is a new (previously untagged) release
+        # * This is a release candidate
+        run: |
+          if [[ "${{ steps.rel_can.outputs.val }}" == "true" || "${{ steps.rel_pre_existing.outputs.exists }}" == "false" ]]; then
+            UP="val=true"
+          else
+            UP="val=false"
+          fi
+          echo "${UP}"
+          echo "${UP}" >> $GITHUB_OUTPUT
+
+      - name: Determine release timestamp
+        id: timestamp
+        run: |
+          echo "val=$(date +%s)" >> $GITHUB_OUTPUT
+
+      - name: Show outputs
+        run: |
+          echo "rel_version: ${{ steps.rel_ver.outputs.val }}"
+          echo "rel_candidate: ${{ steps.rel_can.outputs.val }}"
+          echo "rel_pre_existing: ${{ steps.rel_pre_existing.outputs.exists }}"
+          echo "rel_upload: ${{ steps.upload.outputs.val }}"
+          echo "rel_timestamp: ${{ steps.timestamp.outputs.val }} ($(date -R --date=@${{ steps.timestamp.outputs.val }}))"
+
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      rel_version: ${{ steps.rel_ver.outputs.val }}
+      rel_candidate: ${{ steps.rel_can.outputs.val }}
+      rel_pre_existing: ${{ steps.rel_pre_existing.outputs.exists }}
+      rel_upload: ${{ steps.upload.outputs.val }}
+      rel_timestamp: ${{ steps.timestamp.outputs.val }}
+
+  # Workflow to build and install dependencies
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    needs: setup-fonts-matrix
+
+    env:
+      GITHUB_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      RELEASE_VERSION: ${{ needs.setup-fonts-matrix.outputs.rel_version }}
+      RELEASE_CANDIDATE: ${{ needs.setup-fonts-matrix.outputs.rel_candidate }}
+      SOURCE_DATE_EPOCH: ${{ needs.setup-fonts-matrix.outputs.rel_timestamp }}
+
+    strategy:
+      matrix:
+        font: ${{fromJson(needs.setup-fonts-matrix.outputs.matrix)}}
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+      - name: Check release variables
+        run: |
+          echo "$RELEASE_VERSION"
+          echo "Candidate: $RELEASE_CANDIDATE"
+          echo "Publish/refresh release: ${{ needs.setup-fonts-matrix.outputs.rel_upload }}"
+
+      # Install and setup Dependencies
+      # @TODO cache the next 4 steps with actions/cache or upload
+      - name: Setup core dependencies
+        run: |
+          sudo apt update -y -q
+          sudo apt install software-properties-common -y -q
+          sudo apt install python3-fontforge -y -q
+          sudo apt install fuse -y -q
+
+      # Ubuntu 20.04 has only fontforge release 2020, but there are some vital bugfixes in the 2022 release
+      # This can be replaced with the ordinary apt package when Ubuntu updates, probably with 22.10?
+      # On the other hand ... why not be on the latest release always?
+      - name: Fetch FontForge
+        run: |
+          curl -L "https://github.com/fontforge/fontforge/releases/download/20230101/FontForge-2023-01-01-a1dad3e-x86_64.AppImage" \
+            --output fontforge
+          chmod u+x fontforge
+          echo Try appimage
+          ./fontforge --version
+          export PATH=`pwd`:$PATH
+          echo "PATH=$PATH" >> $GITHUB_ENV
+          echo Try appimage with path
+          fontforge --version
+
+      # It is unclear what this has been needed for
+      - name: Setup additional dependencies
+        if: false
+        run: |
+          pip install fonttools --quiet
+
+      # It is unclear what this has been needed for
+      - name: Build FreeType from source
+        if: false
+        run: |
+          wget http://downloads.sourceforge.net/project/freetype/freetype2/2.7/freetype-2.7.tar.gz --quiet
+          tar -zxf freetype-2.7.tar.gz
+          cd freetype-2.7
+          ./configure
+          make --quiet
+          sudo make install --quiet
+
+      # It is unclear what this has been needed for
+      - name: Build Harfbuzz from source
+        if: false
+        run: |
+          wget http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.3.4.tar.bz2 --quiet
+          tar -xjf harfbuzz-1.3.4.tar.bz2
+          cd harfbuzz-1.3.4
+          ./configure
+          make --quiet
+          sudo make install --quiet
+
+      - name: Verify setup
+        run: |
+          fontforge --version
+          fontforge --version 2>&1 | grep libfontforge | awk '{print $NF}'
+
+      - name: Bump version for source files and update glyphnames.json
+        # and check if generated glyphnames.json is valid
+        run: |
+          cd -- "$GITHUB_WORKSPACE/bin/scripts"
+          ./version-bump.sh "$RELEASE_VERSION"
+          ./generate-css.sh
+          jq . ../../glyphnames.json > /dev/null
+
+      - name: Patch all the variations of the font family
+        run: |
+          cd -- "$GITHUB_WORKSPACE/bin/scripts"
+          fontforge --script `pwd`/../../font-patcher --version
+          ./gotta-patch-em-all-font-patcher\!.sh -j "/${{ matrix.font }}"
+
+      - name: Archive font packages
+        run: |
+          cd -- "$GITHUB_WORKSPACE/bin/scripts"
+          ./archive-fonts.sh "${{ matrix.font }}"
+
+      - name: Upload zip and tar.xz archive for release
+        uses: softprops/action-gh-release@v2
+        if: needs.setup-fonts-matrix.outputs.rel_upload == 'true'
+        with:
+          draft: true
+          prerelease: ${{ env.RELEASE_CANDIDATE != 'false' }}
+          tag_name: "v${{ env.RELEASE_VERSION }}"
+          files: archives/*
+
+      - name: Create checksums from font packages
+        run: |
+          cd -- "$GITHUB_WORKSPACE/archives"
+          sha256sum * > SHA-256-${{ matrix.font }}.txt
+
+      - name: Upload patched fonts as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: patched-fonts-${{ matrix.font }}
+          # adding multiple paths (i.e. LICENSE) is a workaround to get a least common ancestor
+          # of the root directory for artifact path purposes
+          path: |
+            LICENSE
+            patched-fonts/${{ matrix.font }}
+            archives/SHA*
+
+  commit:
+    name: Commit and push patched fonts to the repo, finalize release
+    needs: [ setup-fonts-matrix, build ]
+    env:
+      RELEASE_VERSION: ${{ needs.setup-fonts-matrix.outputs.rel_version }}
+      RELEASE_CANDIDATE: ${{ needs.setup-fonts-matrix.outputs.rel_candidate }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare repo (clear out old and obsolete fonts)
+        run: |
+          cd -- "$GITHUB_WORKSPACE/patched-fonts"
+          find . -name "*.[to]tf" -exec rm {} \;
+
+      - name: Download patched fonts from build
+        id: download-patched-fonts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: patched-fonts-*
+          path: .
+          merge-multiple: true
+
+      - name: Create complete checksums file
+        run: |
+          cd -- "$GITHUB_WORKSPACE/archives"
+          cat SHA-256-* | sort -k 2 > SHA-256.txt
+
+      - name: Upload checksums for release
+        uses: softprops/action-gh-release@v2
+        if: needs.setup-fonts-matrix.outputs.rel_upload == 'true'
+        with:
+          draft: true
+          prerelease: ${{ env.RELEASE_CANDIDATE != 'false' }}
+          tag_name: "v${{ env.RELEASE_VERSION }}"
+          files: archives/SHA-256.txt
+
+      - name: Bump version for source files
+        run: |
+          cd -- "$GITHUB_WORKSPACE/bin/scripts"
+          ./version-bump.sh "$RELEASE_VERSION"
+
+      - name: Commit version bump changes
+        # If there are no changes (i.e. we already have that bump commit from a previous run)
+        # the git commit will fail as empty commit (that we do not explicitely allow here),
+        # and the action fails silently (i.e. without stopping the job).
+        # This means there will be only one commit in the repo for each version tag change,
+        # regardless of how often we run the release CI.
+        uses: EndBug/add-and-commit@v9
+        with:
+          fetch: false
+          add: "['font-patcher', 'bin/scripts']"
+          message: "[ci] Bump release version"
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Commit patched fonts back to repo
+        # For fonts with repoRelease == false in the font.json the gitignore should
+        # have been setup in a way that this commits only the README.md
+        # See also fontjson.yml and update-gitignore.sh
+        uses: EndBug/add-and-commit@v9
+        with:
+          fetch: false
+          add: 'patched-fonts'
+          message: "[ci] Rebuild patched fonts"
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Generate fontconfig
+        run: |
+          cd -- "$GITHUB_WORKSPACE/bin/scripts"
+          ./generate-fontconfig.sh
+
+      - name: Commit fontconfig back to repo
+        uses: EndBug/add-and-commit@v9
+        with:
+          fetch: false
+          add: '10-nerd-font-symbols.conf'
+          message: "[ci] Regenerate fontconfig"
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Generate new CSS file and webfonts
+        run: |
+          sudo apt update -y -q
+          sudo apt install fontforge -y -q
+          cd -- "$GITHUB_WORKSPACE/bin/scripts"
+          ./generate-css.sh
+          ./generate-webfonts.sh
+
+      - name: Commit CSS back to repo
+        uses: EndBug/add-and-commit@v9
+        id: push_css
+        with:
+          fetch: false
+          add: "['css', 'glyphnames.json']"
+          message: "[ci] Regenerate CSS files"
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Archive font-patcher script in FontPatcher.zip for release
+        run: |
+          cd -- "$GITHUB_WORKSPACE/bin/scripts"
+          ./archive-font-patcher.sh
+
+      - name: Check if FontPatcher.zip contents changed
+        id: updated-or-not
+        run: |
+          sudo apt install -y -q zipcmp
+          (zipcmp archives/FontPatcher.zip ./FontPatcher.zip; \
+           echo "updated=$?" >> $GITHUB_OUTPUT) || true
+
+      - name: Upload font-patcher archive for release
+        uses: softprops/action-gh-release@v2
+        if: needs.setup-fonts-matrix.outputs.rel_upload == 'true'
+        with:
+          draft: true
+          prerelease: ${{ env.RELEASE_CANDIDATE != 'false' }}
+          tag_name: "v${{ env.RELEASE_VERSION }}"
+          files: archives/*
+
+      - name: Prepare commit
+        if: steps.updated-or-not.outputs.updated != 0
+        run: cp -f archives/FontPatcher.zip .
+
+      - name: Commit new FontPatcher.zip
+        uses: EndBug/add-and-commit@v9
+        if: steps.updated-or-not.outputs.updated != 0
+        with:
+          fetch: false
+          add: 'FontPatcher.zip'
+          message: "[ci] Update FontPatcher.zip"
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Adjust release tag to include previous commit
+        uses: EndBug/latest-tag@v1
+        if: needs.setup-fonts-matrix.outputs.rel_upload == 'true'
+        with:
+          ref: "v${{ needs.setup-fonts-matrix.outputs.rel_version }}"
+
+      - name: Deploy CSS to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        if: steps.push_css.outputs.pushed
+        with:
+          folder: css
+          target-folder: _includes/css
+          commit-message: "[ci] Regenerate CSS files"
+          git-config-name: GitHub Actions
+          git-config-email: 41898282+github-actions[bot]@users.noreply.github.com
+          clean: false
+
+      - name: Deploy Cheat Sheet to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        if: steps.push_css.outputs.pushed
+        with:
+          folder: temp
+          target-folder: _posts
+          commit-message: "[ci] Regenerate Cheat Sheet"
+          git-config-name: GitHub Actions
+          git-config-email: 41898282+github-actions[bot]@users.noreply.github.com
+          clean: false
+
+      - name: Deploy webfonts to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: webfonts
+          target-folder: assets/fonts
+          commit-message: "[ci] Update webfonts"
+          git-config-name: GitHub Actions
+          git-config-email: 41898282+github-actions[bot]@users.noreply.github.com
+          clean: false

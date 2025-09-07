@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+# coding=utf8
+#
+# Usually called via
+# $ fontforge query_name fontfile.tff 2>/dev/null
+
+import sys
+import os.path
+import fontforge
+
+###### Some helpers
+
+def get_sfnt_dict(font):
+    """Extract SFNT table as nice dict"""
+    d = { }
+    for l, k, v in font.sfnt_names:
+        if k not in d:
+            d[k] = [ v ]
+        else:
+            d[k] += [ v ]
+    d = { k: v[0] if v and len(v) == 1 else tuple(v) for k, v in d.items() }
+    return d
+
+###### Let's go!
+
+if len(sys.argv) < 2:
+    print('Usage: {} font_name [font_name ...]\n'.format(sys.argv[0]))
+    sys.exit(1)
+
+print('Examining {} font files'.format(len(sys.argv) - 1))
+add_line = False
+
+for filename in sys.argv[1:]:
+    fullfile = os.path.basename(filename)
+    fname = os.path.splitext(fullfile)[0]
+
+    font = fontforge.open(filename, 1)
+    sfnt = get_sfnt_dict(font)
+    psname = font.fontname
+    aname = font.fondname
+    full = font.fullname
+    fam = font.familyname
+    font.close()
+
+    sfnt_full =    sfnt.get('Fullname', None)
+    sfnt_fam =     sfnt.get('Family', None)
+    sfnt_subfam =  sfnt.get('SubFamily', None)
+    sfnt_pfam =    sfnt.get('Preferred Family', '-')
+    sfnt_psubfam = sfnt.get('Preferred Styles', '-')
+    sfnt_psname =  sfnt.get('PostScriptName', '-')
+    sfnt_compat =  sfnt.get('Compatible Full', '-')
+    sfnt_cidff =   sfnt.get('CID findfont Name', '-')
+    sfnt_wfam =    sfnt.get('WWS Family', '-')
+    sfnt_wsubfam = sfnt.get('WWS Subfamily', '-')
+
+
+    if add_line:
+        print()
+    else:
+        add_line = True
+
+    print('======== {} ========'.format(fullfile))
+    print('SFNT Fullname      ID 4     {}'.format(sfnt_full))
+    print('SFNT Family        ID 1     {}'.format(sfnt_fam))
+    print('SFNT SubFamily     ID 2     {}'.format(sfnt_subfam))
+    print('SFNT Pref Family   ID 16    {}'.format(sfnt_pfam))
+    print('SFNT Pref Styles   ID 17    {}'.format(sfnt_psubfam))
+    print('SFNT PS Name       ID 6     {}'.format(sfnt_psname))
+    print('SFNT Compatible    ID 18    {}'.format(sfnt_compat))
+    print('SFNT CID findfont  ID 20    {}'.format(sfnt_cidff))
+    print('SFNT WWS Family    ID 21    {}'.format(sfnt_wfam))
+    print('SFNT WWS SubFamily ID 22    {}'.format(sfnt_wsubfam))
+    print('PS fontname                 {}'.format(psname))
+    print('PS fullname                 {}'.format(full))
+    print('PS familyname               {}'.format(fam))
+    print('fondname                    {}'.format(aname))

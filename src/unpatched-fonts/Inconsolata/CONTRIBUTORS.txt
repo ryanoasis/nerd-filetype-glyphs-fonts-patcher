@@ -1,0 +1,14 @@
+# This is the official list of people who can contribute
+# (and typically have contributed) code to this repository.
+# The AUTHORS file lists the copyright holders; this file
+# lists people.  For example, company employees are listed here
+# but not in AUTHORS, because their company holds the copyright.
+#
+# Names should be added to this file like so:
+#     Name <email address>
+
+Alexei Vanyashin <a@cyreal.org>
+Brenton Simpson <bsimpson@appsforartists.com>
+Kirill Tkachev <kiril_sun@list.ru>
+Marc Foley <m.foley.88@googlemail.com>
+Nhung Nguyen <vns.wonderland@gmail.com>
