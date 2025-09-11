@@ -1950,6 +1950,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "injust",
+      "name": "Justin Su",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3387175?v=4",
+      "profile": "https://github.com/injust",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "repoType": "github",
