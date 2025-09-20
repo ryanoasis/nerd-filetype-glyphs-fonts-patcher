@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main geometric shape - stylized 'C' or bracket -->
+  <path d="M 200 150 L 750 150 L 600 300 L 350 300 L 200 450 L 350 600 L 600 600 L 750 750 L 200 750 L 50 600 L 200 450 L 50 300 Z" 
+        fill="currentColor" stroke="none"/>
+  
+  <!-- Three dots on the right -->
+  <circle cx="850" cy="250" r="40" fill="currentColor"/>
+  <circle cx="850" cy="400" r="50" fill="currentColor"/>
+  <circle cx="850" cy="550" r="60" fill="currentColor"/>
+</svg>
