@@ -752,6 +752,21 @@
       "description": "Ligatures, distinguishable glyphs with short ascenders &amp; descenders, large operators &amp; punctuation"
     },
     {
+      "unpatchedName": "Monocraft",
+      "licenseId": "OFL-1.1-no-RFN",
+      "RFN": false,
+      "version": "4.1",
+      "patchedName": "Monocraft",
+      "folderName": "Monocraft",
+      "imagePreviewFont": "Monocraft Nerd Font",
+      "imagePreviewFontSource": "Monocraft/Monocraft.otf",
+      "linkPreviewFont": "monocraft",
+      "caskName": "monocraft",
+      "repoRelease": false,
+      "isMonospaced": true,
+      "description": "The monospaced font for developers who like Minecraft a bit too much"
+    },
+    {
       "unpatchedName": "Mononoki",
       "licenseId": "OFL-1.1-RFN",
       "RFN": true,

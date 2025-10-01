@@ -164,6 +164,7 @@ A preview of all fonts can be found [here](https://www.nerdfonts.com/font-downlo
 | [MartianMono Nerd Font][p-martian]                | [MartianMono][f-martian]               | 1.1.0      | NO   |
 | [Meslo Nerd Font][p-meslo]                        | [Meslo][f-meslo]                       | 1.21       | NO   |
 | [Monaspice Nerd Font][p-monaspace]                | [Monaspace][f-monaspace]               | 1.200      | YES  |
+| [Monocraft Nerd Font][p-monocraft]                | [Monocraft][f-monocraft]               | 4.1        | NO   |
 | [Monofur Nerd Font][p-monofur]                    | Monofur (Tobias B Koehler)             | 1.0        | NO   |
 | [Monoid Nerd Font][p-monoid]                      | [Monoid][f-monoid]                     | 0.61       | NO   |
 | [Mononoki Nerd Font][p-mononoki]                  | [Mononoki][f-mononoki]                 | 1.6        | YES  |
@@ -767,6 +768,7 @@ Font repos
 [f-martian]:https://github.com/evilmartians/mono
 [f-meslo]:https://github.com/andreberg/Meslo-Font
 [f-monaspace]:https://github.com/githubnext/monaspace
+[f-monocraft]:https://github.com/IdreesInc/Monocraft
 [f-monoid]:https://github.com/larsenwork/monoid
 [f-mononoki]:https://madmalik.github.io/mononoki
 [f-mplus]:https://mplusfonts.github.io
@@ -838,6 +840,7 @@ Patched Font internal links
 [p-martian]:patched-fonts/MartianMono
 [p-meslo]:patched-fonts/Meslo
 [p-monaspace]:patched-fonts/Monaspace
+[p-monocraft]:patched-fonts/Monocraft
 [p-monofur]:patched-fonts/Monofur
 [p-monoid]:patched-fonts/Monoid
 [p-mononoki]:patched-fonts/Mononoki
