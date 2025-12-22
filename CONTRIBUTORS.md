@@ -287,6 +287,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/injust"><img src="https://avatars.githubusercontent.com/u/3387175?v=4?s=100" width="100px;" alt="Justin Su"/><br /><sub><b>Justin Su</b></sub></a><br /><a href="https://github.com/ryanoasis/nerd-fonts/commits?author=injust" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ZhiZe-ZG"><img src="https://avatars.githubusercontent.com/u/75554862?v=4?s=100" width="100px;" alt="ZhiZe-ZG"/><br /><sub><b>ZhiZe-ZG</b></sub></a><br /><a href="https://github.com/ryanoasis/nerd-fonts/issues?q=author%3AZhiZe-ZG" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/x626f"><img src="https://avatars.githubusercontent.com/u/26394523?v=4?s=100" width="100px;" alt="x626f"/><br /><sub><b>x626f</b></sub></a><br /><a href="https://github.com/ryanoasis/nerd-fonts/commits?author=x626f" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://hermanmalik.com"><img src="https://avatars.githubusercontent.com/u/56662591?v=4?s=100" width="100px;" alt="Herman Malik"/><br /><sub><b>Herman Malik</b></sub></a><br /><a href="https://github.com/ryanoasis/nerd-fonts/issues?q=author%3Ahermanmalik" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
