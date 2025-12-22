@@ -1977,6 +1977,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "hermanmalik",
+      "name": "Herman Malik",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56662591?v=4",
+      "profile": "http://hermanmalik.com",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "repoType": "github",
