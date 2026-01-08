@@ -28,12 +28,12 @@ glyphsetsdir = 'lib'
 def hasGaps(data, start_codepoint):
     """ Takes a list of integers and checks that it contains no gaps """
     for i in range(min(data) + 1, max(data)):
-        if not i in data:
+        if i not in data:
             print('Gap at offset {}'.format(i - start_codepoint))
             return True
     return False
 
-def iconFileLineOk(parts):
+def iconFileLineOk(parts, line):
     """ Check one line for course errors, decide if it shall be skipped """
     if parts[0].startswith('#'):
         # Comment lines start with '#'
@@ -72,7 +72,7 @@ def readIconFile(filename, start_codepoint):
     with open(filename, 'r') as f:
         for line in f.readlines():
             parts = re.split('\t+', line.strip())
-            if not iconFileLineOk(parts):
+            if not iconFileLineOk(parts, line):
                 continue
             offset = int(parts[0])
             codepoint = start_codepoint + offset
