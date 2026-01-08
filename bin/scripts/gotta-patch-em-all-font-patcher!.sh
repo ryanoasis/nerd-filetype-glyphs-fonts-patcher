@@ -161,14 +161,14 @@ then
     # Pattern for directory filter: match paths containing the directory
     like_pattern=".*/${filter_dir}/.*\.\(otf\|ttf\|sfd\)"
   else
-    # Filename filter: match fonts with filter in filename
-    find_cmd_args=(-iname "*${filter_arg}*.ttf" -o -iname "*${filter_arg}*.otf" -o -iname "*${filter_arg}*.sfd")
+    # Filename filter: match fonts that start with the filter
+    find_cmd_args=(-iname "${filter_arg}*.ttf" -o -iname "${filter_arg}*.otf" -o -iname "${filter_arg}*.sfd")
     find_path_filter=""
     find_path_pattern=""
     find_path_filter_with_pattern=()
     echo "$LINE_PREFIX Filter given, limiting search and patch to filename pattern '$filter_arg'"
-    # Pattern for filename filter: match filter in filename
-    like_pattern=".*${filter_arg}.*\.\(otf\|ttf\|sfd\)"
+    # Pattern for filename filter: match files that start with the filter
+    like_pattern=".*/${filter_arg}[^/]*\.\(otf\|ttf\|sfd\)"
   fi
 else
   # No filter
@@ -413,8 +413,8 @@ then
             fi
           done
         else
-          # Filename filter: count fonts with filter in filename
-          num_to_patch=$(find "${current_source_dir}" "(" -iname "*${filter_arg}*.ttf" -o -iname "*${filter_arg}*.otf" -o -iname "*${filter_arg}*.sfd" ")" -type f | wc -l)
+          # Filename filter: count fonts that start with the filter
+          num_to_patch=$(find "${current_source_dir}" "(" -iname "${filter_arg}*.ttf" -o -iname "${filter_arg}*.otf" -o -iname "${filter_arg}*.sfd" ")" -type f | wc -l)
         fi
       else
         # No filter: count all fonts in directory
