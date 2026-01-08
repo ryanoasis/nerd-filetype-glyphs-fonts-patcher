@@ -209,12 +209,12 @@ if [ -z "${SOURCE_DATE_EPOCH}" ]
 then
   export SOURCE_DATE_EPOCH=$(date +%s)
 fi
-# macOS compatibility: BSD date uses -r instead of -R --date=@
-if date -R "--date=@${SOURCE_DATE_EPOCH}" >/dev/null 2>&1; then
-  # GNU date (Linux)
+# Detect GNU vs BSD date implementations reliably
+if date --version >/dev/null 2>&1; then
+  # GNU date (Linux and others)
   release_timestamp=$(date -R "--date=@${SOURCE_DATE_EPOCH}")
-elif date -r "${SOURCE_DATE_EPOCH}" >/dev/null 2>&1; then
-  # BSD date (macOS)
+elif date -r "${SOURCE_DATE_EPOCH}" "+%a, %d %b %Y %H:%M:%S %z" >/dev/null 2>&1; then
+  # BSD date (macOS) - uses -r with epoch seconds
   release_timestamp=$(date -r "${SOURCE_DATE_EPOCH}" "+%a, %d %b %Y %H:%M:%S %z")
 else
   echo >&2 "$LINE_PREFIX Invalid release timestamp SOURCE_DATE_EPOCH: ${SOURCE_DATE_EPOCH}"
@@ -239,10 +239,12 @@ function patch_font {
       orig_font_date=$(ttfdump -t head "${one_font}" | \
         grep -E '[^a-z]modified:.*0x' | sed 's/.*x//' | tr 'a-f' 'A-F')
       SOURCE_DATE_EPOCH=$(dc -e "16i ${orig_font_date} Ai 86400 24107 * - p")
-      # macOS compatibility for date command
-      if date -R "--date=@${SOURCE_DATE_EPOCH}" >/dev/null 2>&1; then
+      # Adjust timestamp using the same GNU/BSD date detection logic
+      if date --version >/dev/null 2>&1; then
+        # GNU date
         adjusted_timestamp=$(date -R "--date=@${SOURCE_DATE_EPOCH}")
-      elif date -r "${SOURCE_DATE_EPOCH}" >/dev/null 2>&1; then
+      elif date -r "${SOURCE_DATE_EPOCH}" "+%a, %d %b %Y %H:%M:%S %z" >/dev/null 2>&1; then
+        # BSD date
         adjusted_timestamp=$(date -r "${SOURCE_DATE_EPOCH}" "+%a, %d %b %Y %H:%M:%S %z")
       else
         adjusted_timestamp="unknown"
