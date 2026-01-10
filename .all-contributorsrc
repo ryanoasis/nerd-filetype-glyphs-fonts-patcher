@@ -1986,6 +1986,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "GoldPigg",
+      "name": "Goldpigg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/110080943?v=4",
+      "profile": "https://github.com/GoldPigg",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "repoType": "github",
