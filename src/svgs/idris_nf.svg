@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with VectorDraw -->
+
+<!-- SPDX-License-Identifier: BSD-3-Clause -->
+<!--
+Copyright (c) 2020 Edwin Brady
+    School of Computer Science, University of St Andrews
+All rights reserved.
+
+This code is derived from software written by Edwin Brady
+(ecb10@st-andrews.ac.uk).
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+3. None of the names of the copyright holders may be used to endorse
+   or promote products derived from this software without specific
+   prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT HOLDERS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+*** End of disclaimer. ***
+-->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="311.90765"
+   height="570.46472"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="text-x-idris.svg">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1918"
+     inkscape:window-height="1034"
+     id="namedview7"
+     showgrid="false"
+     inkscape:zoom="0.56123662"
+     inkscape:cx="54.151709"
+     inkscape:cy="-28.476384"
+     inkscape:window-x="1920"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer=""
+     fit-margin-top="0"
+     fit-margin-left="1.2"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <g
+     inkscape:label=""
+     inkscape:groupmode="layer"
+     id=""
+     transform="translate(1.407669,-0.379032)">
+    <g
+       id="g3353"
+       transform="translate(22,0)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3345"
+         d="M 79.07716,85.235105 C 152.15731,107.3516 170.85211,125.57188 196.54561,191.60466 191.5621,111.08837 159.33816,77.523083 79.07716,85.235105 c 18.82716,-67.890093 0,0 0,0 z"
+         style="fill:#8a0819;fill-opacity:1;stroke:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3343"
+         d="M -22.207669,211.87449 C 25.234912,226.48437 80.323859,238.15903 100.68023,328.79942 109.08411,215.72166 55.546121,209.96088 -22.207669,211.87449 c 90.648682,-302.180016 0,0 0,0 z"
+         style="fill:#8a0819;fill-opacity:1;stroke:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3341"
+         d="M 9.8483347,139.76992 C 81.136615,154.50235 126.58014,173.85823 153.14004,265.85432 159.23348,147.17442 94.093917,135.25771 9.8483347,139.76992 c 78.3893863,-131.1880199 0,0 0,0 z"
+         style="fill:#8a0819;fill-opacity:1;stroke:none" />
+      <path
+         id="path5"
+         d="M 103.33025,0.379032 C 492.35181,254.04105 16.917801,258.5227 120.33008,553.01685 c 0,0 61.21588,17.8269 61.21588,17.8269 C 12.902722,342.22024 556.89801,224.698 103.33025,0.379032 c 0,0 0,0 0,0 z"
+         style="fill:#8a0819;fill-opacity:1;stroke:none"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>
