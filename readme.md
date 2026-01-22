@@ -130,7 +130,7 @@ A preview of all fonts can be found [here](https://www.nerdfonts.com/font-downlo
 | [CaskaydiaCove Nerd Font][p-cascadia]             | [Cascadia Code][f-cascadia]            | 2407.24    | YES  |
 | [CaskaydiaMono Nerd Font][p-cascadia-mono]        | [Cascadia Mono][f-cascadia]            | 2407.24    | YES  |
 | [CodeNewRoman Nerd Font][p-code-nr]               | Code New Roman (Sam Radian)            | 2.0        | NO   |
-| [ComicShannsMono Nerd Font][p-comic]              | [Comic Shanns Mono][f-comic]           | 1.3.1      | NO   |
+| [ComicShannsMono Nerd Font][p-comic]              | [Comic Shanns Mono][f-comic]           | 1.3.2      | NO   |
 | [CommitMono Nerd Font][p-commit]                  | [Commit Mono][f-commit]                | 1.143      | NO   |
 | [Cousine Nerd Font][p-cousine]                    | [Cousine][f-cousine]                   | 1.211      | NO   |
 | [D2Coding Nerd Font][p-d2coding]                  | [D2Coding][f-d2coding]                 | 1.3.2      | NO   |
@@ -452,6 +452,19 @@ Patching the font of your own choosing:
   * Specify the parallel tasks number to 10
   ```
   docker run --rm -v /path/to/fonts:/in:Z -v /path/for/output:/out:Z -e "PN=10" nerdfonts/patcher [OPTIONS]
+  ```
+  * Update docker image
+  ```
+  docker pull nerdfonts/patcher
+  ```
+  * Run interatively to get full control of `font-patcher` invocation and all debug output and error messages:
+  ```
+  docker run -it -v /path/to/fonts:/in:Z --entrypoint=/bin/sh nerdfonts/patcher
+  ```
+  And then in the container for example:
+  ```
+  / # cd /in
+  /in # fontforge --script ../nerd/font-patcher [OPTIONS] your_font.ttf
   ```
 
 

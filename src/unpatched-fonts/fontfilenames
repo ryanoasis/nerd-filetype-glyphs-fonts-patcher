@@ -4,7 +4,7 @@ AdwaitaMono/AdwaitaMono-Regular.ttf
 Agave/Agave-Regular.ttf
 AnonymousPro/Regular/Anonymous\ Pro.ttf
 Arimo/Regular/Arimo-Regular.ttf
-AtkinsonHyperlegibleMono/AtkinsonHyperlegibleMono-Regular.ttf
+AtkinsonHyperlegibleMono/AtkinsonHyperlegibleMono-Regular.otf
 AurulentSansMono/AurulentSansMono-Regular.otf
 BigBlueTerminal/BigBlue_TerminalPlus.ttf
 BitstreamVeraSansMono/Regular/VeraMono.ttf
@@ -32,8 +32,8 @@ HeavyData/heavy_data.ttf
 Hermit/Regular/Hermit-Regular.otf
 iA-Writer/Mono/Regular/iAWriterMonoS-Regular.ttf
 IBMPlexMono/Mono/IBMPlexMono-Regular.ttf
-InconsolataGo/Regular/InconsolataGo-Regular.ttf
 Inconsolata/Inconsolata-Regular.ttf
+InconsolataGo/Regular/InconsolataGo-Regular.ttf
 InconsolataLGC/Inconsolata-LGC.ttf
 IntelOneMono/IntelOneMono-Regular.ttf
 Iosevka/Iosevka-Regular.ttf
@@ -62,8 +62,8 @@ SourceCodePro/SourceCodePro-Regular.ttf
 SpaceMono/Regular/SpaceMono-Regular.ttf
 Terminus/TerminusTTF-4.49.3.ttf
 Tinos/Regular/Tinos-Regular.ttf
-UbuntuMono/Regular/UbuntuMono-R.ttf
 Ubuntu/Regular/Ubuntu-R.ttf
+UbuntuMono/Regular/UbuntuMono-R.ttf
 UbuntuSans/Mono/UbuntuSansMono-Regular.ttf
 VictorMono/Regular/VictorMono-Regular.ttf
 ZedMono/Normal/zed-mono-regular.ttf

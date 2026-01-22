@@ -1977,6 +1977,33 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "hermanmalik",
+      "name": "Herman Malik",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56662591?v=4",
+      "profile": "http://hermanmalik.com",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "GoldPigg",
+      "name": "Goldpigg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/110080943?v=4",
+      "profile": "https://github.com/GoldPigg",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "shaunchokshi",
+      "name": "shaun",
+      "avatar_url": "https://avatars.githubusercontent.com/u/66697794?v=4",
+      "profile": "https://github.com/shaunchokshi",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "repoType": "github",

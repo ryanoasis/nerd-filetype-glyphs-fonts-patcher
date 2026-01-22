@@ -6,7 +6,7 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 # Change the script version when you edit this script:
-script_version = "4.20.5"
+script_version = "4.20.6"
 
 version = "3.4.0"
 projectName = "Nerd Fonts"
@@ -1944,11 +1944,11 @@ def scale_bounding_box(bbox, scale_x, scale_y):
     """ Return a scaled version of a glyph dimensions dict """
     # Simulate scaling on combined bounding box, round values for better simulation
     new_dim = {
-        'xmin'   : int(bbox['xmin'] * scale_x),
-        'ymin'   : int(bbox['ymin'] * scale_y),
-        'xmax'   : int(bbox['xmax'] * scale_x),
-        'ymax'   : int(bbox['ymax'] * scale_y),
-        'advance': int(bbox['advance'] * scale_x) if bbox['advance'] is not None else None,
+        'xmin'   : round(bbox['xmin'] * scale_x),
+        'ymin'   : round(bbox['ymin'] * scale_y),
+        'xmax'   : round(bbox['xmax'] * scale_x),
+        'ymax'   : round(bbox['ymax'] * scale_y),
+        'advance': round(bbox['advance'] * scale_x) if bbox['advance'] is not None else None,
         }
     new_dim['width'] = new_dim['xmax'] + (-new_dim['xmin'])
     new_dim['height'] = new_dim['ymax'] + (-new_dim['ymin'])
