@@ -2004,6 +2004,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "pgoslatara",
+      "name": "Pádraic Slattery",
+      "avatar_url": "https://avatars.githubusercontent.com/u/14027534?v=4",
+      "profile": "https://github.com/pgoslatara",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "repoType": "github",
