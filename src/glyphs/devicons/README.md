@@ -10,4 +10,4 @@ The helper scripts need to be called in this order (note the individual prerequi
 * `analyze`
 * `generate` (possibly via `fontforge`)
 
-Version: 2.16.0.custom
+Version: 2.17.0.custom
