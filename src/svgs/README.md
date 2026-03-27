@@ -4,7 +4,7 @@ These are the source glyphs for the 'Seti and Original' icon set.
 
 Files for the 'Original' set have a `_nf` suffix to avoid any mixup with the Seti filenames.
 
-`generate-original-source.py` generates a font file from all these individual glyphs. That font is then used for the actual patching process.
+`generate-original-source.py` generates a font file from all these individual glyphs. That font is then used for the actual patching process. This will be done automatically for PRs by the CI.
 
 The codepoints and names of the icons here have to be put into `icons.tsv`.
 

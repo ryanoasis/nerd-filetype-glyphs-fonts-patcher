@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch stuff
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           sparse-checkout: bin/scripts
       - name: Fetch release artifacts
@@ -34,7 +34,7 @@ jobs:
           cd bin/scripts
           ./generate-casks.sh --setversion ${{ steps.releasetag.outputs.tag }}
       - name: Upload casks as artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: casks
           path: casks
@@ -52,7 +52,7 @@ jobs:
           PAK=$(echo "${FORK_TOKEN}" | tr 'A-Za-z' 'N-ZA-Mn-za-m')
           echo "pak=${PAK}" >> $GITHUB_OUTPUT
       - name: Checkout Homebrew
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ env.HOMEBREW_FORK }}
           path: homebrew
@@ -66,7 +66,7 @@ jobs:
           git reset --hard upstream/master
           git push --force origin HEAD:nerdfonts
       - name: Retrieve new casks
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: casks
           path: casks

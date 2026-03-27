@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Nerd Fonts Version: 3.4.0
-# Script Version: 1.4.5
+# Script Version: 1.4.6
 #
 # You can supply options to the font-patcher via environment variable NERDFONTS
 # That option will override the defaults (also defaults of THIS script).
@@ -30,7 +30,6 @@ sd="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit ; pwd -P )"
 
 repo_root_dir=$(dirname "$(dirname "${sd}")") # two levels up (i.e. ../../)
 # Set source and target directories
-like_pattern='.*\.\(otf\|ttf\|sfd\)'
 last_font_root=""
 unpatched_parent_dir="src/unpatched-fonts"
 patched_parent_dir="patched-fonts"
@@ -142,24 +141,56 @@ then
   exit 1
 fi
 
+# Build find command with optional filter
+# Construct find command by placing parentheses directly in the find call rather than in the array
+# This ensures parentheses are correctly interpreted by find as grouping operators
 if [ $# -eq 1 ]
 then
-  if [[ "${1:0:1}" == "/" ]]
+  filter_arg="$1"
+  if [[ "${filter_arg:0:1}" == "/" ]]
   then
-    like_pattern=".*$1/.*\.\(otf\|ttf\|sfd\)"
-    echo "$LINE_PREFIX Filter given, limiting search and patch to pathname pattern '$1'"
+    # Directory filter: match fonts in directories containing the filter
+    filter_dir="${filter_arg#/}"  # Remove leading /
+    # For directory filter, -ipath must be outside the parentheses grouping
+    find_cmd_args=(-iname "*.ttf" -o -iname "*.otf" -o -iname "*.sfd")
+    find_path_filter="-ipath"
+    find_path_filter_with_pattern=(-ipath "*${filter_dir}/*")
+    echo "$LINE_PREFIX Filter given, limiting search and patch to pathname pattern '$filter_arg'"
   else
-    like_pattern=".*/$1[^/]*\.\(otf\|ttf\|sfd\)"
-    echo "$LINE_PREFIX Filter given, limiting search and patch to filename pattern '$1'"
+    # Filename filter: match fonts with filter in filename
+    find_cmd_args=(-iname "*${filter_arg}*.ttf" -o -iname "*${filter_arg}*.otf" -o -iname "*${filter_arg}*.sfd")
+    find_path_filter=""
+    find_path_filter_with_pattern=()
+    echo "$LINE_PREFIX Filter given, limiting search and patch to filename pattern '$filter_arg'"
   fi
+else
+  # No filter
+  find_cmd_args=(-iname "*.ttf" -o -iname "*.otf" -o -iname "*.sfd")
+  find_path_filter=""
+  find_path_filter_with_pattern=()
 fi
 
 # correct way to output find results into an array (when files have space chars, etc)
 # source: https://stackoverflow.com/questions/8213328/bash-script-find-output-to-array
+# Use -iname instead of -iregex for better macOS compatibility
+# Place parentheses directly in the find command to ensure they're interpreted as grouping operators
+# This avoids issues with parentheses in arrays by constructing the find command explicitly
 source_fonts=()
-while IFS= read -d $'\0' -r file ; do
-  source_fonts=("${source_fonts[@]}" "$file")
-done < <(find "$source_fonts_dir" -iregex "${like_pattern}" -type f -print0)
+if [ -n "$find_path_filter" ]; then
+    # Directory filter: -ipath must be outside the parentheses grouping
+  # -type f must be outside parentheses to apply to all conditions
+  # Disable glob expansion to prevent shell from expanding wildcard patterns in find_cmd_args
+  while IFS= read -d $'\0' -r file ; do
+    source_fonts=("${source_fonts[@]}" "$file")
+  done < <(set -f; find "$source_fonts_dir" "${find_path_filter_with_pattern[@]}" "(" "${find_cmd_args[@]}" ")" -type f -print0)
+else
+  # Filename filter or no filter: group conditions with parentheses
+  # -type f must be outside parentheses to apply to all -iname conditions
+  # Disable glob expansion to prevent shell from expanding wildcard patterns in find_cmd_args
+  while IFS= read -d $'\0' -r file ; do
+    source_fonts=("${source_fonts[@]}" "$file")
+  done < <(set -f; find "$source_fonts_dir" "(" "${find_cmd_args[@]}" ")" -type f -print0)
+fi
 
 # print total number of source fonts found
 echo "$LINE_PREFIX Total source fonts found: ${#source_fonts[*]}"
@@ -167,12 +198,20 @@ echo "$LINE_PREFIX Total source fonts found: ${#source_fonts[*]}"
 # Use one date-time for ALL fonts and for creation and modification date in the font file
 if [ -z "${SOURCE_DATE_EPOCH}" ]
 then
-  export SOURCE_DATE_EPOCH=$(date +%s)
+  SOURCE_DATE_EPOCH=$(date +%s)
+  export SOURCE_DATE_EPOCH
 fi
-release_timestamp=$(date -R "--date=@${SOURCE_DATE_EPOCH}" 2>/dev/null) || {
+# Detect GNU vs BSD date implementations reliably
+if date -R "--date=@${SOURCE_DATE_EPOCH}" >/dev/null 2>&1; then
+  # GNU date (Linux and others)
+  release_timestamp=$(date -R "--date=@${SOURCE_DATE_EPOCH}" 2>/dev/null)
+elif date -r "${SOURCE_DATE_EPOCH}" "+%a, %d %b %Y %H:%M:%S %z" >/dev/null 2>&1; then
+  # BSD date (macOS) - uses -r with epoch seconds
+  release_timestamp=$(date -r "${SOURCE_DATE_EPOCH}" "+%a, %d %b %Y %H:%M:%S %z")
+else
   echo >&2 "$LINE_PREFIX Invalid release timestamp SOURCE_DATE_EPOCH: ${SOURCE_DATE_EPOCH}"
   exit 2
-}
+fi
 echo "$LINE_PREFIX Release timestamp is ${release_timestamp}"
 
 function patch_font {
@@ -186,13 +225,31 @@ function patch_font {
     # take everything before the last slash (/) to start building the full path
     local ts_font_dir="${f%/*}/"
     local ts_font_dir="${ts_font_dir/$unpatched_parent_dir/$timestamp_parent_dir}"
-    local one_font=$(find "${ts_font_dir}" -name '*.[ot]tf' | head -n 1)
+    local one_font
+    one_font=$(find "${ts_font_dir}" -name '*.[ot]tf' | head -n 1)
     if [ -n "${one_font}" ]
     then
       orig_font_date=$(ttfdump -t head "${one_font}" | \
         grep -E '[^a-z]modified:.*0x' | sed 's/.*x//' | tr 'a-f' 'A-F')
       SOURCE_DATE_EPOCH=$(dc -e "16i ${orig_font_date} Ai 86400 24107 * - p")
-      echo "$LINE_PREFIX Release timestamp adjusted to $(date -R "--date=@${SOURCE_DATE_EPOCH}")"
+      # Adjust timestamp using the same GNU/BSD date detection logic
+      if date --version >/dev/null 2>&1; then
+        # GNU date
+        adjusted_timestamp=$(date -R "--date=@${SOURCE_DATE_EPOCH}" 2>/dev/null) || {
+          echo >&2 "$LINE_PREFIX Invalid adjusted timestamp SOURCE_DATE_EPOCH calculated from font metadata: ${SOURCE_DATE_EPOCH}"
+          exit 2
+        }
+      elif date -r "${SOURCE_DATE_EPOCH}" "+%a, %d %b %Y %H:%M:%S %z" >/dev/null 2>&1; then
+        # BSD date
+        adjusted_timestamp=$(date -r "${SOURCE_DATE_EPOCH}" "+%a, %d %b %Y %H:%M:%S %z") || {
+          echo >&2 "$LINE_PREFIX Invalid adjusted timestamp SOURCE_DATE_EPOCH calculated from font metadata: ${SOURCE_DATE_EPOCH}"
+          exit 2
+        }
+      else
+        echo >&2 "$LINE_PREFIX Unable to convert adjusted timestamp SOURCE_DATE_EPOCH: ${SOURCE_DATE_EPOCH} (no compatible date command found)"
+        exit 2
+      fi
+      echo "$LINE_PREFIX Release timestamp adjusted to ${adjusted_timestamp}"
     fi
   fi
 
@@ -289,7 +346,8 @@ function generate_info {
 
   [[ -d "$patched_font_dir" ]] || mkdir -p "$patched_font_dir"
 
-  local font_root=$(echo "$patched_font_dir" | sed "s|.*$patched_parent_dir/||;s|/.*||")
+  local font_root
+  font_root=$(echo "$patched_font_dir" | sed "s|.*$patched_parent_dir/||;s|/.*||")
   # if first time with this font then re-build parent dir readme, else skip:
   if [ "$last_font_root" != "$font_root" ]
   then
@@ -341,8 +399,32 @@ then
       # to follow font naming changed. We can not do this if we patch only
       # some of the source font files in that directory.
       last_source_dir=${current_source_dir}
-      num_to_patch=$(find "${current_source_dir}" -iregex "${like_pattern}" -type f | wc -l)
-      num_existing=$(find "${current_source_dir}" -iname "*.[ot]tf" -o -iname "*.sfd" -type f | wc -l)
+      # Count fonts matching the filter criteria in this directory
+      if [ -n "${filter_arg:-}" ]
+      then
+        if [[ "${filter_arg:0:1}" == "/" ]]
+        then
+          # Directory filter: count fonts matching the -ipath pattern "*${filter_dir}/*"
+          # Verify that fonts are in the current directory AND match the filter_dir pattern
+          filter_dir="${filter_arg#/}"  # Remove leading /
+          num_to_patch=0
+          for font_path in "${source_fonts[@]}"; do
+            # Check that font is in current directory AND path contains the filter_dir pattern
+            if [[ "$(dirname "$font_path")" == "$current_source_dir" ]] && \
+               [[ "$font_path" == *"${filter_dir}"* ]]; then
+              ((num_to_patch++))
+            fi
+          done
+        else
+          # Filename filter: count fonts that start with the filter
+          num_to_patch=$(find "${current_source_dir}" "(" -iname "${filter_arg}*.ttf" -o -iname "${filter_arg}*.otf" -o -iname "${filter_arg}*.sfd" ")" -type f | wc -l)
+        fi
+      else
+        # No filter: count all fonts in directory
+        num_to_patch=$(find "${current_source_dir}" "(" -iname "*.ttf" -o -iname "*.otf" -o -iname "*.sfd" ")" -type f | wc -l)
+      fi
+      # Always count all fonts in directory for comparison
+      num_existing=$(find "${current_source_dir}" "(" -iname "*.ttf" -o -iname "*.otf" -o -iname "*.sfd" ")" -type f | wc -l)
       if [ "${num_to_patch}" -eq "${num_existing}" ]
       then
         purge_destination="TRUE"

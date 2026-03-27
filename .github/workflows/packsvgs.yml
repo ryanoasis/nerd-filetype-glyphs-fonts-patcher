@@ -12,7 +12,7 @@ jobs:
   create-symbols-font:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Fetch dependencies
         run: |
           sudo apt update -y -q

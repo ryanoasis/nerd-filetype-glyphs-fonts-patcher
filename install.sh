@@ -6,10 +6,8 @@ __ScriptVersion="1.0"
 # In fact it is checked against `checkbashisms` and no bashisms are
 # used, except (because the workarounds are too involved):
 #
-# - <( ) process substitution
 # - read -d option
 # - $'\0' to supply a nullbyte to read -d
-# - <<< here-string
 #
 # Note that `find` on MacOS does not know `-printf` and cp/ln have no `-T` or `-t`
 
@@ -161,13 +159,13 @@ fi
 
 collect_files() {
   # Find all the font files, return \0 separated list
-  while IFS= read -d / -r dir; do
+  echo "${nerdfonts_dirs}" | while IFS= read -d / -r dir; do
     if [ -n "$(echo "${find_filter}" | xargs -- find "${nerdfonts_root_dir}/${dir}" -iname "*.${extension1}" -type f)" ]; then
       echo "${find_filter} -print0" | xargs -- find "${nerdfonts_root_dir}/${dir}" -iname "*.${extension1}" -type f
     else
       echo "${find_filter} -print0" | xargs -- find "${nerdfonts_root_dir}/${dir}" -iname "*.${extension2}" -type f
     fi
-  done <<< "${nerdfonts_dirs}"
+  done
 }
 
 # Get target root directory
@@ -214,10 +212,10 @@ prepare_dirs() {
 case $mode in
 
   list)
-    while IFS= read -d $'\0' -r file; do
+    collect_files | while IFS= read -d $'\0' -r file; do
       file=$(basename "$file")
       echo "$font_dir/${file#"$nerdfonts_root_dir"/}"
-    done < <(collect_files)
+    done
     exit 0
     ;;
 

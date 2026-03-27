@@ -4,5 +4,6 @@
 !font-patcher
 !glyphnames.json
 !bin/scripts/name_parser/Fontname*.py
+!bin/scripts/braille/Braille.py
 !bin/scripts/docker-entrypoint.sh
 !.codeclimate.yml

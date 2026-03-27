@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: Fetch information
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           sparse-checkout: bin/scripts
 
@@ -134,7 +134,7 @@ jobs:
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Check release variables
         run: |
           echo "$RELEASE_VERSION"
@@ -232,7 +232,7 @@ jobs:
           sha256sum * > SHA-256-${{ matrix.font }}.txt
 
       - name: Upload patched fonts as artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: patched-fonts-${{ matrix.font }}
           # adding multiple paths (i.e. LICENSE) is a workaround to get a least common ancestor
@@ -250,7 +250,7 @@ jobs:
       RELEASE_CANDIDATE: ${{ needs.setup-fonts-matrix.outputs.rel_candidate }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Prepare repo (clear out old and obsolete fonts)
         run: |
           cd -- "$GITHUB_WORKSPACE/patched-fonts"
@@ -258,7 +258,7 @@ jobs:
 
       - name: Download patched fonts from build
         id: download-patched-fonts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           pattern: patched-fonts-*
           path: .

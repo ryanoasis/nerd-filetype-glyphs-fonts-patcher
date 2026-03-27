@@ -8,6 +8,7 @@ on:
       # Keep this in line with .dockerignore
       - bin/scripts/docker-entrypoint.sh
       - bin/scripts/name_parser/Fontname*.py
+      - bin/scripts/braille/Braille.py
       - src/glyphs/**
       - .dockerignore
       - Dockerfile
@@ -21,7 +22,7 @@ jobs:
     if: ${{ github.repository_owner == 'ryanoasis' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Determine font-patcher version
         id: patcher
@@ -62,7 +63,7 @@ jobs:
           password: ${{ secrets.DOCKER_PAT }}
 
       - name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           platforms: linux/amd64,linux/arm64

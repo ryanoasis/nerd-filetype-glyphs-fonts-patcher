@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Fetch dependencies
       run: sudo apt install -y -q zipcmp
@@ -28,7 +28,7 @@ jobs:
         ./archive-font-patcher.sh intermediate
 
     - name: Upload archive as artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         path: archives/FontPatcher.zip
         retention-days: 1

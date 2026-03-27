@@ -6,7 +6,7 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 # Change the script version when you edit this script:
-script_version = "4.20.5"
+script_version = "4.22.1"
 
 version = "3.4.0"
 projectName = "Nerd Fonts"
@@ -45,6 +45,13 @@ try:
     FontnameParserOK = True
 except ImportError:
     FontnameParserOK = False
+
+sys.path.insert(0, os.path.join(os.path.abspath(os.path.dirname(sys.argv[0])), 'bin', 'scripts', 'braille'))
+try:
+    from Braille import get_braille_font
+    BrailleGenerator = True
+except ImportError:
+    BrailleGenerator = False
 
 class TableHEADWriter:
     """ Access to the HEAD table without external dependencies """
@@ -370,7 +377,7 @@ class font_patcher:
 
         # Prevent opening and closing the fontforge font. Makes things faster when patching
         # multiple ranges using the same symbol font.
-        PreviousSymbolFilename = ""
+        PreviousSymbol = ""
         symfont = None
 
         if not os.path.isdir(self.args.glyphdir):
@@ -383,26 +390,35 @@ class font_patcher:
 
         for patch in self.patch_set:
             if patch['Enabled']:
-                if PreviousSymbolFilename != patch['Filename']:
+                if 'Filename' in patch and 'Font' in patch:
+                    logger.critical("Conflicting patch params: Filename and Font")
+                    sys.exit(1)
+
+                use_Filename = 'Filename' in patch
+                if (use_Filename and PreviousSymbol != patch['Filename']) or (not use_Filename and PreviousSymbol != patch['Font']):
                     # We have a new symbol font, so close the previous one if it exists
                     if symfont:
                         symfont.close()
                         symfont = None
-                    symfont_file = os.path.join(self.args.glyphdir, patch['Filename'])
-                    if not os.path.isfile(symfont_file):
-                        logger.critical("Can not find symbol source for '%s' (i.e. %s)",
-                            patch['Name'], symfont_file)
-                        sys.exit(1)
-                    if not os.access(symfont_file, os.R_OK):
-                        logger.critical("Can not open symbol source for '%s' (i.e. %s)",
-                            patch['Name'], symfont_file)
-                        sys.exit(1)
-                    symfont = fontforge.open(symfont_file)
+                    if use_Filename:
+                        symfont_file = os.path.join(self.args.glyphdir, patch['Filename'])
+                        if not os.path.isfile(symfont_file):
+                            logger.critical("Can not find symbol source for '%s' (i.e. %s)",
+                                patch['Name'], symfont_file)
+                            sys.exit(1)
+                        if not os.access(symfont_file, os.R_OK):
+                            logger.critical("Can not open symbol source for '%s' (i.e. %s)",
+                                patch['Name'], symfont_file)
+                            sys.exit(1)
+                        symfont = fontforge.open(symfont_file)
+                        PreviousSymbol = patch['Filename']
+                    else:
+                        symfont = patch['Font']()
+                        PreviousSymbol = patch['Font']
                     symfont.encoding = 'UnicodeFull'
 
                     # Match the symbol font size to the source font size
                     symfont.em = self.sourceFont.em
-                    PreviousSymbolFilename = patch['Filename']
 
                 # If patch table doesn't include a source start, re-use the symbol font values
                 SrcStart = patch['SrcStart']
@@ -557,6 +573,9 @@ class font_patcher:
             if self.args.weather:
                 additionalFontNameSuffix += " WEA"
                 verboseAdditionalFontNameSuffix += " Plus Weather Icons"
+            if self.args.braille:
+                additionalFontNameSuffix += " B"
+                verboseAdditionalFontNameSuffix += " Plus Braille Icons"
 
         # add mono signifier to beginning of name suffix
         if self.args.single:
@@ -863,6 +882,27 @@ class font_patcher:
                 # box_keep = True # just scale do not copy (need to scale to fit new cell size)
                 box_enabled = False # Cowardly not scaling existing glyphs, although the code would allow this
 
+        self.sourceFont.selection.select(("ranges",), 0x2800, 0x28ff)
+        braille_glyphs_target = len(list(self.sourceFont.selection))
+        braille_glyphs_current = len(list(self.sourceFont.selection.byGlyphs))
+
+        # Automatically added Braille glyphs only for monospaced and not for Symbols Only
+        # unless they are requested specifically (i.e. not via --complete)
+        if self.args.braille == 'complete':
+            self.args.braille = 'rectangular'
+            braille_enabled = self.source_monospaced and not self.symbolsonly
+            if braille_enabled and self.args.careful and braille_glyphs_target == braille_glyphs_current:
+                # If `--careful` is given and Braille glyphs just come from `--complete`
+                # do not replace if set is already complete
+                logger.debug("Found complete Braille glyphs set. Skipping...")
+                braille_enabled = False
+        elif self.args.braille is not None:
+            braille_enabled = True
+        if braille_enabled:
+            if braille_glyphs_current > 0:
+                logger.debug("%d/%d Braille glyphs will be replaced",
+                    braille_glyphs_current, braille_glyphs_target)
+
         # Stretch 'xz' or 'pa' (preserve aspect ratio)
         # Supported params: overlap | careful | xy-ratio | dont_copy | ypadding
         # Overlap value is used horizontally but vertically limited to 0.01
@@ -953,6 +993,10 @@ class font_patcher:
             0xf0dc: {'align': 'c', 'valign': '', 'stretch': 'pa', 'params': {}},
             0xf0dd: {'align': 'c', 'valign': '', 'stretch': 'pa', 'params': {}},
             0xf0de: {'align': 'c', 'valign': '', 'stretch': 'pa', 'params': {}}
+        }
+        SYM_ATTR_BRAILLE = {
+            # Don't scale because we generate font in the suitable size directly
+            'default': {'align': '', 'valign': '', 'stretch': '', 'params': {'careful': False}}
         }
         SYM_ATTR_HEAVYBRACKETS = {
             'default': {'align': 'c', 'valign': 'c', 'stretch': '^pa1!', 'params': {'ypadding': 0.3, 'careful': True}}
@@ -1119,6 +1163,17 @@ class font_patcher:
 
         # Define the character ranges
         # Symbol font ranges
+        # Fonts can be imported in two ways:
+        #   - Filename
+        #       File path relative to glyphdir.
+        #   - Font
+        #       A hook function has a return value of type `fontforge.font`. 
+        #       This hook function will be called before `copy_glyphs`.
+        #       This provides greater flexibility when complex adjustments/generation  based on the sourceFont are required.
+        # Note: 
+        #   Only one of the two can exist.
+        #   When complex dynamic adjustments/generation based on sourceFont are unnecessary, 
+        #   it is better to use `Filename`, then adjust via attributes (in fact, this is more usual).
         self.patch_set = [
             {'Enabled': True,                           'Name': "Seti-UI + Custom",        'Filename': "original-source.otf",                            'Exact': False, 'SymStart': 0xE4FA, 'SymEnd': 0xE5FF, 'SrcStart': 0xE5FA, 'ScaleRules': None,             'Attributes': SYM_ATTR_DEFAULT},
             {'Enabled': True,                           'Name': "Heavy Angle Brackets",    'Filename': "extraglyphs.sfd",                                'Exact': True,  'SymStart': 0x276C, 'SymEnd': 0x2771, 'SrcStart': None,   'ScaleRules': HEAVY_SCALE_LIST, 'Attributes': SYM_ATTR_HEAVYBRACKETS},
@@ -1146,6 +1201,7 @@ class font_patcher:
             {'Enabled': self.args.octicons,             'Name': "Octicons",                'Filename': "octicons/octicons.otf",                          'Exact': True,  'SymStart': 0X26A1, 'SymEnd': 0X26A1, 'SrcStart': None,   'ScaleRules': OCTI_SCALE_LIST,  'Attributes': SYM_ATTR_DEFAULT},  # Zap
             {'Enabled': self.args.octicons,             'Name': "Octicons",                'Filename': "octicons/octicons.otf",                          'Exact': False, 'SymStart': 0xF27C, 'SymEnd': 0xF306, 'SrcStart': 0xF4A9, 'ScaleRules': OCTI_SCALE_LIST,  'Attributes': SYM_ATTR_DEFAULT},
             {'Enabled': self.args.codicons,             'Name': "Codicons",                'Filename': "codicons/codicon.ttf",                           'Exact': True,  'SymStart': 0xEA60, 'SymEnd': 0xEC1E, 'SrcStart': None,   'ScaleRules': CODI_SCALE_LIST,  'Attributes': SYM_ATTR_DEFAULT},
+            {'Enabled': braille_enabled,                'Name': "Braille",                 'Font'    : self.get_braille_font,                            'Exact': True,  'SymStart': 0x2800, 'SymEnd': 0x28FF, 'SrcStart': None,   'ScaleRules': None,             'Attributes': SYM_ATTR_BRAILLE},
             {'Enabled': self.args.custom,               'Name': "Custom",                  'Filename': self.args.custom,                                 'Exact': True,  'SymStart': 0x0000, 'SymEnd': 0x0000, 'SrcStart': None,   'ScaleRules': None,             'Attributes': CUSTOM_ATTR}
         ]
 
@@ -1843,6 +1899,12 @@ class font_patcher:
                     return (scale, box)
         return None
 
+    def get_braille_font(self):
+        """ Get suitable braille font """
+        width = self.font_dim["width"]
+        ymax = self.font_dim["ymax"]
+        ymin = self.font_dim["ymin"]
+        return get_braille_font(self.sourceFont.em, width, ymax, ymin, self.args.braille, 0.6)
 
 def half_gap(gap, top):
     """ Divides integer value into two new integers """
@@ -1944,11 +2006,11 @@ def scale_bounding_box(bbox, scale_x, scale_y):
     """ Return a scaled version of a glyph dimensions dict """
     # Simulate scaling on combined bounding box, round values for better simulation
     new_dim = {
-        'xmin'   : int(bbox['xmin'] * scale_x),
-        'ymin'   : int(bbox['ymin'] * scale_y),
-        'xmax'   : int(bbox['xmax'] * scale_x),
-        'ymax'   : int(bbox['ymax'] * scale_y),
-        'advance': int(bbox['advance'] * scale_x) if bbox['advance'] is not None else None,
+        'xmin'   : round(bbox['xmin'] * scale_x),
+        'ymin'   : round(bbox['ymin'] * scale_y),
+        'xmax'   : round(bbox['xmax'] * scale_x),
+        'ymax'   : round(bbox['ymax'] * scale_y),
+        'advance': round(bbox['advance'] * scale_x) if bbox['advance'] is not None else None,
         }
     new_dim['width'] = new_dim['xmax'] + (-new_dim['xmin'])
     new_dim['height'] = new_dim['ymax'] + (-new_dim['ymin'])
@@ -1986,6 +2048,13 @@ def check_fontforge_min_version():
         logger.critical("You seem to be using an unsupported (old) version of fontforge: %d", actualVersion)
         logger.critical("Please use at least version: %d", minimumVersion)
         sys.exit(1)
+
+    if actualVersion == 20251009:
+        # These two commits are needed on top of 20251009 for us:
+        # https://github.com/fontforge/fontforge/commit/9d119ca0bf415e3d69086f4931fcbb39d3d85c51 (their PR 5698)
+        # https://github.com/fontforge/fontforge/commit/aedb8f2e95ddba99e8cb6446f082a356e2c2625b (their PR 5702)
+        logger.warning("Fontforge 20251009 produces unusable fonts in some cases")
+        logger.warning("Use an older or newer (after git hash aedb8f2e) version if you are affected")
 
 def check_version_with_git(version):
     """ Upgraded the version to the current git tag version (starting with 'v') """
@@ -2055,6 +2124,7 @@ def setup_arguments():
     #  6  HugoSansMono NF XCn Lt It                                [X] [X] [X]
 
     sym_font_group = parser.add_argument_group('Symbol Fonts')
+    sym_font_group.add_argument('--braille',                                    dest='braille',              default=False, type=str, nargs='?', help='Add Braille Glyphs, can pass a string to control style (optional: *rectangle, circle, gapless)', const='rectangle', choices=['rectangle', 'circle', 'gapless'])
     sym_font_group.add_argument('--complete', '-c',                             dest='complete',             default=False, action='store_true', help='Add all available Glyphs')
     sym_font_group.add_argument('--codicons',                                   dest='codicons',             default=False, action='store_true', help='Add Codicons Glyphs (https://github.com/microsoft/vscode-codicons)')
     sym_font_group.add_argument('--fontawesome',                                dest='fontawesome',          default=False, action='store_true', help='Add Font Awesome Glyphs (http://fontawesome.io/)')
@@ -2117,19 +2187,27 @@ def setup_arguments():
         logger.critical("FontnameParser module missing (bin/scripts/name_parser/Fontname*), specify --makegroups 0")
         sys.exit(1)
 
+    if args.braille and not BrailleGenerator:
+        logger.critical("Braille module missing (bin/scripts/braille/Braille.py), do not include Braille Glyphs")
+        sys.exit(1)
+
     # if you add a new font, set it to True here inside the if condition
     if args.complete:
+        args.codicons = True
         args.fontawesome = True
         args.fontawesomeextension = True
         args.fontlogos = True
+        args.material = True
         args.octicons = True
-        args.codicons = True
-        args.powersymbols = True
         args.pomicons = True
         args.powerline = True
         args.powerlineextra = True
-        args.material = True
+        args.powersymbols = True
         args.weather = True
+        if not BrailleGenerator:
+            logger.warning("Braille module missing (bin/scripts/braille/Braille.py), generating font without Braille Glyphs!")
+        elif not args.braille:
+            args.braille = 'complete'
 
     if not args.complete:
         sym_font_args = []

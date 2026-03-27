@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch gh-pages
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: gh-pages
 
       - name: Fetch files
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           sparse-checkout: bin/scripts/lib
           path: master
@@ -41,7 +41,7 @@ jobs:
   update_gitignore:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Regenerate gitignore
         run: |

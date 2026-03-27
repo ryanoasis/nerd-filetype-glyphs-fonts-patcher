@@ -13,6 +13,7 @@ package-lock.json
 *.uuid
 bin/scripts/name_parser/__pycache__/*
 bin/scripts/name_parser/log
+bin/scripts/braille/__pycache__/*
 # This is just needed for the cheat sheet and not go into the repo:
 css/nerd-fonts-generated-removed.min.css
 font-patcher-log.txt

@@ -1959,6 +1959,60 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "ZhiZe-ZG",
+      "name": "ZhiZe-ZG",
+      "avatar_url": "https://avatars.githubusercontent.com/u/75554862?v=4",
+      "profile": "https://github.com/ZhiZe-ZG",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "x626f",
+      "name": "x626f",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26394523?v=4",
+      "profile": "https://github.com/x626f",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "hermanmalik",
+      "name": "Herman Malik",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56662591?v=4",
+      "profile": "http://hermanmalik.com",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "GoldPigg",
+      "name": "Goldpigg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/110080943?v=4",
+      "profile": "https://github.com/GoldPigg",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "shaunchokshi",
+      "name": "shaun",
+      "avatar_url": "https://avatars.githubusercontent.com/u/66697794?v=4",
+      "profile": "https://github.com/shaunchokshi",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "pgoslatara",
+      "name": "Pádraic Slattery",
+      "avatar_url": "https://avatars.githubusercontent.com/u/14027534?v=4",
+      "profile": "https://github.com/pgoslatara",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "repoType": "github",

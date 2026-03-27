@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Nerd Fonts Version: 3.4.0
-# Script Version: 1.1.0
+# Script Version: 1.2.0
 # Archives the font patcher script and the required source files
 # If some (any) argument is given this is though of as intermediate version
 # used for debugging
@@ -28,6 +28,7 @@ find "${outputdir:?}" -name "FontPatcher.zip" -type f -delete
 
 cd -- "$scripts_root_dir/../../" || exit 1
 find "src/glyphs" | zip -9 "$outputdir/FontPatcher" -@
+find "bin/scripts/braille" -name "Braille.py" | zip -9 "$outputdir/FontPatcher" -@
 find "bin/scripts/name_parser" -name "Fontname*.py" | zip -9 "$outputdir/FontPatcher" -@
 find "glyphnames.json" | zip -9 "$outputdir/FontPatcher" -@
 find "font-patcher" | zip -9 "$outputdir/FontPatcher" -@
