@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-FONT_VERSION=1.301
+FONT_VERSION=1.400
 TMP_DIR=$(mktemp -d)
 
 set -e
