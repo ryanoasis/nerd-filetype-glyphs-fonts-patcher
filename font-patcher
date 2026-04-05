@@ -1784,7 +1784,12 @@ class font_patcher:
                 # If width is not zero, correct the bearings such that they are within the width:
                 self.remove_glyph_neg_bearings(glyph)
 
+            # TODO: Debug code, will/should be removed after this PR is checked.
+            # if glyph.unicode == 0x25C6:
+            #     self.debug_glyph_metrics(glyph, "before set_glyph_width_mono")
             self.set_glyph_width_mono(glyph)
+            # if glyph.unicode == 0x25C6:
+            #     self.debug_glyph_metrics(glyph, "after  set_glyph_width_mono")
 
 
     def remove_glyph_neg_bearings(self, glyph):
@@ -1802,13 +1807,39 @@ class font_patcher:
         """ Sets passed glyph.width to self.font_dim.width.
 
         self.font_dim.width is set with self.get_sourcefont_dimensions().
+
+        If negative right side bearing appears, see if the glyph is
+         ought to be centered when changing to monospaced.
         """
         try:
             # Fontforge handles the width change like this:
             # - Keep existing left_side_bearing
             # - Set width
             # - Calculate and set new right_side_bearing
-            glyph.width = self.font_dim['width']
+            expected_mono_width = self.font_dim['width']
+            glyph.width = expected_mono_width
+
+            # Visually center some double width glyph that having a bbox width approx. equal to single width.
+            if glyph.right_side_bearing < 0:
+                # TODO: Should be set as a parameter, since regular/thin/bold have different bbox width.
+                glyph_centering_threshold = 20
+                xmin, ymin, xmax, ymax = glyph.boundingBox()
+                glyph_width = xmax - xmin
+
+                # Do not handle those character that cannot be squished into mono width.
+                if glyph_width > expected_mono_width + glyph_centering_threshold:
+                    return
+
+                # Calculate the value for centering visually.
+                glyph_center = (xmin + xmax) / 2.0
+                target_center = expected_mono_width / 2.0
+                x_shift = target_center - glyph_center
+
+                if x_shift != 0:
+                    glyph.transform(psMat.translate(x_shift, 0))
+
+                # Restores the width.
+                glyph.width = expected_mono_width
         except:
             pass
 
@@ -1905,6 +1936,22 @@ class font_patcher:
         ymax = self.font_dim["ymax"]
         ymin = self.font_dim["ymin"]
         return get_braille_font(self.sourceFont.em, width, ymax, ymin, self.args.braille, 0.6)
+
+    def debug_glyph_metrics(self, glyph, label):
+        # TODO: Debug code, will/should be removed after this PR is checked.
+        try:
+            xmin, ymin, xmax, ymax = glyph.boundingBox()
+            print(
+                f"[DEBUG] {label} "
+                f"name={glyph.glyphname} unicode=U+{glyph.unicode:04X} "
+                f"width={glyph.width} "
+                f"lsb={glyph.left_side_bearing} "
+                f"rsb={glyph.right_side_bearing} "
+                f"bbox=({xmin},{ymin},{xmax},{ymax}) "
+                f"bbox_w={xmax - xmin}"
+            )
+        except Exception as e:
+            print(f"[DEBUG] {label} failed: {e}")
 
 def half_gap(gap, top):
     """ Divides integer value into two new integers """
