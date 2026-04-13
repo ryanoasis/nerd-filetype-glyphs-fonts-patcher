@@ -481,6 +481,7 @@ i='' i_fa_the_red_yeti=$i
 i='' i_fa_scroll_torah=$i
 i='' i_fa_torii_gate=$i
 i='' i_fa_vihara=$i
+i=$'\uf6a8' i_fa_volume=$i
 i='' i_fa_volume_xmark=$i
 i='' i_fa_yin_yang=$i
 i='' i_fa_blender_phone=$i
