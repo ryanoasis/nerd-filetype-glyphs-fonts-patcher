@@ -663,6 +663,7 @@ Non exhaustive list of fonts that would benefit from being patched but are not i
 * [Operator Mono][operator]
 * [PragmataPro][pragmatapro]
 * [SF Mono][sf-mono]
+- [CCHub](https://github.com/Moresll/cchub) - A desktop control panel for the Claude Code / Codex / Gemini CLI ecosystem. Manage MCP servers, config profiles, agent skills, CLAUDE.md, hooks, and workflow templates from a single Tauri app (Windows / macOS / Linux).
 
 
 ## Project Motivation
