@@ -4,4 +4,4 @@ Geist Mono is a monospaced typeface that has been crafted to be the perfect part
 
 For more information have a look at the upstream website: https://github.com/vercel/geist-font
 
-Version: 1.401
+Version: 1.7.2
